@@ -12,7 +12,7 @@ class PerangkatdesaController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.admin-perangkat-desa', []);
     }
 
     /**
