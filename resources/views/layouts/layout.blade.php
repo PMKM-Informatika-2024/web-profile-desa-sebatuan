@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kegiatan - Desa Sungai Keran</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Profile Desa - Desa Sungai Keran</title>
+  <link rel="stylesheet" href="css/style.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Lato:wght@400;700&display=swap"
     rel="stylesheet">
@@ -38,8 +38,7 @@
               <a class="nav-link" href="beranda.html" id="beranda">Beranda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="profile-desa.html" id="profile-desa">Profile
-                Desa</a>
+              <a class="nav-link" href="profile-desa.html" id="profile-desa">Profile Desa</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="pemerintahan-desa" role="button"
@@ -89,81 +88,11 @@
     </nav>
   </section>
   <!-- End of Navbar -->
-
-  <!-- Banner -->
-  <section id="banner">
-    <div class="container-fluid banner-image w-100 vh-60 d-flex justify-content-center align-items-center">
-      <div class="row">
-        <div class="text-center">
-          <h1 class="text-banner">Kegiatan</h1>
-        </div>
-      </div>
-    </div>
-  </section>
   <!-- End of Banner -->
 
-  <!-- Kegiatan -->
-  <section id="kegiatan">
-    <div class="container-fluid transition-container py-5 mt-5 mb-5">
-      <div class="row">
-        <h2 class="subjudul text-center mb-5">Galeri Kegiatan Desa Sungai Keran</h2>
-        <div class="col-lg-4 g-0">
-          <div class="card-kegiatan position-relative">
-            <img src="img/6.jpg" alt="">
-            <div class="overlay position-absolute top-0 bottom-0 start-0 end-0 w-100 h-100 d-flex align-items-end p-3">
-              <h5 class="text-start">Sosialisasi</h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 g-0">
-          <div class="card-kegiatan position-relative">
-            <img src="img/6.jpg" alt="">
-            <div class="overlay position-absolute top-0 bottom-0 start-0 end-0 w-100 h-100 d-flex align-items-end p-3">
-              <h5 class="text-start">Sosialisasi</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 g-0">
-          <div class="card-kegiatan position-relative">
-            <img src="img/6.jpg" alt="">
-            <div class="overlay position-absolute top-0 bottom-0 start-0 end-0 w-100 h-100 d-flex align-items-end p-3">
-              <h5 class="text-start">Sosialisasi</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 g-0">
-          <div class="card-kegiatan position-relative">
-            <img src="img/6.jpg" alt="">
-            <div class="overlay position-absolute top-0 bottom-0 start-0 end-0 w-100 h-100 d-flex align-items-end p-3">
-              <h5 class="text-start">Sosialisasi</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 g-0">
-          <div class="card-kegiatan position-relative">
-            <img src="img/6.jpg" alt="">
-            <div class="overlay position-absolute top-0 bottom-0 start-0 end-0 w-100 h-100 d-flex align-items-end p-3">
-              <h5 class="text-start">Sosialisasi</h5>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 g-0">
-          <div class="card-kegiatan position-relative">
-            <img src="img/6.jpg" alt="">
-            <div class="overlay position-absolute top-0 bottom-0 start-0 end-0 w-100 h-100 d-flex align-items-end p-3">
-              <h5 class="text-start">Sosialisasi</h5>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-  <!-- End of Kegiatan -->
+  <!-- Content -->
+  @yield('child')
+  <!-- End of Kantor Desa -->
 
   <!-- Footer -->
   <footer class="text-center text-dark bg-light p-4 border-top">
@@ -182,7 +111,9 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -231,6 +162,8 @@
         navbar.style.top = '0';
       }
     });
+
+
 
     // Menutup sidebar
     document.addEventListener('DOMContentLoaded', function () {
@@ -301,6 +234,120 @@
 
     document.addEventListener('scroll', checkPosition);
     window.onload = checkPosition;
+
+    // untuk menjalankan counter
+    document.addEventListener("DOMContentLoaded", function () {
+      const counters = document.querySelectorAll(".counter");
+
+      counters.forEach(counter => {
+        const updateCounter = () => {
+          const target = +counter.getAttribute("data-target");
+          const count = +counter.innerText;
+
+          const increment = target / 400;
+
+          if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(updateCounter, 10);
+          } else {
+            counter.innerText = target;
+          }
+        };
+
+        updateCounter();
+      });
+    });
+
+    // Diagram Lingkaran Suku
+    const sukuCtx = document.getElementById('sukuChart').getContext('2d');
+    const sukuChart = new Chart(sukuCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Melayu', 'Madura', 'Tionghoa', 'Dayak', 'Jawa', 'Bugis', 'Lainnya'],
+        datasets: [{
+          label: 'Jumlah Suku',
+          data: [200, 150, 100, 50, 30, 20, 10],
+          backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'magenta'],
+          hoverOffset: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              usePointStyle: true,
+              pointStyle: 'circle'
+            }
+          },
+          datalabels: {
+            color: '#000',
+            anchor: 'end',
+            align: 'end',
+            offset: -50,
+            formatter: (value, context) => {
+              const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+              const percentage = (value / total * 100).toFixed(1) + '%';
+              return percentage;
+            },
+            font: {
+              weight: 'medium'
+            }
+          }
+        },
+        layout: {
+          padding: 0
+        }
+      },
+      plugins: [ChartDataLabels]
+    });
+
+    // Diagram Lingkaran Agama
+    const agamaCtx = document.getElementById('agamaChart').getContext('2d');
+    const agamaChart = new Chart(agamaCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Islam', 'Katolik', 'Protestan', 'Buddha', 'Hindu', 'Kong Hu Chu'],
+        datasets: [{
+          label: 'Jumlah Agama',
+          data: [300, 100, 50, 30, 20, 10],
+          backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'magenta'],
+          hoverOffset: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              usePointStyle: true,
+              pointStyle: 'circle'
+            }
+          },
+          datalabels: {
+            color: '#000',
+            anchor: 'end',
+            align: 'end',
+            offset: -50,
+            formatter: (value, context) => {
+              const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+              const percentage = (value / total * 100).toFixed(1) + '%';
+              return percentage;
+            },
+            font: {
+              weight: 'medium'
+            }
+          }
+        },
+        layout: {
+          padding: 0
+        }
+      },
+      plugins: [ChartDataLabels]
+    });
+
   </script>
 </body>
 
