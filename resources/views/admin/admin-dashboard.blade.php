@@ -62,72 +62,65 @@
         </div>
         <ul class="sidebar-nav">
           <li class="sidebar-item">
-            <a href="admin-dashboard.html" class="sidebar-link" id="admin-dashboard">
+            <a href="dashboard" class="sidebar-link" id="admin-dashboard">
               <i class="fa-solid fa-list pe-2"></i>
               <span class="link-text">Dashboard</span>
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="admin-profile-desa.html" class="sidebar-link" id="admin-profile-desa">
+            <a href="profildesa" class="sidebar-link" id="admin-profile-desa">
               <i class="fa-solid fa-id-card pe-2"></i>
               <span class="link-text">Profile Desa</span>
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="admin-perangkat-desa.html" class="sidebar-link" id="admin-perangkat-desa">
+            <a href="perangkatdesa" class="sidebar-link" id="admin-perangkat-desa">
               <i class="fa-solid fa-user-tie pe-2"></i>
               <span class="link-text">Perangkat Desa</span>
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="admin-lembaga-desa.html" class="sidebar-link" id="admin-lembaga-desa">
+            <a href="lembagadesa" class="sidebar-link" id="admin-lembaga-desa">
               <i class="fa-solid fa-landmark pe-2"></i>
               <span class="link-text">Lembaga Desa</span>
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="admin-layanan-publik.html" class="sidebar-link" id="admin-layanan-publik">
+            <a href="layananpublik" class="sidebar-link" id="admin-layanan-publik">
               <i class="fa-solid fa-hands-helping pe-2"></i>
               <span class="link-text">Layanan Publik</span>
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="admin-layanan-administrasi.html" class="sidebar-link" id="admin-layanan-administrasi">
+            <a href="layananadministrasi" class="sidebar-link" id="admin-layanan-administrasi">
               <i class="fa-solid fa-file-signature pe-2"></i>
               <span class="link-text">Layanan Administrasi</span>
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="admin-pengumuman.html" class="sidebar-link" id="admin-pengumuman">
+            <a href="pengumuman" class="sidebar-link" id="admin-pengumuman">
               <i class="fa-solid fa-bullhorn pe-2"></i>
               <span class="link-text">Pengumuman</span>
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="admin-kegiatan.html" class="sidebar-link" id="admin-kegiatan">
+            <a href="kegiatan" class="sidebar-link" id="admin-kegiatan">
               <i class="fa-solid fa-calendar-day pe-2"></i>
               <span class="link-text">Kegiatan</span>
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="admin-kontak.html" class="sidebar-link" id="admin-kontak">
+            <a href="kontak" class="sidebar-link" id="admin-kontak">
               <i class="fa-solid fa-address-book pe-2"></i>
               <span class="link-text">Kontak</span>
             </a>
           </li>
           <li class="sidebar-item">
-            <a href="kelola-pengguna.html" class="sidebar-link" id="kelola-pengguna">
+            <a href="kelolapengguna" class="sidebar-link" id="kelola-pengguna">
               <i class="fa-solid fa-user pe-2"></i>
               <span class="link-text">Pengguna</span>
             </a>
           </li>
-          <form action="/logout" method="POST" class="d-inline">
-            @csrf
-            <button type="submit" class="nav-link border-0 bg-transparent ">
-                <div class=""></div>
-                Logout
-            </button>
-        </form>
         </ul>
 
       </div>
@@ -295,16 +288,16 @@
     const currentUrl = window.location.href;
 
     const sidebarItems = [
-      { id: 'admin-dashboard', url: 'admin-dashboard.html' },
-      { id: 'admin-profile-desa', url: 'admin-profile-desa.html' },
-      { id: 'admin-perangkat-desa', url: 'admin-perangkat-desa.html' },
-      { id: 'admin-lembaga-desa', url: 'admin-lembaga-desa.html' },
-      { id: 'admin-layanan-publik', url: 'admin-layanan-publik.html' },
-      { id: 'admin-layanan-administrasi', url: 'admin-layanan-administrasi.html' },
-      { id: 'admin-pengumuman', url: 'admin-pengumuman.html' },
-      { id: 'admin-kegiatan', url: 'admin-kegiatan.html' },
-      { id: 'admin-kontak', url: 'admin-kontak.html' },
-      { id: 'kelola-pengguna', url: 'kelola-pengguna.html' }
+      { id: 'admin-dashboard', url: 'admin' },
+      { id: 'admin-profile-desa', url: 'profiledesa' },
+      { id: 'admin-perangkat-desa', url: 'perangkatdesa' },
+      { id: 'admin-lembaga-desa', url: 'lembagadesa' },
+      { id: 'admin-layanan-publik', url: 'layananpublik' },
+      { id: 'admin-layanan-administrasi', url: 'layananadministrasi' },
+      { id: 'admin-pengumuman', url: 'pengumuman' },
+      { id: 'admin-kegiatan', url: 'kegiatan' },
+      { id: 'admin-kontak', url: 'kontak' },
+      { id: 'kelola-pengguna', url: 'kelolapengguna' }
     ];
 
     sidebarItems.forEach(item => {
