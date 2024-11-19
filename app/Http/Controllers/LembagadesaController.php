@@ -13,7 +13,7 @@ class LembagadesaController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.admin-lembaga-desa', []);
     }
 
     /**

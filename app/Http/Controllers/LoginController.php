@@ -9,7 +9,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('loginadmin', [
+        return view('admin.admin-login', [
             
         ]);
     }
@@ -23,7 +23,7 @@ class LoginController extends Controller
 
         if(Auth::attempt($credentials)){
             $request->session()->regenerate();
-            return redirect()->intended('/admin/skema');
+            return redirect()->intended('/admin/admin-dashboard');
         }
 
         return back()->with('LoginError', 'Login gagal!');
