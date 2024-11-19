@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - Desa Sungai Keran</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Inter:wght@400;700&family=Lora:wght@400;700&family=Poppins:wght@400;700&family=Lato:wght@400;700&display=swap"
     rel="stylesheet">
@@ -121,6 +121,13 @@
               <span class="link-text">Pengguna</span>
             </a>
           </li>
+          <form action="/logout" method="POST" class="d-inline">
+            @csrf
+            <button type="submit" class="nav-link border-0 bg-transparent ">
+                <div class=""></div>
+                Logout
+            </button>
+        </form>
         </ul>
 
       </div>

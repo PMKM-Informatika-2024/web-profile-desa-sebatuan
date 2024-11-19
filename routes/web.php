@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -38,5 +38,9 @@ Route::get('/pengumuman', function () {
 Route::get('/struktur-pemerintahan', function () {
     return view('user/struktur-pemerintahan');
 });
-
-
+Route::get('/adminlogin', [LoginController::class, 'index'])->middleware('guest');
+Route::post('/adminlogin', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+Route::get('/admin/dashboard', function(){
+    return view('admin/admin-dashboard');
+})->middleware('auth');

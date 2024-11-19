@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('no_whatsapp');
-            $table->string('username_instagram ');
+            $table->string('username_instagram');
             $table->string('email');
         });
     }
