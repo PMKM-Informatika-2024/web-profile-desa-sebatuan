@@ -38,7 +38,7 @@
               <a class="nav-link" href="beranda.html" id="beranda">Beranda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="profile-desa.html" id="profile-desa">Profile Desa</a>
+              <a class="nav-link" href="/profile-desa" id="profile-desa">Profile Desa</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="pemerintahan-desa" role="button"
@@ -46,7 +46,7 @@
                 Pemerintahan Desa
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="perangkat-desa.html" id="perangkat-desa">Perangkat Desa</a></li>
+                <li><a class="dropdown-item" href="/perangkat-desa" id="perangkat-desa">Perangkat Desa</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
@@ -62,22 +62,22 @@
                 Informasi Publik
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="layanan-administrasi.html" id="layanan-administrasi">Layanan
+                <li><a class="dropdown-item" href="/layanan-administrasi" id="layanan-administrasi">Layanan
                     Administrasi Desa</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="pengumuman.html" id="pengumuman">Pengumuman</a></li>
+                <li><a class="dropdown-item" href="/pengumuman" id="pengumuman">Pengumuman</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="kegiatan.html" id="kegiatan">Kegiatan</a></li>
+                <li><a class="dropdown-item" href="/kegiatan" id="kegiatan">Kegiatan</a></li>
               </ul>
             </li>
           </ul>
           <ul class="navbar-nav ms-auto me-3">
             <li class="nav-item">
-              <a class="nav-link" href="kontak.html"
+              <a class="nav-link" href="/kontak"
                 style="color:#f8f9fa ; background-color: #1E90FF; border-radius: 8px; padding-left: 15px; padding-right: 15px;">Kontak</a>
             </li>
           </ul>
