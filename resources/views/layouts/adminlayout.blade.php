@@ -70,7 +70,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="adminprofildesa"
+                        <a href="profildesa"
                             class="sidebar-link {{ Request::is('adminprofildesa*') ? 'active' : '' }}"
                             id="admin-profile-desa">
                             <i class="fa-solid fa-id-card pe-2"></i>
@@ -86,7 +86,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="adminlembagadesa"
+                        <a href="lembagadesa"
                             class="sidebar-link {{ Request::is('adminlembagadesa*') ? 'active' : '' }}"
                             id="admin-lembaga-desa">
                             <i class="fa-solid fa-landmark pe-2"></i>
@@ -94,7 +94,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="adminlayananpublik"
+                        <a href="layananpublik"
                             class="sidebar-link {{ Request::is('adminlayananpublik*') ? 'active' : '' }}"
                             id="admin-layanan-publik">
                             <i class="fa-solid fa-hands-helping pe-2"></i>
@@ -102,7 +102,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="adminlayananadministrasi"
+                        <a href="layananadministrasi"
                             class="sidebar-link {{ Request::is('adminlayananadministrasi*') ? 'active' : '' }}"
                             id="admin-layanan-administrasi">
                             <i class="fa-solid fa-file-signature pe-2"></i>
@@ -110,7 +110,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="adminpengumuman"
+                        <a href="pengumuman"
                             class="sidebar-link {{ Request::is('adminpengumuman*') ? 'active' : '' }}"
                             id="admin-pengumuman">
                             <i class="fa-solid fa-bullhorn pe-2"></i>
@@ -118,21 +118,21 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="adminkegiatan" class="sidebar-link {{ Request::is('adminkegiatan*') ? 'active' : '' }}"
+                        <a href="kegiatan" class="sidebar-link {{ Request::is('adminkegiatan*') ? 'active' : '' }}"
                             id="admin-kegiatan">
                             <i class="fa-solid fa-calendar-day pe-2"></i>
                             <span class="link-text">Kegiatan</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="adminkontak" class="sidebar-link {{ Request::is('adminkontak*') ? 'active' : '' }}"
+                        <a href="kontak" class="sidebar-link {{ Request::is('adminkontak*') ? 'active' : '' }}"
                             id="admin-kontak">
                             <i class="fa-solid fa-address-book pe-2"></i>
                             <span class="link-text">Kontak</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="adminkelolapengguna"
+                        <a href="kelolapengguna"
                             class="sidebar-link {{ Request::is('adminkelolapengguna*') ? 'active' : '' }}"
                             id="kelola-pengguna">
                             <i class="fa-solid fa-user pe-2"></i>

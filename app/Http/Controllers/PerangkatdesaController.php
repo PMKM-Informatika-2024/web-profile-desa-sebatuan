@@ -94,6 +94,6 @@ class PerangkatdesaController extends Controller
             Storage::delete($perangkatdesa->gambar_perangkatadesa);
         }
         Perangkatdesa::destroy($perangkatdesa->id);
-        return redirect('/perangkatdesa')->with('success', 'Berita berhasil dihapus');
+        return redirect('/perangkatdesa')->with('success', 'Perangkat desa berhasil dihapus');
     }
 }

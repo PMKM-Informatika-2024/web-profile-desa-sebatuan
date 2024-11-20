@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lembagadesa;
-use App\Http\Requests\StoreLembagadesaRequest;
-use App\Http\Requests\UpdateLembagadesaRequest;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
+
 
 class LembagadesaController extends Controller
 {
@@ -13,7 +14,9 @@ class LembagadesaController extends Controller
      */
     public function index()
     {
-        return view('admin.admin-lembaga-desa', []);
+        return view('admin.admin-lembaga-desa', [
+            'lembagadesas' => Lembagadesa::all()
+        ]);
     }
 
     /**
@@ -27,9 +30,20 @@ class LembagadesaController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreLembagadesaRequest $request)
+    public function store(Request $request)
     {
-        //
+        // dd($request);
+        $validatedData = $request->validate([
+            'nama_lembaga' => 'required',
+            'alamat_lembaga' => 'required',
+            'nama_ketua' => 'required',
+            'gambar_lembaga'=>'image'
+        ]);
+        if($request->file('gambar_lembaga')) {
+            $validatedData['gambar_lembaga'] = $request->file('gambar_lembaga')->store('gambar_yang_tersimpan');
+        }
+        Lembagadesa::create($validatedData);
+        return redirect('/lembagadesa')->with('success', 'Lembaga Desa baru berhasil ditambahkan');
     }
 
     /**
@@ -51,9 +65,25 @@ class LembagadesaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateLembagadesaRequest $request, Lembagadesa $lembagadesa)
+    public function update(Request $request, Lembagadesa $lembagadesa)
     {
-        //
+        // dd($request);
+        $validatedData = $request->validate([
+            'nama_lembaga' => 'required',
+            'alamat_lembaga' => 'required',
+            'nama_ketua' => 'required',
+            'gambar_lembaga' => 'image'
+        ]);
+        if($request->file('gambar_lembaga')) {
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['gambar_lembaga'] = $request->file('gambar_lembaga')->store('gambar_yang_tersimpan');
+        }
+        Lembagadesa::where('id', $request->input('id'))
+            ->update($validatedData);
+
+        return redirect('/lembagadesa')->with('success', 'Lembaga desa berhasil diupdate');
     }
 
     /**
@@ -61,6 +91,11 @@ class LembagadesaController extends Controller
      */
     public function destroy(Lembagadesa $lembagadesa)
     {
-        //
+        // dd($request);
+        if($lembagadesa->gambar_lembaga){
+            Storage::delete($lembagadesa->gambar_lembaga);
+        }
+        Lembagadesa::destroy($lembagadesa->id);
+        return redirect('/lembagadesa')->with('success', 'Lembaga desa berhasil dihapus');
     }
 }

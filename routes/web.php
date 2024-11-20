@@ -20,10 +20,10 @@ Route::get('/profile-desa', function () {
 Route::get('/perangkat-desa', function () {
     return view('user/perangkat-desa');
 });
-Route::get('/kegiatan', function () {
+Route::get('/daftar-kegiatan', function () {
     return view('user/kegiatan');
 });
-Route::get('/kontak', function () {
+Route::get('/daftar-kontak', function () {
     return view('user/kontak');
 });
 Route::get('/layanan-administrasi', function () {
@@ -41,7 +41,7 @@ Route::get('/lembaga-desa', function () {
 Route::get('/pemerintahan-desa', function () {
     return view('user/pemerintahan-desa');
 });
-Route::get('/pengumuman', function () {
+Route::get('/daftar-pengumuman', function () {
     return view('user/pengumuman');
 });
 Route::get('/struktur-pemerintahan', function () {
@@ -53,11 +53,11 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/admin', function(){
     return view('admin/admin-dashboard');
 })->middleware('auth');
-Route::resource('/adminprofildesa', ProfildesaController::class)->middleware('auth');
+Route::resource('/profildesa', ProfildesaController::class)->middleware('auth');
 Route::resource('/perangkatdesa', PerangkatdesaController::class)->middleware('auth');
-Route::resource('/adminlembagadesa', LembagadesaController::class)->middleware('auth');
-Route::resource('/adminlayananpublik', LayananpublikController::class)->middleware('auth');
-Route::resource('/adminlayananadministrasi', LayananadministrasiController::class)->middleware('auth');
-Route::resource('/adminpengumuman', PengumumanController::class)->middleware('auth');
-Route::resource('/adminkegiatan', KelolakegiatanController::class)->middleware('auth');
-Route::resource('/adminkontak', KelolakontakController::class)->middleware('auth');
+Route::resource('/lembagadesa', LembagadesaController::class)->middleware('auth');
+Route::resource('/layananpublik', LayananpublikController::class)->middleware('auth');
+Route::resource('/layananadministrasi', LayananadministrasiController::class)->middleware('auth');
+Route::resource('/pengumuman', PengumumanController::class)->middleware('auth');
+Route::resource('/kegiatan', KelolakegiatanController::class)->middleware('auth');
+Route::resource('/kontak', KelolakontakController::class)->middleware('auth');
