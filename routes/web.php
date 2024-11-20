@@ -58,4 +58,6 @@ Route::resource('/adminperangkatdesa', PerangkatdesaController::class)->middlewa
 Route::resource('/adminlembagadesa', LembagadesaController::class)->middleware('auth');
 Route::resource('/adminlayananpublik', LayananpublikController::class)->middleware('auth');
 Route::resource('/adminlayananadministrasi', LayananadministrasiController::class)->middleware('auth');
-Route::resource('/adminpengumuman', PerangkatdesaController::class)->middleware('auth');
+Route::resource('/adminpengumuman', PengumumanController::class)->middleware('auth');
+Route::resource('/adminkegiatan', KelolakegiatanController::class)->middleware('auth');
+Route::resource('/adminkontak', KelolakontakController::class)->middleware('auth');

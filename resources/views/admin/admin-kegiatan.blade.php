@@ -1,3 +1,7 @@
+@extends('layouts.adminlayout')
+@section('child')
+    
+
 <main class="content px-3 py-2">
     <div class="container-fluid" id="admin-kegiatan">
         <div class="mt-3 mb-3">
@@ -89,7 +93,7 @@
         </div>
     </div>
 </main>
-
+@endsection
 @section('kodejs')
     <script>
         // tambah kegiatan
