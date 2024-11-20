@@ -35,7 +35,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto mb-2 mb-lg-0" style="color: #f8f9fa;">
             <li class="nav-item">
-              <a class="nav-link" href="beranda.html" id="beranda">Beranda</a>
+              <a class="nav-link" href="/" id="beranda">Beranda</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/profile-desa" id="profile-desa">Profile Desa</a>
@@ -98,7 +98,7 @@
           <h1 class="text-banner-h1">Desa Sungai Keran</h1>
         </div>
         <div class="text-center mt-3">
-          <a href="profil-desa.html" class="btn-more">Lihat..</a>
+          <a href="/profile-desa" class="btn-more">Lihat..</a>
         </div>
       </div>
     </div>

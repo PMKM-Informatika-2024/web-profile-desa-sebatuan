@@ -40,13 +40,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="/" id="beranda">Beranda</a>
+              <a class="nav-link {{ Request::is('/') ? 'active-link' : '' }}" href="/" id="beranda">Beranda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link {{ Request::is('profile-desa') ? 'active' : '' }} active" href="/profile-desa" id="profile-desa">Profile Desa</a>
+              <a class="nav-link {{ Request::is('profile-desa') ? 'active-link' : '' }} active" href="/profile-desa" id="profile-desa">Profile Desa</a>
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle {{ Request::is('perangkat-desa') || Request::is('lembaga-desa') ? 'active' : '' }}" href="#" id="pemerintahan-desa" role="button"
+              <a class="nav-link dropdown-toggle {{ Request::is('perangkat-desa') || Request::is('lembaga-desa') ? 'active-link' : '' }}" href="#" id="pemerintahan-desa" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 Pemerintahan Desa
               </a>
@@ -59,7 +59,7 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link {{ Request::is('layanan-publik') ? 'active' : '' }}" href="layanan-publik" id="layanan-publik">Layanan Publik</a>
+              <a class="nav-link {{ Request::is('layanan-publik') ? 'active-link' : '' }}" href="layanan-publik" id="layanan-publik">Layanan Publik</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle {{ Request::is('layanan-administrasi') || Request::is('daftar-pengumuman') || Request::is('daftar-kegiatan') ? 'active' : '' }}" href="#" id="informasi-publik" role="button" data-bs-toggle="dropdown"
