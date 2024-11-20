@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="d-flex justify-content-end mt-4">
                                     <button type="submit" class="btn btn-simpan">Simpan</button>
-                                    {{-- <a href="admin-pengumuman.html" class="btn btn-batal ms-2">Batal</a> --}}
+                                    {{-- <a href="admin-pengumuman.htmx`l" class="btn btn-batal ms-2">Batal</a> --}}
                                 </div>
                             </form>
                         </div>

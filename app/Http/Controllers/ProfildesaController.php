@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Profildesa;
 use Illuminate\Http\Request;
 
-class ProfildesaController extends Controller
+class ProfildesaController  
 {
     /**
      * Display a listing of the resource.

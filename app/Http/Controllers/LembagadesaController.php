@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 
-class LembagadesaController extends Controller
+class LembagadesaController  
 {
     /**
      * Display a listing of the resource.

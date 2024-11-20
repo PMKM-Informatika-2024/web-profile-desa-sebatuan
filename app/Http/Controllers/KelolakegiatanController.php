@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Kelolakegiatan;
 use App\Http\Requests\StoreKelolakegiatanRequest;
 use App\Http\Requests\UpdateKelolakegiatanRequest;
+use Illuminate\Support\Facades\Gate;
 
-class KelolakegiatanController extends Controller
+class KelolakegiatanController  
 {
     /**
      * Display a listing of the resource.
@@ -29,7 +30,7 @@ class KelolakegiatanController extends Controller
      */
     public function store(StoreKelolakegiatanRequest $request)
     {
-        //
+        // Gate::inspect()
     }
 
     /**

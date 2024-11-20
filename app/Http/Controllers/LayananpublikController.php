@@ -6,7 +6,7 @@ use App\Models\Layananpublik;
 use App\Http\Requests\StoreLayananpublikRequest;
 use App\Http\Requests\UpdateLayananpublikRequest;
 
-class LayananpublikController extends Controller
+class LayananpublikController  
 {
     /**
      * Display a listing of the resource.

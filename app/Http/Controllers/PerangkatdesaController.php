@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Perangkatdesa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-class PerangkatdesaController extends Controller
+class PerangkatdesaController  
 {
     /**
      * Display a listing of the resource.

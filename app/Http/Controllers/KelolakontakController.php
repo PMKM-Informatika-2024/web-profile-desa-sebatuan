@@ -6,7 +6,7 @@ use App\Models\Kelolakontak;
 use App\Http\Requests\StoreKelolakontakRequest;
 use App\Http\Requests\UpdateKelolakontakRequest;
 
-class KelolakontakController extends Controller
+class KelolakontakController  
 {
     /**
      * Display a listing of the resource.

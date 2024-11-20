@@ -6,7 +6,7 @@ use App\Models\Layananadministrasi;
 use App\Http\Requests\StoreLayananadministrasiRequest;
 use App\Http\Requests\UpdateLayananadministrasiRequest;
 
-class LayananadministrasiController extends Controller
+class LayananadministrasiController  
 {
     /**
      * Display a listing of the resource.

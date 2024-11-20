@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengumuman;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
-class PengumumanController extends Controller
+class PengumumanController  
 {
     /**
      * Display a listing of the resource.
