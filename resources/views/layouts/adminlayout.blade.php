@@ -78,8 +78,8 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="adminperangkatdesa"
-                            class="sidebar-link {{ Request::is('adminperangkatdesa*') ? 'active' : '' }}"
+                        <a href="perangkatdesa"
+                            class="sidebar-link {{ Request::is('perangkatdesa*') ? 'active' : '' }}"
                             id="admin-perangkat-desa">
                             <i class="fa-solid fa-user-tie pe-2"></i>
                             <span class="link-text">Perangkat Desa</span>

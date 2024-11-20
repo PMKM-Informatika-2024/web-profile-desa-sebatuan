@@ -54,7 +54,7 @@ Route::get('/admin', function(){
     return view('admin/admin-dashboard');
 })->middleware('auth');
 Route::resource('/adminprofildesa', ProfildesaController::class)->middleware('auth');
-Route::resource('/adminperangkatdesa', PerangkatdesaController::class)->middleware('auth');
+Route::resource('/perangkatdesa', PerangkatdesaController::class)->middleware('auth');
 Route::resource('/adminlembagadesa', LembagadesaController::class)->middleware('auth');
 Route::resource('/adminlayananpublik', LayananpublikController::class)->middleware('auth');
 Route::resource('/adminlayananadministrasi', LayananadministrasiController::class)->middleware('auth');
