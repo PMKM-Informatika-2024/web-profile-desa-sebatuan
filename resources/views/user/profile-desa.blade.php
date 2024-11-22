@@ -1,7 +1,6 @@
 @extends('layouts.layout')
 @section('child')
-    
-<!-- End of Navbar -->
+
 
 <!-- Banner -->
   <section id="banner">
@@ -78,8 +77,7 @@
             <div class="card-body">
               <p class="card-text">
                 Mewujudkan masyarakat desa yang mandiri, sejahtera, dan berdaya saing dengan
-                memanfaatkan
-                potensi sumber daya alam dan manusia secara berkelanjutan.
+                memanfaatkan potensi sumber daya alam dan manusia secara berkelanjutan.
               </p>
             </div>
           </div>

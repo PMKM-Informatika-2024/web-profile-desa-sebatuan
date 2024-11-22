@@ -12,6 +12,7 @@ class PengumumanController
      */
     public function index()
     {
+        
         return view('admin.admin-pengumuman', [
             'pengumumen' => Pengumuman::all()
         ]);

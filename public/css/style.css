@@ -45,13 +45,13 @@
 }
 
 .navbar-nav .active-link {
-  background-color: var(--sec-color);
+  /* background-color: var(--sec-color); */
   color: var(--pr-color) !important;
-  padding: 5px 10px;
+  /* padding: 5px 10px; */
 }
 
 .nav-item.dropdown .nav-link.active-link {
-  background-color: var(--sec-color);
+  /* background-color: var(--sec-color); */
   color: var(--pr-color) !important;
 }
 
