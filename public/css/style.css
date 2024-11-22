@@ -1053,6 +1053,16 @@ a.sidebar-link.active {
   }
 }
 
+#perangkat-desa .card-title {
+  font-size: 15px; /* Atur ukuran font untuk <h4> */
+}
+
+#perangkat-desa .card-title + h5 {
+  font-size: 16px; /* Atur ukuran font untuk <h5> */
+}
+
+
+
 /* End of Kelola Perangkat Desa */
 
 

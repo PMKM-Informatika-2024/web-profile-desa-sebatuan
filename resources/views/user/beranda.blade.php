@@ -44,7 +44,7 @@
   <!-- End of Content -->
 
   <!-- Perangkat Desa -->
-<section id="perangkat-desa" class="py-5 mb-5">
+  <section id="perangkat-desa" class="py-5 mb-5">
     <div class="container-fluid transition-container perangkat-desa-container shadow">
         <div class="row mb-4 justify-content-center text-center">
             <div class="col-12">
