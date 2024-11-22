@@ -11,9 +11,8 @@ use App\Http\Controllers\KelolakontakController;
 use App\Models\Perangkatdesa;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('user/beranda');
-});
+Route::get('/', [PerangkatdesaController::class, 'show']);
+
 Route::get('/profile-desa', function () {
     return view('user/profile-desa');
 });

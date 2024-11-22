@@ -46,9 +46,11 @@ class PerangkatdesaController
     /**
      * Display the specified resource.
      */
-    public function show(Perangkatdesa $perangkatdesa)
+    public function show()
     {
-        //
+        return view('user.beranda', [
+            'perangkatdesas' => Perangkatdesa::all(),
+        ]);
     }
 
     /**
