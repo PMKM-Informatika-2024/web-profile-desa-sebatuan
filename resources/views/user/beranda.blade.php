@@ -67,7 +67,7 @@
                             @foreach($chunk as $perangkatdesa)
                                 <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                                     <div class="card shadow-sm border-0 rounded">
-                                        <img src="{{ asset('storage/' . $perangkatdesa->gambar_perangkatdesa) }}" style="max-height:300px" class="card-img-top rounded" alt="{{ $perangkatdesa->jabatan }}">
+                                        <img src="{{ asset('storage/' . $perangkatdesa->gambar_perangkatdesa) }}" style="min-height:300px" class="card-img-top rounded" alt="{{ $perangkatdesa->jabatan }}">
                                         <div class="card-body text-center">
                                           <h4 class="card-title">{{ $perangkatdesa->nama }}</h4>
                                             <h5 class="card-title">{{ $perangkatdesa->jabatan }}</h5>

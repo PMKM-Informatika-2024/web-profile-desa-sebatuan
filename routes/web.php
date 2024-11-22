@@ -12,6 +12,7 @@ use App\Models\Perangkatdesa;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PerangkatdesaController::class, 'show']);
+Route::get('/lembaga-desa', [LembagadesaController::class, 'show']);
 
 Route::get('/profile-desa', function () {
     return view('user/profile-desa');
@@ -34,9 +35,9 @@ Route::get('/layanan-publik', function () {
 Route::get('/fasilitas-pendidikan', function () {
     return view('user/fasilitas-pendidikan');
 });
-Route::get('/lembaga-desa', function () {
-    return view('user/lembaga-desa');
-});
+// Route::get('/lembaga-desa', function () {
+//     return view('user/lembaga-desa');
+// });
 Route::get('/pemerintahan-desa', function () {
     return view('user/pemerintahan-desa');
 });

@@ -51,7 +51,9 @@ class LembagadesaController
      */
     public function show(Lembagadesa $lembagadesa)
     {
-        //
+        return view('user.lembaga-desa', [
+            'lembagadesas' => Lembagadesa::all()
+        ]);
     }
 
     /**

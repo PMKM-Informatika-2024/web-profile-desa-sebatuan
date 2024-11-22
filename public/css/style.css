@@ -1061,6 +1061,62 @@ a.sidebar-link.active {
   font-size: 16px; /* Atur ukuran font untuk <h5> */
 }
 
+/* .lembaga-img-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.lembaga-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+
+.lembaga-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lembaga-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.lembaga-img-container {
+  position: relative;
+  height: 200px;
+  background-color: #f8f9fa;
+}
+
+.lembaga-img {
+  object-fit: cover;
+  height: 100%;
+}
+
+.lembaga-info {
+  padding: 15px;
+}
+
+.lembaga-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.lembaga-alamat,
+.lembaga-ketua {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.lembaga-icon {
+  font-size: 3rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+
 
 
 /* End of Kelola Perangkat Desa */
