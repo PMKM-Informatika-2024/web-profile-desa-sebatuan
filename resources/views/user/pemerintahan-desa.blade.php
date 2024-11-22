@@ -1,106 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Struktur Pemerintahan Desa - Sungai Keran</title>
-  <link rel="stylesheet" href="style.css">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@400;700&family=Lato:wght@400;700&display=swap"
-    rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-</head>
-
-<body>
-  <!-- Navbar -->
-  <section id="navbar">
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark p-md-3">
-      <div class="container-fluid">
-        <a class="navbar-brand ms-3 d-flex align-items-center" href="#">
-          <img src="img/logo.png" width="50" class="me-2">
-          <span style="line-height: 1.1; font-size:medium;">
-            Desa<br>
-            Sungai<br>
-            Keran
-          </span>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="beranda.html" id="beranda">Beranda</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="profile-desa.html" id="profile-desa">Profile
-                Desa</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="pemerintahan-desa" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                Pemerintahan Desa
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="pemerintahan-desa.html" id="pemerintahan-desa">Pemerintahan Desa</a>
-                </li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="lembaga-desa.html" id="lembaga-desa">Lembaga Desa</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="layanan-publik" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Layanan Publik
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="fasilitas-pendidikan.html" id="fasilitas-pendidikan">Fasilitas
-                    Pendidikan</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="fasilitas-publik.html" id="fasilitas-publik">Fasilitas Publik</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="informasi-publik" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Informasi Publik
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="layanan-administrasi.html" id="layanan-administrasi">Layanan
-                    Administrasi Desa</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="pengumuman.html" id="pengumuman">Pengumuman</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="kegiatan.html" id="kegiatan">Kegiatan</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="navbar-nav ms-auto me-3">
-            <li class="nav-item">
-              <a class="nav-link" href="#"
-                style="color:#f8f9fa ; background-color: #1E90FF; border-radius: 8px; padding-left: 15px; padding-right: 15px;">Kontak</a>
-            </li>
-          </ul>
-          <!-- Tombol Close -->
-          <button id="closeSidebar" class="btn-close" aria-label="Close"></button>
-        </div>
-      </div>
-    </nav>
-  </section>
-  <!-- End of Navbar -->
+@extends('layouts.layout')
+@section('child')
 
   <!-- Banner -->
   <section id="banner-pemerintahan-desa">
@@ -361,11 +260,7 @@
   </section>
   <!-- End of Pemerintahan Desa -->
 
-  <!-- Footer -->
-  <footer class="text-center text-dark bg-light p-3 border-top" style="border-top: 10px solid #000000;">
-    <p>&copy; 2024 Desa Sungai Keran. All Rights Reserved.</p>
-  </footer>
-  <!-- End of Footer -->
+
 
   <!-- Script -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -490,6 +385,5 @@
 
 
   </script>
-</body>
 
-</html>
+@endsection

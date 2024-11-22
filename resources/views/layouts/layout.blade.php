@@ -28,8 +28,7 @@
           <img src="image/logo.png" width="50" class="me-2">
           <span style="line-height: 1.1; font-size:medium;">
             Desa<br>
-            Sungai<br>
-            Keran
+            Parapakan           
           </span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -100,7 +99,7 @@
 
   <!-- Footer -->
   <footer class="text-center text-dark bg-light p-4 border-top">
-    <p>Copyright &copy; 2024 Desa Sungai Keran</p>
+    <p>Copyright &copy; 2024 Desa Parapakan</p>
   </footer>
   <!-- End of Footer -->
 
