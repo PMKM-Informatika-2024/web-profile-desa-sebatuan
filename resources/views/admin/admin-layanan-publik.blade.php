@@ -63,7 +63,7 @@
                                     <!-- Tombol Submit -->
                                     <div class="d-flex justify-content-end mt-4">
                                         <button type="submit" class="btn btn-simpan">Simpan</button>
-                                        <button type="button" onclick="toggleTambahFasilitasCard()" class="btn btn-batal ms-2">Batal</button>
+                                        {{-- <button type="button" onclick="toggleTambahFasilitasCard()" class="btn btn-batal ms-2">Batal</button> --}}
                                     </div>
                                 </form>
                             </div>
@@ -142,6 +142,47 @@
                         @endforelse
                     </tbody>
                 </table>
+
+                <!-- Modal untuk Edit Perangkat -->
+                <div class="modal fade" id="editLembagaModal" tabindex="-1" aria-labelledby="editLembagaModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editLembagaModalLabel">Edit Layanan Publik</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="editLembagaForm" method="POST" enctype="multipart/form-data">
+                                @method('put')
+                                @csrf
+                                <input type="hidden" name="id" id="editId">
+                                <input type="hidden" name="oldImage" id="editGambar">
+                                <div class="mb-3">
+                                    <label for="editNama" class="form-label">Nama Fasilitas</label>
+                                    <input type="text" name="nama_fasilitas" class="form-control" id="editNama"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editAlamat" class="form-label">URL Alamat</label>
+                                    <input type="text" name="url_alamat" class="form-control" id="editAlamat"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="editFoto" class="form-label">Foto</label>
+                                    <img alt="" id="previewImage" class="img-thumbnail"
+                                        style="width: 50px; height: 50px;">
+                                    <input type="file" name="gambar_fasilitas" class="form-control"
+                                        id="editFoto" accept="image/*" onchange="changeImage(event)">
+                                </div>
+                                <button type="submit" class="btn btn-edit">Update</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- modal stops here --}}
             </div>
         </div>
     </div>
@@ -152,132 +193,38 @@
 
 
 
-{{-- @section('kodejs')
+@section('kodejs')
     <script>
-        // tambah layanan publik
-        let fasilitasPendidikan = [];
-        let fasilitasPublik = [];
+              function loadEditData(lembagadesa) {
+            // Isi nilai input dengan data dari parameter
+            document.getElementById('editId').value = lembagadesa.id;
+            document.getElementById('editGambar').value = lembagadesa.gambar_fasilitas;
+            document.getElementById('editNama').value = lembagadesa.nama_lembaga;
+            document.getElementById('editAlamat').value = lembagadesa.alamat_lembaga;
+            const previewImage = document.getElementById('previewImage');
+            if (lembagadesa.gambar_fasilitas) {
+                previewImage.src = `/storage/${lembagadesa.gambar_fasilitas}`;
+            } else {
+                previewImage.src = ''; // Kosongkan jika tidak ada foto
+            }
 
-        // Fungsi untuk menampilkan fasilitas pada tabel berdasarkan kategori
-        function tampilkanFasilitas() {
-            const bodyTablePendidikan = document.getElementById("fasilitasPendidikanTableBody");
-            const bodyTablePublik = document.getElementById("fasilitasPublikTableBody");
-
-            bodyTablePendidikan.innerHTML = "";
-            bodyTablePublik.innerHTML = "";
-
-            // Tampilkan fasilitas pendidikan
-            fasilitasPendidikan.forEach((fasilitas, index) => {
-                const row = document.createElement("tr");
-                row.innerHTML = `
-      <td>${index + 1}</td>
-      <td>${fasilitas.nama}</td>
-      <td>${fasilitas.url}</td>
-      <td><img src="${fasilitas.foto}" alt="Foto ${fasilitas.nama}" class="img-thumbnail" style="width: 50px; height: 50px;"></td>
-      <td>
-        <button class="btn btn-edit btn-sm" onclick="editFasilitas(${index}, 'pendidikan')">Edit</button>
-        <button class="btn btn-hapus btn-sm" onclick="hapusFasilitas(${index}, 'pendidikan')">Hapus</button>
-      </td>
-    `;
-                bodyTablePendidikan.appendChild(row);
-            });
-
-            // Tampilkan fasilitas publik
-            fasilitasPublik.forEach((fasilitas, index) => {
-                const row = document.createElement("tr");
-                row.innerHTML = `
-      <td>${index + 1}</td>
-      <td>${fasilitas.nama}</td>
-      <td>${fasilitas.url}</td>
-      <td><img src="${fasilitas.foto}" alt="Foto ${fasilitas.nama}" class="img-thumbnail" style="width: 50px; height: 50px;"></td>
-      <td>
-        <button class="btn btn-edit btn-sm" onclick="editFasilitas(${index}, 'publik')">Edit</button>
-        <button class="btn btn-hapus btn-sm" onclick="hapusFasilitas(${index}, 'publik')">Hapus</button>
-      </td>
-    `;
-                bodyTablePublik.appendChild(row);
-            });
+            // Ubah action form untuk mengarahkan ke route update yang sesuai
+            const editForm = document.getElementById('editLembagaForm');
+            editForm.action = `/layananpublik/${lembagadesa.id}`;
         }
 
-        // Fungsi untuk menambah fasilitas
-        document.getElementById("tambahFasilitasForm").addEventListener("submit", function(e) {
-            e.preventDefault();
+        function changeImage(event) {
+            const previewImage = document.getElementById('previewImage');
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    console.log(e.target.result);
 
-            const kategori = document.getElementById("kategoriFasilitas").value;
-            const nama = document.getElementById("namaFasilitas").value;
-            const url = document.getElementById("urlAlamat").value;
-            const fotoInput = document.getElementById("fotoFasilitas");
-            const foto = URL.createObjectURL(fotoInput.files[0]);
-
-            const fasilitasBaru = {
-                nama,
-                url,
-                foto
-            };
-
-            if (kategori === "pendidikan") {
-                fasilitasPendidikan.push(fasilitasBaru);
-            } else {
-                fasilitasPublik.push(fasilitasBaru);
-            }
-
-            tampilkanFasilitas();
-            alert("Fasilitas berhasil disimpan."); // Alert untuk simpan
-            document.getElementById("tambahFasilitasForm").reset();
-        });
-
-        // Fungsi untuk menghapus fasilitas
-        function hapusFasilitas(index, kategori) {
-            if (kategori === "pendidikan") {
-                fasilitasPendidikan.splice(index, 1);
-            } else {
-                fasilitasPublik.splice(index, 1);
-            }
-
-            tampilkanFasilitas();
-            alert("Fasilitas berhasil dihapus."); // Alert untuk hapus
-        }
-
-        // Fungsi untuk mengedit fasilitas
-        function editFasilitas(index, kategori) {
-            let fasilitasEdit;
-
-            if (kategori === "pendidikan") {
-                fasilitasEdit = fasilitasPendidikan[index];
-            } else {
-                fasilitasEdit = fasilitasPublik[index];
-            }
-
-            document.getElementById("kategoriFasilitas").value = kategori;
-            document.getElementById("namaFasilitas").value = fasilitasEdit.nama;
-            document.getElementById("urlAlamat").value = fasilitasEdit.url;
-
-            document.getElementById("fotoFasilitas").value = '';
-
-            document.getElementById("tambahFasilitasForm").onsubmit = function(e) {
-                e.preventDefault();
-
-                const kategori = document.getElementById("kategoriFasilitas").value;
-                const nama = document.getElementById("namaFasilitas").value;
-                const url = document.getElementById("urlAlamat").value;
-                const fotoInput = document.getElementById("fotoFasilitas");
-                const foto = fotoInput.files.length ? URL.createObjectURL(fotoInput.files[0]) : fasilitasEdit.foto;
-
-                const fasilitasUpdate = {
-                    nama,
-                    url,
-                    foto
+                    previewImage.src = e.target.result;
                 };
-
-                if (kategori === "pendidikan") {
-                    fasilitasPendidikan[index] = fasilitasUpdate;
-                } else {
-                    fasilitasPublik[index] = fasilitasUpdate;
-                }
-
-                tampilkanFasilitas();
-                alert("Fasilitas berhasil diupdate."); // Alert untuk edit/update
-            };
-        }
+                reader.readAsDataURL(file);
+            }
+        }  
     </script>
-@endsection --}}
+@endsection
