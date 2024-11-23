@@ -195,7 +195,7 @@
 
 @section('kodejs')
     <script>
-              function loadEditData(lembagadesa) {
+            function loadEditData(lembagadesa) {
             // Isi nilai input dengan data dari parameter
             document.getElementById('editId').value = lembagadesa.id;
             document.getElementById('editGambar').value = lembagadesa.gambar_fasilitas;

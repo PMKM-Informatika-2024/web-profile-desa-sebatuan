@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kelolakegiatan;
-use App\Http\Requests\StoreKelolakegiatanRequest;
-use App\Http\Requests\UpdateKelolakegiatanRequest;
-use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class KelolakegiatanController  
 {
@@ -28,9 +27,23 @@ class KelolakegiatanController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreKelolakegiatanRequest $request)
+    public function store(Request $request)
     {
-        // Gate::inspect()
+        $validatedData = $request->validate([
+            'nama_kegiatan' => 'required',
+            'gambar_kegiatan' => 'image'
+        ]);
+
+        // Handle file upload
+        if ($request->file('gambar_kegiatan')) {
+            $validatedData['gambar_kegiatan'] = $request->file('gambar_kegiatan')->store('gambar_yang_tersimpan');
+        }
+
+        // Store the data in the database
+        Kelolakegiatan::create($validatedData);
+
+        // Redirect back with success message
+        return redirect('/kegiatan')->with('success', 'Kegiatan baru berhasil ditambahkan');
     }
 
     /**
@@ -52,9 +65,22 @@ class KelolakegiatanController
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateKelolakegiatanRequest $request, Kelolakegiatan $kelolakegiatan)
+    public function update(Request $request, Kelolakegiatan $kelolakegiatan)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_kegiatan' => 'required',
+            'gambar_kegiatan' => 'image'
+        ]);
+        if($request->file('gambar_kegiatan')) {
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['gambar_kegiatan'] = $request->file('gambar_kegiatan')->store('gambar_yang_tersimpan');
+        }
+        Kelolakegiatan::where('id', $request->input('id'))
+            ->update($validatedData);
+
+        return redirect('/kegiatan')->with('success', 'Kegiatan berhasil diupdate');
     }
 
     /**
@@ -62,6 +88,11 @@ class KelolakegiatanController
      */
     public function destroy(Kelolakegiatan $kelolakegiatan)
     {
-        //
+        // dd($request);
+        if($kelolakegiatan->gambar_kegiatan){
+            Storage::delete($kelolakegiatan->gambar_kegiatan);
+        }
+        Kelolakegiatan::destroy($kelolakegiatan->id);
+        return redirect('/kegiatan')->with('success', 'Kegiatan berhasil dihapus');
     }
 }
