@@ -37,7 +37,7 @@
                             <div class="form-group row mb-3">
                                 <label class="col-lg-2 col-md-3 col-sm-4 form-label">Visi Desa:</label>
                                 <div class="col-lg-10 col-md-9 col-sm-8">
-                                    <textarea class="form-control" name="visi_desa" placeholder="Masukkan Visi Desa" required></textarea>
+                                    <textarea class="form-control" name="visi_desa" placeholder="Masukkan Visi Desa" required>{{ $profiledesa->visi_desa }}</textarea>
                                 </div>
                             </div>
 
@@ -171,7 +171,7 @@
 
                             <!-- Submit Button -->
                             <div class="d-flex justify-content-end mt-4">
-                                <button type="submit" class="btn btn-simpan" onclick="showAlert()">Simpan</button>
+                                <button type="submit" class="btn btn-simpan" >Simpan</button>
                             </div>
                         </form>
                         </div>
@@ -183,65 +183,10 @@
         </div>
     </main>
 @endsection
-
-
 @section('kodejs')
     <script>
-        function showAlert() {
-            alert("Data telah disimpan!");
-        }
-        // preview image
-        function previewImages() {
-            const previewContainer = document.getElementById('imagePreview');
-            const files = document.getElementById('fotoDesa').files;
-
-            previewContainer.innerHTML = '';
-
-            Array.from(files).forEach((file) => {
-                const reader = new FileReader();
-
-                reader.onload = function(event) {
-                    const imageDiv = document.createElement('div');
-                    imageDiv.style.position = 'relative';
-                    imageDiv.style.display = 'inline-block';
-                    imageDiv.style.marginRight = '10px';
-
-                    const img = document.createElement('img');
-                    img.src = event.target.result;
-                    img.style.width = '100px';
-                    img.style.height = 'auto';
-                    img.style.borderRadius = '5px';
-
-                    const removeBtn = document.createElement('span');
-                    removeBtn.innerHTML = '✖';
-                    removeBtn.style.position = 'absolute';
-                    removeBtn.style.top = '0';
-                    removeBtn.style.right = '0';
-                    removeBtn.style.color = 'red';
-                    removeBtn.style.cursor = 'pointer';
-                    removeBtn.onclick = function() {
-                        // Remove the image and its corresponding file from the input
-                        const newFileList = Array.from(files).filter(f => f !== file);
-                        const dataTransfer = new DataTransfer();
-                        newFileList.forEach(f => dataTransfer.items.add(f));
-                        document.getElementById('fotoDesa').files = dataTransfer.files;
-
-                        imageDiv.remove();
-                    };
-
-                    imageDiv.appendChild(img);
-                    imageDiv.appendChild(removeBtn);
-                    previewContainer.appendChild(imageDiv);
-                };
-
-                reader.readAsDataURL(file);
-            });
-        }
-    </script>
-@endsection
-@section('kodejs')
-    <script>
-        $('#summernote-sejarah').summernote('code', {{ $profiledesa->sejarah_desa }});
-        $('#summernote-misidesa').summernote('code', {{ $profiledesa->misi_desa }});
+        
+        $('#summernote-sejarah').summernote('code', `{{ $profiledesa->sejarah_desa }}`);
+        $('#summernote-misidesa').summernote('code', `{{ $profiledesa->misi_desa }}`);
     </script>
 @endsection

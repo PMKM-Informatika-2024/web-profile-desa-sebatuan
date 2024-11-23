@@ -140,7 +140,6 @@
             document.getElementById('editId').value = pengumuman.id;
             document.getElementById('editGambar').value = pengumuman.gambar_pengumuman;
             document.getElementById('editJudul').value = pengumuman.judul;
-            // document.getElementById('summernote2').value = pengumuman.deskripsi_singkat;
             $('#summernote2').summernote('code', pengumuman.deskripsi_singkat);
             const previewImage = document.getElementById('previewImage');
             if (pengumuman.gambar_pengumuman) {

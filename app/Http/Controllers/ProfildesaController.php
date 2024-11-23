@@ -12,7 +12,11 @@ class ProfildesaController
      */
     public function index()
     {
-        return view('admin.admin-profile-desa', []);
+        // $profildesa = Profildesa::first();
+        // dd($profildesa);
+        return view('admin.admin-profile-desa', [
+            'profiledesa' => Profildesa::first()
+        ]);
     }
 
     /**
