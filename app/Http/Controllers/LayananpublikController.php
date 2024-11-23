@@ -6,7 +6,7 @@ use App\Models\Layananpublik;
 use App\Http\Requests\StoreLayananpublikRequest;
 use App\Http\Requests\UpdateLayananpublikRequest;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request; // Ensure this is included
+use Illuminate\Http\Request; 
 
 class LayananpublikController  
 {

@@ -13,7 +13,8 @@ class PerangkatdesaController
     public function index()
     {
         return view('admin.admin-perangkat-desa', [
-            'perangkatdesas' => Perangkatdesa::all()
+            'perangkatdesas' => Perangkatdesa::all(),
+            
         ]);
     }
 
