@@ -56,7 +56,34 @@ class ProfildesaController
      */
     public function update(Request $request, Profildesa $profildesa)
     {
-        //
+        // dd($request);
+        $validatedData = $request->validate([
+            'sejarah_desa' => 'required',
+            'visi_desa' => 'required',
+            'misi_desa' => 'required',
+            'total_jiwa' => 'required',
+            'total_kk' => 'required',
+            'total_dusun' => 'required',
+            'total_rt' => 'required',
+            'total_melayu' => 'required',
+            'total_madura' => 'required',
+            'total_tionghoa' => 'required',
+            'total_dayak' => 'required',
+            'total_jawa' => 'required',
+            'total_bugis' => 'required',
+            'total_suku_lainnya' => 'required',
+            'total_islam' => 'required',
+            'total_katolik' => 'required',
+            'total_protestan' => 'required',
+            'total_buddha' => 'required',
+            'total_hindu' => 'required',
+            'total_konghuchu' => 'required',
+            'peta_desa' => 'required',
+        ]);
+        Profildesa::where('id', $request->input('id'))
+            ->update($validatedData);
+
+        return redirect('/profildesa')->with('success', 'Profile desa berhasil diupdate');
     }
 
     /**

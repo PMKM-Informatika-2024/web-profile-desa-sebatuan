@@ -77,7 +77,7 @@ class PengumumanController
             }
             $validatedData['gambar_pengumuman'] = $request->file('gambar_pengumuman')->store('gambar_yang_tersimpan');
         }
-        pengumuman::where('id', $request->input('id'))
+        Pengumuman::where('id', $request->input('id'))
             ->update($validatedData);
 
         return redirect('/pengumuman')->with('success', 'Pengumuman berhasil diupdate');
@@ -92,7 +92,7 @@ class PengumumanController
         if($pengumuman->gambar_pengumuman){
             Storage::delete($pengumuman->gambar_pengumuman);
         }
-        pengumuman::destroy($pengumuman->id);
+        Pengumuman::destroy($pengumuman->id);
         return redirect('/pengumuman')->with('success', 'Pengumuman berhasil dihapus');
     }
 }

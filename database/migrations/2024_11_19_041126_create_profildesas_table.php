@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->text('sejarah_desa');
-            $table->string('gambar_desa');
-            $table->string('visi_desa');
+            $table->text('visi_desa');
             $table->text('misi_desa');
             $table->integer('total_jiwa');
             $table->integer('total_kk');
@@ -35,8 +34,7 @@ return new class extends Migration
             $table->integer('total_buddha');
             $table->integer('total_hindu');
             $table->integer('total_konghuchu');
-            $table->string('agama');
-            $table->string('peta_desa');
+            $table->text('peta_desa');
         });
     }
 
