@@ -1,4 +1,5 @@
 @extends('layouts.adminlayout')
+
 @section('child')
 <main class="content px-3 py-2">
     <div class="container-fluid" id="admin-layanan-publik">
@@ -63,7 +64,6 @@
                                     <!-- Tombol Submit -->
                                     <div class="d-flex justify-content-end mt-4">
                                         <button type="submit" class="btn btn-simpan">Simpan</button>
-                                        {{-- <button type="button" onclick="toggleTambahFasilitasCard()" class="btn btn-batal ms-2">Batal</button> --}}
                                     </div>
                                 </form>
                             </div>
@@ -91,11 +91,16 @@
                                 <td><a href="{{ $fasilitas->url_alamat }}" target="_blank">Lihat Alamat</a></td>
                                 <td><img src="{{ asset('storage/' . $fasilitas->gambar_fasilitas) }}" alt="Foto" width="50"></td>
                                 <td>
-                                    <a href="{{ route('layananpublik.edit', $fasilitas->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                    <form action="{{ route('layananpublik.destroy', $fasilitas->id) }}" method="POST" style="display: inline-block;">
+                                    <a class=" btn btn-warning" href="javascript:void(0)" data-bs-toggle="modal"
+                                    data-bs-target="#editfasilitasModal"
+                                    onclick="loadEditData({{ $fasilitas }})"><i
+                                        class="fa-solid fa-pen-to-square"></i></a>              
+                                    <form action="/layananpublik/{{ $fasilitas->id }}" method="post" class="d-inline">
+                                        @method('delete')
                                         @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                        <button class=" btn btn-danger border-0"
+                                            onclick="return confirm('Hapus data {{ $fasilitas->nama_fasilitas }}?')"><i
+                                                class="fa-solid fa-trash-can"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -127,11 +132,16 @@
                                 <td><a href="{{ $fasilitas->url_alamat }}" target="_blank">Lihat Alamat</a></td>
                                 <td><img src="{{ asset('storage/' . $fasilitas->gambar_fasilitas) }}" alt="Foto" width="50"></td>
                                 <td>
-                                    <a href="{{ route('layananpublik.edit', $fasilitas->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                                    <form action="{{ route('layananpublik.destroy', $fasilitas->id) }}" method="POST" style="display: inline-block;">
+                                    <a class=" btn btn-warning" href="javascript:void(0)" data-bs-toggle="modal"
+                                    data-bs-target="#editfasilitasModal"
+                                    onclick="loadEditData({{ $fasilitas }})"><i
+                                        class="fa-solid fa-pen-to-square"></i></a>
+                                    <form action="/layananpublik/{{ $fasilitas->id }}" method="post" class="d-inline">
+                                        @method('delete')
                                         @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                        <button class=" btn btn-danger border-0"
+                                            onclick="return confirm('Hapus data {{ $fasilitas->nama_fasilitas }}?')"><i
+                                                class="fa-solid fa-trash-can"></i></button>
                                     </form>
                                 </td>
                             </tr>
@@ -143,74 +153,83 @@
                     </tbody>
                 </table>
 
-                <!-- Modal untuk Edit Perangkat -->
-                <div class="modal fade" id="editLembagaModal" tabindex="-1" aria-labelledby="editLembagaModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="editLembagaModalLabel">Edit Layanan Publik</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="editLembagaForm" method="POST" enctype="multipart/form-data">
-                                @method('put')
-                                @csrf
-                                <input type="hidden" name="id" id="editId">
-                                <input type="hidden" name="oldImage" id="editGambar">
-                                <div class="mb-3">
-                                    <label for="editNama" class="form-label">Nama Fasilitas</label>
-                                    <input type="text" name="nama_fasilitas" class="form-control" id="editNama"
-                                        required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="editAlamat" class="form-label">URL Alamat</label>
-                                    <input type="text" name="url_alamat" class="form-control" id="editAlamat"
-                                        required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="editFoto" class="form-label">Foto</label>
-                                    <img alt="" id="previewImage" class="img-thumbnail"
-                                        style="width: 50px; height: 50px;">
-                                    <input type="file" name="gambar_fasilitas" class="form-control"
-                                        id="editFoto" accept="image/*" onchange="changeImage(event)">
-                                </div>
-                                <button type="submit" class="btn btn-edit">Update</button>
-                            </form>
+                <!-- Modal untuk Edit Fasilitas -->
+                <div class="modal fade" id="editfasilitasModal" tabindex="-1" aria-labelledby="editLembagaModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="editLembagaModalLabel">Edit Fasilitas</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="editFasilitasForm" method="POST" enctype="multipart/form-data">
+                                    @method('put')
+                                    @csrf
+                                    <input type="hidden" name="id" id="editId">
+                                    <input type="hidden" name="oldImage" id="editOldImage">
+                                    <div class="mb-3">
+                                        <label for="editNama" class="form-label">Nama Fasilitas</label>
+                                        <input type="text" name="nama_fasilitas" class="form-control" id="editNama" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editAlamat" class="form-label">URL Alamat</label>
+                                        <input type="url" name="url_alamat" class="form-control" id="editAlamat" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="editFoto" class="form-label">Foto</label>
+                                        <img id="previewImage" class="img-thumbnail" style="width: 50px; height: 50px;">
+                                        <input type="file" name="gambar_fasilitas" class="form-control" id="editFoto" accept="image/*" onchange="changeImage(event)">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Update</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            {{-- modal stops here --}}
             </div>
         </div>
     </div>
 </main>
 @endsection
 
+@section('kodejs')
+<script>
+    function loadEditData(layananpublik) {
+        document.getElementById('editId').value = layananpublik.id;
+        document.getElementById('editNama').value = layananpublik.nama_fasilitas;
+        document.getElementById('editAlamat').value = layananpublik.url_alamat;
+        document.getElementById('editOldImage').value = layananpublik.gambar_fasilitas;
+        document.getElementById('previewImage').src = '/storage/' + layananpublik.gambar_fasilitas;
+    }
 
-
-
+    function changeImage(event) {
+        let reader = new FileReader();
+        reader.onload = function(){
+            document.getElementById('previewImage').src = reader.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+@endsection
 
 @section('kodejs')
-    <script>
-            function loadEditData(lembagadesa) {
-            // Isi nilai input dengan data dari parameter
-            document.getElementById('editId').value = lembagadesa.id;
-            document.getElementById('editGambar').value = lembagadesa.gambar_fasilitas;
-            document.getElementById('editNama').value = lembagadesa.nama_lembaga;
-            document.getElementById('editAlamat').value = lembagadesa.alamat_lembaga;
+<script>
+    function loadEditData(layananpublik) {
+        document.getElementById('editId').value = layananpublik.id;
+        document.getElementById('editNama').value = layananpublik.nama_fasilitas;
+        document.getElementById('editAlamat').value = layananpublik.url_alamat;
+        document.getElementById('editOldImage').value = layananpublik.gambar_fasilitas;
+        document.getElementById('previewImage').src = '/storage/' + layananpublik.gambar_fasilitas;
             const previewImage = document.getElementById('previewImage');
-            if (lembagadesa.gambar_fasilitas) {
-                previewImage.src = `/storage/${lembagadesa.gambar_fasilitas}`;
+            if (layananpublik.gambar_fasilitas) {
+                previewImage.src = `/storage/${layananpublik.gambar_fasilitas}`;
             } else {
                 previewImage.src = ''; // Kosongkan jika tidak ada foto
             }
 
             // Ubah action form untuk mengarahkan ke route update yang sesuai
             const editForm = document.getElementById('editLembagaForm');
-            editForm.action = `/layananpublik/${lembagadesa.id}`;
+            editForm.action = `/layananpublik/${layananpublik.id}`;
         }
 
         function changeImage(event) {
@@ -225,6 +244,6 @@
                 };
                 reader.readAsDataURL(file);
             }
-        }  
-    </script>
+        }
+            </script>
 @endsection

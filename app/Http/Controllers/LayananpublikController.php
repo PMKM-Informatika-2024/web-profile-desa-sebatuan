@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Layananpublik;
 use App\Http\Requests\StoreLayananpublikRequest;
 use App\Http\Requests\UpdateLayananpublikRequest;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request; // Ensure this is included
 
 class LayananpublikController  
@@ -82,9 +83,26 @@ class LayananpublikController
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateLayananpublikRequest $request, Layananpublik $layananpublik)
+    public function update(Request $request, Layananpublik $layananpublik)
     {
-        // Update the resource logic
+        // Validate the incoming request
+        $validatedData = $request->validate([
+            'kategori_fasilitas' => 'required',
+            'nama_fasilitas' => 'required',
+            'url_alamat' => 'required',
+            'gambar_fasilitas' => 'image'
+        ]);
+        if($request->file('gambar_fasilitas')) {
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['gambar_fasilitas'] = $request->file('gambar_fasilitas')->store('gambar_yang_tersimpan');
+        }
+        Layananpublik::where('id', $request->input('id'))
+            ->update($validatedData);
+
+        return redirect('/layananpublik')->with('success', 'Lembaga desa berhasil diupdate');
+
     }
 
     /**
@@ -92,6 +110,16 @@ class LayananpublikController
      */
     public function destroy(Layananpublik $layananpublik)
     {
-        // Delete the resource
+        // Menghapus gambar jika ada
+        if ($layananpublik->gambar_fasilitas) {
+            Storage::delete($layananpublik->gambar_fasilitas);
+        }
+    
+        // Menghapus data fasilitas dari database
+        $layananpublik->delete(); // Perbaikan: Gunakan metode delete() pada model langsung
+    
+        // Mengalihkan ke halaman dengan pesan sukses
+        return redirect('/layananpublik')->with('success', 'Fasilitas berhasil dihapus');
     }
+    
 }

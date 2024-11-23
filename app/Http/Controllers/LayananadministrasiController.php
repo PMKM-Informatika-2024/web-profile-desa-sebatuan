@@ -13,7 +13,9 @@ class LayananadministrasiController
      */
     public function index()
     {
-        return view('admin.admin-layanan-administrasi', []);
+        return view('admin.admin-layanan-administrasi', [
+            'layananadministrasis' => Layananadministrasi::all()
+        ]);
     }
 
     /**
@@ -27,9 +29,17 @@ class LayananadministrasiController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreLayananadministrasiRequest $request)
+    public function store(Request $request)
     {
-        //
+        // dd($request);
+        $validatedData = $request->validate([
+            'nama_layanan' => 'required',
+            'deskripsi' => 'required',
+            'persyaratan' => 'required',
+        ]);
+    
+        Layananadministrasi::create($validatedData);
+        return redirect('/layananadministrasi')->with('success', 'Administrasi baru berhasil ditambahkan');
     }
 
     /**
