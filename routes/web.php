@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PerangkatdesaController::class, 'show']);
 Route::get('/lembaga-desa', [LembagadesaController::class, 'show']);
+Route::get('/layanan-publik', [LayananpublikController::class, 'show']);
 
 Route::get('/profile-desa', function () {
     return view('user/profile-desa');
@@ -29,9 +30,9 @@ Route::get('/daftar-kontak', function () {
 Route::get('/layanan-administrasi', function () {
     return view('user/layanan-administrasi');
 });
-Route::get('/layanan-publik', function () {
-    return view('user/layanan-publik');
-});
+// Route::get('/layanan-publik', function () {
+//     return view('user/layanan-publik');
+// });
 Route::get('/fasilitas-pendidikan', function () {
     return view('user/fasilitas-pendidikan');
 });

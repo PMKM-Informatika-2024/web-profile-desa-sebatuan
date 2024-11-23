@@ -1075,7 +1075,7 @@ a.sidebar-link.active {
 
 .lembaga-card {
   background-color: white;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -1087,7 +1087,7 @@ a.sidebar-link.active {
 
 .lembaga-img-container {
   position: relative;
-  height: 200px;
+  height: 150px;
   background-color: #f8f9fa;
 }
 
@@ -1097,7 +1097,7 @@ a.sidebar-link.active {
 }
 
 .lembaga-info {
-  padding: 15px;
+  padding: 5px;
 }
 
 .lembaga-name {
@@ -1112,7 +1112,7 @@ a.sidebar-link.active {
 }
 
 .lembaga-icon {
-  font-size: 3rem;
+  font-size: 1rem;
   color: rgba(0, 0, 0, 0.7);
 }
 

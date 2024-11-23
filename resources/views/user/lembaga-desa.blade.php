@@ -17,20 +17,6 @@
         <div class="container transition-container mt-5">
             <div class="row">
                 <div class="container">
-                    <div class="col-lg-4 col-sm-6 mx-auto">
-                        <div class="mb-4">
-                            <div class="card text-center border-0">
-                                <div class="image-container position-relative p-3">
-                                    <img src="img/1.jpg" class="image-fluid rounded-circle" alt="Kepala Desa"
-                                        style="height: 210px; width: 210px; object-fit: cover;">
-                                </div>
-                                <div class="card-body" style="font-size: 15px;">
-                                    <p class="card-title text-danger fw-medium" id="kepala-desa">KEPALA DESA</p>
-                                    <p class="card-text" id="nama-kepala-desa">Nama Kepala Desa</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="container">
                         <div class="row">
                             @foreach ($lembagadesas as $lembaga)
@@ -45,7 +31,6 @@
                                         <div class="lembaga-info p-3 bg-light rounded-bottom">
                                             <h3 class="lembaga-name text-dark mb-2">{{ $lembaga->nama_lembaga }}</h3>
                                             <p class="lembaga-alamat text-muted mb-2">{{ $lembaga->alamat_lembaga }}</p>
-                                            <p class="lembaga-ketua text-muted mb-0">Ketua: {{ $lembaga->nama_ketua }}</p>
                                         </div>
                                     </div>
                                 </div>
