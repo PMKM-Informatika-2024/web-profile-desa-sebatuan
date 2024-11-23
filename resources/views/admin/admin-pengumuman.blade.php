@@ -29,12 +29,13 @@
                                     </div>
                                 </div>
                                 <div class="form-group row mb-3">
-                                    <label for="deskripsiSingkat" class="col-lg-2 col-md-3 col-sm-4 form-label">Deskripsi
+                                    <label class="col-lg-2 col-md-3 col-sm-4 form-label">Deskripsi
                                         Singkat:</label>
                                     <div class="col-lg-10 col-md-9 col-sm-8">
-                                        <textarea name="deskripsi_singkat" class="form-control" id="deskripsiSingkat" required></textarea>
+                                        <textarea name="deskripsi_singkat" id="summernote" required></textarea>
                                     </div>
                                 </div>
+
                                 <div class="form-group row mb-3">
                                     <label for="gambarPengumuman" class="col-lg-2 col-md-3 col-sm-4 form-label">Unggah
                                         Gambar:</label>
@@ -45,7 +46,6 @@
                                 </div>
                                 <div class="d-flex justify-content-end mt-4">
                                     <button type="submit" class="btn btn-simpan">Simpan</button>
-                                    {{-- <a href="admin-pengumuman.htmx`l" class="btn btn-batal ms-2">Batal</a> --}}
                                 </div>
                             </form>
                         </div>
@@ -70,7 +70,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $pengumuman->created_at }}</td>
                                     <td>{{ $pengumuman->judul }}</td>
-                                    <td>{{ $pengumuman->deskripsi_singkat }}</td>
+                                    <td>{!! $pengumuman->deskripsi_singkat !!}</td>
                                     <td>
                                         <a class=" btn btn-warning" href="javascript:void(0)" data-bs-toggle="modal"
                                             data-bs-target="#editPerangkatModal"
@@ -103,7 +103,6 @@
                                     <form id="editPerangkatForm" method="POST" enctype="multipart/form-data">
                                         @method('put')
                                         @csrf
-                                        {{-- <input type="hidden" id="editIndex"> --}}
                                         <input type="hidden" name="id" id="editId">
                                         <input type="hidden" name="oldImage" id="editGambar">
                                         <div class="mb-3">
@@ -113,8 +112,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="editDeskripsi" class="form-label">Deskripsi Singkat</label>
-                                            <input type="text" name="deskripsi_singkat" class="form-control" id="editDeskripsi"
-                                                required>
+                                            <textarea name="deskripsi_singkat" id="summernote2" required></textarea>
                                         </div>
                                         <div class="mb-3">
                                             <label for="editFoto" class="form-label">Foto</label>
@@ -136,16 +134,14 @@
     </main>
 @endsection
 @section('kodejs')
-    <!-- Scripts -->
-
-
     <script>
         function loadEditData(pengumuman) {
             // Isi nilai input dengan data dari parameter
             document.getElementById('editId').value = pengumuman.id;
             document.getElementById('editGambar').value = pengumuman.gambar_pengumuman;
             document.getElementById('editJudul').value = pengumuman.judul;
-            document.getElementById('editDeskripsi').value = pengumuman.deskripsi_singkat;
+            // document.getElementById('summernote2').value = pengumuman.deskripsi_singkat;
+            $('#summernote2').summernote('code', pengumuman.deskripsi_singkat);
             const previewImage = document.getElementById('previewImage');
             if (pengumuman.gambar_pengumuman) {
                 previewImage.src = `/storage/${pengumuman.gambar_pengumuman}`;
@@ -171,72 +167,6 @@
                 reader.readAsDataURL(file);
             }
         }
-        //     function showAlert() {
-        //         alert("Data telah disimpan!");
-        //     }
-
-
-        //     // tambah pengumuman
-        //     let pengumuman = JSON.parse(localStorage.getItem('pengumuman')) || [];
-
-        //     // Fungsi untuk menampilkan pengumuman yang ada di localStorage
-        //     function displayPengumuman() {
-        //         const tableBody = document.getElementById('pengumumanTableBody');
-        //         const pengumuman = JSON.parse(localStorage.getItem('pengumuman')) || [];
-        //         tableBody.innerHTML = "";
-
-        //         pengumuman.forEach((pengumumanItem, index) => {
-        //             const row = `
-    //   <tr>
-    //     <td>${index + 1}</td>
-    //     <td>${pengumumanItem.tanggal}</td>
-    //     <td>${pengumumanItem.judul}</td>
-    //     <td>${pengumumanItem.deskripsi}</td>
-    //     <td><img src="${pengumumanItem.gambar}" alt="Gambar Pengumuman" style="width: 50px; height: 50px;" class="img-thumbnail"></td>
-    //     <td>
-    //       <a href="admin-edit-pengumuman.html?index=${index}" class="btn btn-info btn-sm"> <i class="fas fa-eye"></i></a>
-    //       <button class="btn btn-danger btn-sm" onclick="hapusPengumuman(${index})"> <i class="fas fa-trash"></i> Hapus</button>
-    //     </td>
-    //   </tr>
-    // `;
-        //             tableBody.innerHTML += row;
-        //         });
-        //     }
-
-        //     window.onload = displayPengumuman;
-
-        //     // Fungsi untuk menambah pengumuman baru
-        //     document.getElementById('tambahPengumumanForm').onsubmit = function(event) {
-        //         event.preventDefault();
-        //         const tanggal = document.getElementById('tanggalPengumuman').value;
-        //         const judul = document.getElementById('judulPengumuman').value;
-        //         const deskripsi = document.getElementById('deskripsiSingkat').value;
-        //         const gambar = document.getElementById('gambarPengumuman').files[0];
-
-        //         const newPengumuman = {
-        //             tanggal,
-        //             judul,
-        //             deskripsi,
-        //             gambar: URL.createObjectURL(gambar)
-        //         };
-        //         let pengumuman = JSON.parse(localStorage.getItem('pengumuman')) || [];
-        //         pengumuman.push(newPengumuman);
-        //         localStorage.setItem('pengumuman', JSON.stringify(pengumuman));
-
-        //         alert('Pengumuman berhasil disimpan');
-        //         window.location.href = "admin-pengumuman.html";
-        //     };
-
-        //     // Fungsi untuk menghapus pengumuman berdasarkan index
-        //     function hapusPengumuman(index) {
-        //         if (confirm("Apakah Anda yakin ingin menghapus pengumuman ini?")) {
-        //             let pengumuman = JSON.parse(localStorage.getItem('pengumuman')) || [];
-        //             pengumuman.splice(index, 1);
-        //             localStorage.setItem('pengumuman', JSON.stringify(pengumuman));
-
-        //             alert('Pengumuman berhasil dihapus');
-        //             displayPengumuman();
-        //         }
-        //     }
     </script>
+    
 @endsection

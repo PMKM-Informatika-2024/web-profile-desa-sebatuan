@@ -11,6 +11,9 @@ use App\Http\Controllers\KelolakontakController;
 use App\Models\Perangkatdesa;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/test-summernote', function(){
+    return view('user/test-summernote');
+});
 Route::get('/', [PerangkatdesaController::class, 'show']);
 Route::get('/lembaga-desa', [LembagadesaController::class, 'show']);
 Route::get('/layanan-publik', [LayananpublikController::class, 'show']);

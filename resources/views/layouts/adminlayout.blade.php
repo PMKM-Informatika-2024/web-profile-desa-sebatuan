@@ -10,8 +10,16 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Inter:wght@400;700&family=Lora:wght@400;700&family=Poppins:wght@400;700&family=Lato:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote/dist/summernote-bs5.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote/dist/summernote-bs5.min.js"></script>
+
+    @yield('kodeatas')
     <style>
         *,
         ::after,
@@ -51,6 +59,7 @@
             font-weight: bold;
         }
     </style>
+
 </head>
 
 <body>
@@ -70,16 +79,14 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="profildesa"
-                            class="sidebar-link {{ Request::is('adminprofildesa*') ? 'active' : '' }}"
+                        <a href="profildesa" class="sidebar-link {{ Request::is('adminprofildesa*') ? 'active' : '' }}"
                             id="admin-profile-desa">
                             <i class="fa-solid fa-id-card pe-2"></i>
                             <span class="link-text">Profile Desa</span>
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="perangkatdesa"
-                            class="sidebar-link {{ Request::is('perangkatdesa*') ? 'active' : '' }}"
+                        <a href="perangkatdesa" class="sidebar-link {{ Request::is('perangkatdesa*') ? 'active' : '' }}"
                             id="admin-perangkat-desa">
                             <i class="fa-solid fa-user-tie pe-2"></i>
                             <span class="link-text">Perangkat Desa</span>
@@ -110,8 +117,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="pengumuman"
-                            class="sidebar-link {{ Request::is('adminpengumuman*') ? 'active' : '' }}"
+                        <a href="pengumuman" class="sidebar-link {{ Request::is('adminpengumuman*') ? 'active' : '' }}"
                             id="admin-pengumuman">
                             <i class="fa-solid fa-bullhorn pe-2"></i>
                             <span class="link-text">Pengumuman</span>
@@ -176,10 +182,7 @@
 
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
-    </script>
+
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     @yield('kodejs')
     <script>
@@ -187,35 +190,36 @@
         sidebarToggle.addEventListener("click", function() {
             document.querySelector("#sidebar").classList.toggle("collapsed");
         });
-
-        // // Active sidebar
-        // const currentUrl = window.location.href;
-        // console.log(currentUrl);
-
-        // const sidebarItems = [
-        //   { id: 'admin-dashboard', url: 'admin' },
-        //   { id: 'admin-profile-desa', url: 'adminprofiledesa' },
-        //   { id: 'admin-perangkat-desa', url: 'adminperangkatdesa' },
-        //   { id: 'admin-lembaga-desa', url: 'adminlembagadesa' },
-        //   { id: 'admin-layanan-publik', url: 'adminlayananpublik' },
-        //   { id: 'admin-layanan-administrasi', url: 'adminlayananadministrasi' },
-        //   { id: 'admin-pengumuman', url: 'adminpengumuman' },
-        //   { id: 'admin-kegiatan', url: 'adminkegiatan' },
-        //   { id: 'admin-kontak', url: 'adminkontak' },
-        //   { id: 'kelola-pengguna', url: 'adminkelolapengguna' }
-        // ];
-
-        // sidebarItems.forEach(item => {
-        //   if (currentUrl.includes(item.url)) {
-        //     const sidebarLink = document.getElementById(item.id);
-        //     console.log('sidebar link: ', sidebarLink);
-
-        //     if (sidebarLink) {
-        //       sidebarLink.classList.add('active');
-        //     }
-        //   }
-        // });
     </script>
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                tabsize: 2,
+                height: 100,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+            $('#summernote2').summernote({
+                tabsize: 2,
+                height: 100,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+        });
+    </script>
+
 </body>
 
 </html>
