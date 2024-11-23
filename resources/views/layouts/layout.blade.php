@@ -116,8 +116,7 @@
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-
-
+  @yield('kodejsenduser')
   <script>
 
     // Navbar
@@ -132,6 +131,7 @@
       if (scrollTop > scrollThreshold) {
         navbar.style.top = '-100px';
       }
+
       // Tampilkan navbar hanya saat di posisi paling atas
       else if (scrollTop === 0) {
         navbar.style.top = '0';
@@ -233,95 +233,7 @@
       });
     });
 
-    // Diagram Lingkaran Suku
-    const sukuCtx = document.getElementById('sukuChart').getContext('2d');
-    const sukuChart = new Chart(sukuCtx, {
-      type: 'pie',
-      data: {
-        labels: ['Melayu', 'Madura', 'Tionghoa', 'Dayak', 'Jawa', 'Bugis', 'Lainnya'],
-        datasets: [{
-          label: 'Jumlah Suku',
-          data: [200, 150, 100, 50, 30, 20, 10],
-          backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'magenta'],
-          hoverOffset: 0
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: {
-              usePointStyle: true,
-              pointStyle: 'circle'
-            }
-          },
-          datalabels: {
-            color: '#000',
-            anchor: 'end',
-            align: 'end',
-            offset: -50,
-            formatter: (value, context) => {
-              const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
-              const percentage = (value / total * 100).toFixed(1) + '%';
-              return percentage;
-            },
-            font: {
-              weight: 'medium'
-            }
-          }
-        },
-        layout: {
-          padding: 0
-        }
-      },
-      plugins: [ChartDataLabels]
-    });
-
-    // Diagram Lingkaran Agama
-    const agamaCtx = document.getElementById('agamaChart').getContext('2d');
-    const agamaChart = new Chart(agamaCtx, {
-      type: 'pie',
-      data: {
-        labels: ['Islam', 'Katolik', 'Protestan', 'Buddha', 'Hindu', 'Kong Hu Chu'],
-        datasets: [{
-          label: 'Jumlah Agama',
-          data: [300, 100, 50, 30, 20, 10],
-          backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'magenta'],
-          hoverOffset: 0
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: {
-              usePointStyle: true,
-              pointStyle: 'circle'
-            }
-          },
-          datalabels: {
-            color: '#000',
-            anchor: 'end',
-            align: 'end',
-            offset: -50,
-            formatter: (value, context) => {
-              const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
-              const percentage = (value / total * 100).toFixed(1) + '%';
-              return percentage;
-            },
-            font: {
-              weight: 'medium'
-            }
-          }
-        },
-        layout: {
-          padding: 0
-        }
-      },
-      plugins: [ChartDataLabels]
-    });
+    
 
   </script>
 </body>

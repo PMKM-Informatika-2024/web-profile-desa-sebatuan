@@ -19,47 +19,15 @@
     <h2 class="subjudul text-center mb-4">Sejarah Desa</h2>
     <div class="row">
       <div class="container">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolorem
-          cupiditate iste dignissimos adipisci sapiente nesciunt, exercitationem dolore consectetur
-          praesentium rerum, labore quod maiores! Voluptatem accusantium, ipsa nihil libero aspernatur
-          corrupti saepe consectetur suscipit. Repellendus, assumenda tempore, aliquid illo cumque, atque
-          illum architecto reprehenderit magni voluptatibus delectus quas exercitationem eos. Non quod
-          voluptate impedit, quis neque architecto voluptatum eligendi, est illo quasi ratione tempora esse
-          commodi rerum perspiciatis atque obcaecati, omnis ipsam voluptas reiciendis? Cumque tempore
-          obcaecati, expedita sed doloribus atque ex officiis similique accusantium libero ea, praesentium
-          odit ducimus ipsa porro, pariatur necessitatibus? Quod facere doloribus modi dignissimos odio?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolorem
-          cupiditate iste dignissimos adipisci sapiente nesciunt, exercitationem dolore consectetur
-          praesentium rerum, labore quod maiores! Voluptatem accusantium, ipsa nihil libero aspernatur
-          corrupti saepe consectetur suscipit. Repellendus, assumenda tempore, aliquid illo cumque, atque
-          illum architecto reprehenderit magni voluptatibus delectus quas exercitationem eos. Non quod
-          voluptate impedit, quis neque architecto voluptatum eligendi, est illo quasi ratione tempora esse
-          commodi rerum perspiciatis atque obcaecati, omnis ipsam voluptas reiciendis? Cumque tempore
-          obcaecati, expedita sed doloribus atque ex officiis similique accusantium libero ea, praesentium
-          odit ducimus ipsa porro, pariatur necessitatibus? Quod facere doloribus modi dignissimos odio?</p>
+        {{ $profiledesa->sejarah_desa }}
       </div>
-      <div class="container transition-container">
+      {{-- <div class="container transition-container">
         <div class="row">
           <div class="col-lg-4 col-md-6">
-            <img src="img/1.jpg" id="image-desa" alt="Gambar Desa" class="img-fluid">
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <img src="img/2.jpg" id="image-desa" alt="Gambar Desa" class="img-fluid">
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <img src="img/3.jpg" id="image-desa" alt="Gambar Desa" class="img-fluid">
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <img src="img/4.jpg" id="image-desa" alt="Gambar Desa" class="img-fluid">
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <img src="img/5.jpg" id="image-desa" alt="Gambar Desa" class="img-fluid">
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <img src="img/6.jpg" id="image-desa" alt="Gambar Desa" class="img-fluid">
+            <img src="{{ asset('storage/'.$profiledesa->gambar_desa) }}" id="image-desa" alt="Gambar Desa" class="img-fluid">
           </div>
         </div>
-      </div>
+      </div> --}}
     </div>
     </div>
   </section>
@@ -76,8 +44,7 @@
             </div>
             <div class="card-body">
               <p class="card-text">
-                Mewujudkan masyarakat desa yang mandiri, sejahtera, dan berdaya saing dengan
-                memanfaatkan potensi sumber daya alam dan manusia secara berkelanjutan.
+                {{ $profiledesa->visi_desa }}
               </p>
             </div>
           </div>
@@ -86,13 +53,9 @@
               <h5 class="mb-2">Misi</h5>
             </div>
             <div class="card-body">
-              <ol class="card-text" style="list-style-type: disc;">
-                <li>Meningkatkan kualitas sumber daya manusia melalui pendidikan dan pelatihan.</li>
-                <li>Meningkatkan kesejahteraan masyarakat dengan menciptakan lapangan pekerjaan.</li>
-                <li>Mengembangkan potensi ekonomi lokal melalui pertanian, pariwisata, dan UMKM.</li>
-                <li>Meningkatkan infrastruktur dan fasilitas umum untuk kesejahteraan masyarakat.</li>
-                <li>Mewujudkan pemerintahan desa yang transparan dan akuntabel.</li>
-              </ol>
+              <div class="card-text" style="list-style-type: disc;">
+                {{ $profiledesa->misi_desa }}
+              </div>
             </div>
           </div>
         </div>
@@ -110,7 +73,7 @@
           <div class="card p-3">
             <div class="card-body">
               <h5 class="card-title">Total Jiwa</h5>
-              <span class="counter display-4" data-target="5000">0</span>
+              <span class="counter display-4" data-target="{{ $profiledesa->total_jiwa }}">0</span>
             </div>
           </div>
         </div>
@@ -118,7 +81,7 @@
           <div class="card p-3">
             <div class="card-body">
               <h5 class="card-title">Total KK</h5>
-              <span class="counter display-4" data-target="1200">0</span>
+              <span class="counter display-4" data-target="{{ $profiledesa->total_kk }}">0</span>
             </div>
           </div>
         </div>
@@ -126,7 +89,7 @@
           <div class="card p-3">
             <div class="card-body">
               <h5 class="card-title">Dusun</h5>
-              <span class="counter display-4" data-target="15">0</span>
+              <span class="counter display-4" data-target="{{ $profiledesa->total_dusun }}">0</span>
             </div>
           </div>
         </div>
@@ -134,7 +97,7 @@
           <div class="card p-3">
             <div class="card-body">
               <h5 class="card-title">Jumlah RT</h5>
-              <span class="counter display-4" data-target="50">0</span>
+              <span class="counter display-4" data-target='{{ $profiledesa->total_rt }}'>0</span>
             </div>
           </div>
         </div>
@@ -175,4 +138,115 @@
   </section>
   <!-- End of Kantor Desa -->
 
+  @endsection
+  @section('kodejsenduser')
+  <script>
+    const dataSuku = [
+    {{ $profiledesa->total_melayu }},
+    {{ $profiledesa->total_madura }},
+    {{ $profiledesa->total_tionghoa }},
+    {{ $profiledesa->total_dayak }},
+    {{ $profiledesa->total_jawa }},
+    {{ $profiledesa->total_bugis }},
+    {{ $profiledesa->total_suku_lainnya }}
+  ];
+
+  const dataAgama = [
+    {{ $profiledesa->total_islam }},
+    {{ $profiledesa->total_katolik }},
+    {{ $profiledesa->total_protestan }},
+    {{ $profiledesa->total_buddha }},
+    {{ $profiledesa->total_hindu }},
+    {{ $profiledesa->total_konghuchu }}
+  ];
+    // Diagram Lingkaran Suku
+    const sukuCtx = document.getElementById('sukuChart').getContext('2d');
+    const sukuChart = new Chart(sukuCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Melayu', 'Madura', 'Tionghoa', 'Dayak', 'Jawa', 'Bugis', 'Lainnya'],
+        datasets: [{
+          label: 'Jumlah Suku',
+          data: dataSuku,
+          backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'magenta'],
+          hoverOffset: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              usePointStyle: true,
+              pointStyle: 'circle'
+            }
+          },
+          datalabels: {
+            color: '#000',
+            anchor: 'end',
+            align: 'end',
+            offset: -50,
+            formatter: (value, context) => {
+              const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+              const percentage = (value / total * 100).toFixed(1) + '%';
+              return percentage;
+            },
+            font: {
+              weight: 'medium'
+            }
+          }
+        },
+        layout: {
+          padding: 0
+        }
+      },
+      plugins: [ChartDataLabels]
+    });
+  
+    // Diagram Lingkaran Agama
+    const agamaCtx = document.getElementById('agamaChart').getContext('2d');
+    const agamaChart = new Chart(agamaCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Islam', 'Katolik', 'Protestan', 'Buddha', 'Hindu', 'Kong Hu Chu'],
+        datasets: [{
+          label: 'Jumlah Agama',
+          data: dataAgama,
+          backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'magenta'],
+          hoverOffset: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              usePointStyle: true,
+              pointStyle: 'circle'
+            }
+          },
+          datalabels: {
+            color: '#000',
+            anchor: 'end',
+            align: 'end',
+            offset: -50,
+            formatter: (value, context) => {
+              const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+              const percentage = (value / total * 100).toFixed(1) + '%';
+              return percentage;
+            },
+            font: {
+              weight: 'medium'
+            }
+          }
+        },
+        layout: {
+          padding: 0
+        }
+      },
+      plugins: [ChartDataLabels]
+    });
+  </script>
   @endsection

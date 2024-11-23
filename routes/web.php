@@ -8,7 +8,7 @@ use App\Http\Controllers\LayananadministrasiController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\KelolakegiatanController;
 use App\Http\Controllers\KelolakontakController;
-use App\Models\Perangkatdesa;
+use App\Models\Profildesa;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/test-summernote', function(){
@@ -19,7 +19,9 @@ Route::get('/lembaga-desa', [LembagadesaController::class, 'show']);
 Route::get('/layanan-publik', [LayananpublikController::class, 'show']);
 
 Route::get('/profile-desa', function () {
-    return view('user/profile-desa');
+    return view('user/profile-desa',[
+        'profiledesa' => Profildesa::first()
+     ]);
 });
 Route::get('/perangkat-desa', function () {
     return view('user/perangkat-desa');

@@ -14,19 +14,29 @@ return new class extends Migration
         Schema::create('profildesas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('nama_desa');
-            $table->string('sejarah_desa');
+            $table->text('sejarah_desa');
             $table->string('gambar_desa');
             $table->string('visi_desa');
-            $table->string('misi_desa');
+            $table->text('misi_desa');
             $table->integer('total_jiwa');
             $table->integer('total_kk');
             $table->integer('total_dusun');
             $table->integer('total_rt');
-            $table->string('suku');
+            $table->integer('total_melayu');
+            $table->integer('total_madura');
+            $table->integer('total_tionghoa');
+            $table->integer('total_dayak');
+            $table->integer('total_jawa');
+            $table->integer('total_bugis');
+            $table->integer('total_suku_lainnya');
+            $table->integer('total_islam');
+            $table->integer('total_katolik');
+            $table->integer('total_protestan');
+            $table->integer('total_buddha');
+            $table->integer('total_hindu');
+            $table->integer('total_konghuchu');
             $table->string('agama');
-            $table->string('peta_desa'); 
-            $table->string('kantor_desa');
+            $table->string('peta_desa');
         });
     }
 

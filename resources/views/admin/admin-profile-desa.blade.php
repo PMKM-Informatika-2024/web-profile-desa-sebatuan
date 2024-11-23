@@ -9,41 +9,35 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-
                             <!-- Nama Desa -->
-                            <div class="form-group row mb-3">
-                                <label for="namaDesa" class="col-lg-2 col-md-3 col-sm-4 form-label">Nama Desa:</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" id="namaDesa"
-                                        placeholder="Masukkan nama desa" required>
-                                </div>
-                            </div>
-
+                            <form action="/profiledesa" method="POST">
+                                @method('put')
+                                @csrf
                             <!-- Sejarah Desa -->
                             <div class="form-group row mb-3">
                                 <label for="sejarahDesa" class="col-lg-2 col-md-3 col-sm-4 form-label">Sejarah Desa:</label>
                                 <div class="col-lg-10 col-md-9 col-sm-8">
-                                    <textarea class="form-control" id="sejarahDesa" placeholder="Masukkan Sejarah Desa" required></textarea>
+                                    <textarea name="deskripsi_singkat" id="summernote-sejarah" required></textarea>
                                 </div>
                             </div>
 
                             <!-- Foto Desa -->
-                            <div class="form-group row mb-3">
+                            {{-- <div class="form-group row mb-3">
                                 <label for="fotoDesa" class="col-lg-2 col-md-3 col-sm-4 form-label">Foto Desa:</label>
                                 <div class="col-lg-10 col-md-9 col-sm-8">
                                     <input type="file" class="form-control" id="fotoDesa" accept="image/*" required
                                         multiple onchange="previewImages()">
                                 </div>
                                 <div id="imagePreview" class="mt-3"></div>
-                            </div>
+                            </div> --}}
 
 
 
                             <!-- Visi Desa -->
                             <div class="form-group row mb-3">
-                                <label for="visiDesa" class="col-lg-2 col-md-3 col-sm-4 form-label">Visi Desa:</label>
+                                <label class="col-lg-2 col-md-3 col-sm-4 form-label">Visi Desa:</label>
                                 <div class="col-lg-10 col-md-9 col-sm-8">
-                                    <textarea class="form-control" id="visiDesa" placeholder="Masukkan Visi Desa" required></textarea>
+                                    <textarea class="form-control" name="visi_desa" placeholder="Masukkan Visi Desa" required></textarea>
                                 </div>
                             </div>
 
@@ -51,27 +45,27 @@
                             <div class="form-group row mb-3">
                                 <label for="misiDesa" class="col-lg-2 col-md-3 col-sm-4 form-label">Misi Desa:</label>
                                 <div class="col-lg-10 col-md-9 col-sm-8">
-                                    <textarea class="form-control" id="misiDesa" placeholder="Masukkan Misi Desa" required></textarea>
+                                    <textarea name="deskripsi_singkat" id="summernote-misidesa" required></textarea>
                                 </div>
                             </div>
 
                             <!-- Additional Details (Total Jiwa, Total KK, Total Dusun, Total RT) -->
                             <div class="form-group row gx-3 gy-3">
                                 <div class="col-lg-3 col-md-6">
-                                    <label for="totalJiwa" class="form-label">Total Jiwa:</label>
-                                    <input type="number" class="form-control" id="totalJiwa" required>
+                                    <label  class="form-label">Total Jiwa:</label>
+                                    <input type="number" class="form-control" name="total_jiwa" required value="{{ $profiledesa->total_jiwa }}">
                                 </div>
                                 <div class="col-lg-3 col-md-6">
-                                    <label for="totalKK" class="form-label">Total KK:</label>
-                                    <input type="number" class="form-control" id="totalKK" required>
+                                    <label  class="form-label">Total KK:</label>
+                                    <input type="number" class="form-control" name="total_kk" required value="{{ $profiledesa->total_kk }}">
                                 </div>
                                 <div class="col-lg-3 col-md-6">
-                                    <label for="totalDusun" class="form-label">Total Dusun:</label>
-                                    <input type="number" class="form-control" id="totalDusun" required>
+                                    <label  class="form-label">Total Dusun:</label>
+                                    <input type="number" class="form-control" name="total_dusun" required value="{{ $profiledesa->total_dusun }}">
                                 </div>
                                 <div class="col-lg-3 col-md-6">
-                                    <label for="totalRT" class="form-label">Total RT:</label>
-                                    <input type="number" class="form-control" id="totalRT" required>
+                                    <label  class="form-label">Total RT:</label>
+                                    <input type="number" class="form-control" name="total_rt" required value="{{ $profiledesa->total_rt }}">
                                 </div>
                             </div>
 
@@ -81,38 +75,38 @@
                                 <div class="col-lg-10 col-md-9 col-sm-8">
                                     <div class="row gx-3 gy-2">
                                         <div class="col-lg-2 col-md-3">
-                                            <label for="sukuMelayu" class="form-label">Melayu</label>
-                                            <input type="number" class="form-control" id="sukuMelayu" placeholder=""
+                                            <label  class="form-label">Melayu</label>
+                                            <input type="number" class="form-control" value="{{ $profiledesa->total_melayu }}" placeholder=""
                                                 min="0">
                                         </div>
                                         <div class="col-lg-2 col-md-3">
-                                            <label for="sukuMadura" class="form-label">Madura</label>
-                                            <input type="number" class="form-control" id="sukuMadura" placeholder=""
+                                            <label  class="form-label">Madura</label>
+                                            <input type="number" class="form-control" value="{{ $profiledesa->total_madura }}" placeholder=""
                                                 min="0">
                                         </div>
                                         <div class="col-lg-2 col-md-3">
-                                            <label for="sukuTionghoa" class="form-label">Tionghoa</label>
-                                            <input type="number" class="form-control" id="sukuTionghoa" placeholder=""
+                                            <label  class="form-label">Tionghoa</label>
+                                            <input type="number" class="form-control" value="{{ $profiledesa->total_tionghoa }}" placeholder=""
                                                 min="0">
                                         </div>
                                         <div class="col-lg-2 col-md-3">
-                                            <label for="sukuDayak" class="form-label">Dayak</label>
-                                            <input type="number" class="form-control" id="sukuDayak" placeholder=""
+                                            <label  class="form-label">Dayak</label>
+                                            <input type="number" class="form-control" value="{{ $profiledesa->total_dayak }}" placeholder=""
                                                 min="0">
                                         </div>
                                         <div class="col-lg-2 col-md-3">
-                                            <label for="sukuJawa" class="form-label">Jawa</label>
-                                            <input type="number" class="form-control" id="sukuJawa" placeholder=""
+                                            <label  class="form-label">Jawa</label>
+                                            <input type="number" class="form-control" value="{{ $profiledesa->total_jawa }}" placeholder=""
                                                 min="0">
                                         </div>
                                         <div class="col-lg-2 col-md-3">
-                                            <label for="sukuBugis" class="form-label">Bugis</label>
-                                            <input type="number" class="form-control" id="sukuBugis" placeholder=""
+                                            <label  class="form-label">Bugis</label>
+                                            <input type="number" class="form-control" value="{{ $profiledesa->total_bugis }}" placeholder=""
                                                 min="0">
                                         </div>
                                         <div class="col-lg-2 col-md-3">
-                                            <label for="sukuLainnya" class="form-label">Lainnya</label>
-                                            <input type="number" class="form-control" id="sukuLainnya" placeholder=""
+                                            <label  class="form-label">Lainnya</label>
+                                            <input type="number" class="form-control" value="{{ $profiledesa->total_suku_lainnya }}" placeholder=""
                                                 min="0">
                                         </div>
                                     </div>
@@ -126,17 +120,17 @@
                                     <div class="row gx-3 gy-2">
                                         <div class="col-lg-2 col-md-3">
                                             <label for="agamaIslam" class="form-label">Islam</label>
-                                            <input type="number" class="form-control" id="agamaIslam" placeholder=""
+                                            <input type="number" class="form-control" value="{{ $profiledesa->total_islam }}" placeholder=""
                                                 min="0">
                                         </div>
                                         <div class="col-lg-2 col-md-3">
                                             <label for="agamaKatolik" class="form-label">Katolik</label>
-                                            <input type="number" class="form-control" id="agamaKatolik" placeholder=""
+                                            <input type="number" class="form-control" value="{{ $profiledesa->total_katolik }}" placeholder=""
                                                 min="0">
                                         </div>
                                         <div class="col-lg-2 col-md-3">
                                             <label for="agamaProtestan" class="form-label">Protestan</label>
-                                            <input type="number" class="form-control" id="agamaProtestan"
+                                            <input type="number" class="form-control" value="{{ $profiledesa->total_protestan }}"
                                                 placeholder="" min="0">
                                         </div>
                                         <div class="col-lg-2 col-md-3">
@@ -179,7 +173,7 @@
                             <div class="d-flex justify-content-end mt-4">
                                 <button type="submit" class="btn btn-simpan" onclick="showAlert()">Simpan</button>
                             </div>
-
+                        </form>
                         </div>
                     </div>
                 </div>
@@ -243,5 +237,11 @@
                 reader.readAsDataURL(file);
             });
         }
+    </script>
+@endsection
+@section('kodejs')
+    <script>
+        $('#summernote-sejarah').summernote('code', {{ $profiledesa->sejarah_desa }});
+        $('#summernote-misidesa').summernote('code', {{ $profiledesa->misi_desa }});
     </script>
 @endsection
