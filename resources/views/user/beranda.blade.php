@@ -23,7 +23,7 @@
                 <div class="col-lg-6 mb-4">
                     <h2 class="subjudul mb-3 fw-bold">Mengenal Tentang Desa Perapakan</h2>
                     <p class="text-muted" style="font-size: 1rem; line-height: 1.7; text-align: justify;">
-                        {{ \Illuminate\Support\Str::limit($profiledesa->sejarah_desa, 300) }}
+                        {!! \Illuminate\Support\Str::limit($profiledesa->sejarah_desa, 300) !!}
                         <!-- Shortened for better UX -->
                     </p>
                     <a href="/profile-desa" class="btn btn-outline-primary mt-3 px-4 py-2">
