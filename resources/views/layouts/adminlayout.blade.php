@@ -87,7 +87,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="profildesa" class="sidebar-link {{ Request::is('adminprofildesa*') ? 'active' : '' }}"
+                        <a href="profildesa" class="sidebar-link {{ Request::is('profildesa*') ? 'active' : '' }}"
                             id="admin-profile-desa">
                             <i class="fa-solid fa-id-card pe-2"></i>
                             <span class="link-text">Profile Desa</span>
@@ -239,6 +239,30 @@
                 ]
             });
             $('#summernote-misidesa').summernote({
+                tabsize: 2,
+                height: 100,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+            $('#summernote-layadmin-create').summernote({
+                tabsize: 2,
+                height: 100,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'italic', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['insert', ['link']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+            $('#summernote-layadmin-update').summernote({
                 tabsize: 2,
                 height: 100,
                 toolbar: [
