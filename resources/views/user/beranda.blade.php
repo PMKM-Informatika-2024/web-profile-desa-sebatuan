@@ -22,7 +22,7 @@
       <div class="row align-items-center">
         <div class="col-lg-5 mt-3 d-flex flex-column justify-content-between">
           <h2 class="subjudul">Mengenal Tentang Desa Perapakan</h2>
-          <p style="text-align: justify;">{!! \Illuminate\Support\Str::limit($profiledesa->sejarah_desa, 40) !!}</p>
+          <p style="text-align: justify;">{!! implode(' ', array_slice(explode(' ', strip_tags($profiledesa->sejarah_desa)), 0, 40)) !!} ...</p>
           <a href="/profile-desa" class="btn-more mt-5 ">Selengkapnya..</a>
         </div>
         <div class="col-lg-7 mt-3">
