@@ -20,7 +20,7 @@
                                             <label for="namaLayanan" class="col-lg-2 col-md-3 col-sm-4 form-label">Nama
                                                 Layanan:</label>
                                             <div class="col-lg-10 col-md-9 col-sm-8">
-                                                <input type="text" class="form-control" id="namaLayanan" required>
+                                                <input type="text" class="form-control" name="nama_layanan" id="namaLayanan" required>
                                             </div>
                                         </div>
 
@@ -29,7 +29,7 @@
                                             <label for="deskripsiLayanan"
                                                 class="col-lg-2 col-md-3 col-sm-4 form-label">Deskripsi:</label>
                                             <div class="col-lg-10 col-md-9 col-sm-8">
-                                                <textarea class="form-control" id="deskripsiLayanan" required></textarea>
+                                                <textarea class="form-control" name="deskripsi" id="deskripsiLayanan" required></textarea>
                                             </div>
                                         </div>
 
@@ -38,7 +38,7 @@
                                             <label for="persyaratanLayanan"
                                                 class="col-lg-2 col-md-3 col-sm-4 form-label">Persyaratan:</label>
                                             <div class="col-lg-10 col-md-9 col-sm-8">
-                                                <textarea class="form-control" id="persyaratanLayanan" required></textarea>
+                                                <textarea class="form-control" name="persyaratan" id="persyaratanLayanan" required></textarea>
                                             </div>
                                         </div>
 
@@ -107,7 +107,7 @@
 @endsection
 
 
-
+{{-- 
 @section('kodejs')
     <script>
         // tambah layanan administrasi
@@ -190,4 +190,4 @@
             }
         }
     </script>
-@endsection
+@endsection --}}
