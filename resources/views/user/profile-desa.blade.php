@@ -19,7 +19,7 @@
     <h2 class="subjudul text-center mb-4">Sejarah Desa</h2>
     <div class="row">
       <div class="container">
-        {{ $profiledesa->sejarah_desa }}
+        {!! $profiledesa->sejarah_desa !!}
       </div>
       {{-- <div class="container transition-container">
         <div class="row">
@@ -54,7 +54,7 @@
             </div>
             <div class="card-body">
               <div class="card-text" style="list-style-type: disc;">
-                {{ $profiledesa->misi_desa }}
+                {!! $profiledesa->misi_desa !!}
               </div>
             </div>
           </div>

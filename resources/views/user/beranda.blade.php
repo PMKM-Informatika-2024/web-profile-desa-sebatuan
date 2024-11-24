@@ -32,7 +32,15 @@
     </div>
   </section>
   <!-- End of Content -->
-
+  <section id="video-profile" class="py-5">
+    <div class="container transition-container mb-3 justify-content-center">
+      <div class="row">
+        <h2 class="subjudul text-center mb-5">Video Profile Desa ...</h2>
+        <iframe class="rounded" width="560" height="315" src="https://www.youtube.com/embed/qIAq6TzBxdk?si=M2q1hTPSUpVh2Ske" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+  
   <!-- Perangkat Desa -->
   <section id="perangkat-desa" class="py-5 mb-5">
     <div class="container-fluid transition-container perangkat-desa-container shadow">
