@@ -8,7 +8,7 @@
       <div class="row">
         <div class="text-center">
           <h2 class="text-banner-h2">Selamat Datang</h2>
-          <h2 class="text-banner-h1">Website Resmi Desa Parapakan</h2>
+          <h2 class="text-banner-h1">Website Resmi Desa Perapakan</h2>
         </div>
       </div>
     </div>
@@ -21,12 +21,12 @@
     <div class="container transition-container col-lg-9 mt-5">
       <div class="row align-items-center">
         <div class="col-lg-5 mt-3 d-flex flex-column justify-content-between">
-          <h2 class="subjudul">Mengenal Tentang Desa Sungai Keran...</h2>
+          <h2 class="subjudul">Mengenal Tentang Desa Perapakan</h2>
           <p style="text-align: justify;">{{ $profiledesa->sejarah_desa }}</p>
           <a href="/profile-desa" class="btn-more mt-5 ">Selengkapnya..</a>
         </div>
         <div class="col-lg-7 mt-3">
-          <img src="{{ asset('storage/'.$profiledesa->gambar_profiledesa) }}" class="image shadow-lg" alt="Desa Sungai Keran">
+          <img src="{{ asset('storage/'.$profiledesa->gambar_profiledesa) }}" class="image shadow-lg" alt="Desa Perapakan">
         </div>
       </div>
     </div>
