@@ -7,11 +7,8 @@
     <div class="container-fluid banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
       <div class="row">
         <div class="text-center">
-          <h2 class="text-banner-h2"> Selamat Datang di</h2>
-          <h1 class="text-banner-h1">Desa Parapakan</h1>
-        </div>
-        <div class="text-center mt-3">
-          <a href="/profile-desa" class="btn-more">Lihat..</a>
+          <h2 class="text-banner-h2">Selamat Datang</h2>
+          <h2 class="text-banner-h1">Website Resmi Desa Parapakan</h2>
         </div>
       </div>
     </div>
@@ -95,7 +92,6 @@
       </div>
     </div>
   </section>
-
   <!-- End of Perangkat Desa -->
 
   <!-- Pengumuman -->
