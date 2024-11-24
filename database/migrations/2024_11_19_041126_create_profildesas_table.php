@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->text('sejarah_desa');
+            $table->string('gambar_profiledesa');
             $table->text('visi_desa');
             $table->text('misi_desa');
             $table->integer('total_jiwa');

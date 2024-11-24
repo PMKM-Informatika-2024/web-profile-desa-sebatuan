@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengumuman;
 use App\Models\Perangkatdesa;
+use App\Models\Profildesa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 class PerangkatdesaController  
@@ -53,6 +54,7 @@ class PerangkatdesaController
         return view('user.beranda', [
             'perangkatdesas' => Perangkatdesa::all(),
             'pengumumen'=>Pengumuman::limit(4)->get(),
+            'profiledesa' => Profildesa::first()
         ]);
     }
 

@@ -23,8 +23,9 @@ class DatabaseSeeder extends Seeder
         ]);
         Profildesa::create([
             'sejarah_desa' => 'Sejarah singkat desa ini bermula dari...',
+            'gambar_profiledesa'=>'aofinasodias.png',
             'visi_desa' => 'Menjadi desa mandiri dan maju.',
-            'misi_desa' => '1. Meningkatkan kesejahteraan masyarakat.\n2. Meningkatkan infrastruktur desa.',
+            'misi_desa' => 'Meningkatkan kesejahteraan masyarakat.',
             'total_jiwa' => 1500,
             'total_kk' => 350,
             'total_dusun' => 5,

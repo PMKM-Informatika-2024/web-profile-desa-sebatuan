@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Profildesa;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Storage;
 class ProfildesaController  
 {
     /**
@@ -60,6 +60,7 @@ class ProfildesaController
         $validatedData = $request->validate([
             'sejarah_desa' => 'required',
             'visi_desa' => 'required',
+            'gambar_profiledesa'=>'image',
             'misi_desa' => 'required',
             'total_jiwa' => 'required',
             'total_kk' => 'required',
@@ -80,6 +81,12 @@ class ProfildesaController
             'total_konghuchu' => 'required',
             'peta_desa' => 'required',
         ]);
+        if($request->file('gambar_profiledesa')) {
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['gambar_profiledesa'] = $request->file('gambar_profiledesa')->store('gambar_yang_tersimpan');
+        }
         Profildesa::where('id', $request->input('id'))
             ->update($validatedData);
 

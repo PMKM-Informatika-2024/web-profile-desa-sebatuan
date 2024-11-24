@@ -25,18 +25,11 @@
       <div class="row align-items-center">
         <div class="col-lg-5 mt-3 d-flex flex-column justify-content-between">
           <h2 class="subjudul">Mengenal Tentang Desa Sungai Keran...</h2>
-          <p style="text-align: justify;">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Nobis, dolorem. Odio
-            impedit consequatur ipsam
-            assumenda est quidem molestias deserunt eaque ad quis molestiae reiciendis optio
-            blanditiis neque atque
-            architecto laborum quibusdam voluptas nam, maiores cum eius voluptatem. Ab,
-            blanditiis iusto sapiente nam
-            iure provident culpa? Pariatur possimus modi consectetur nihil!.......</p>
-          <a href="profil-desa.html" class="btn-more mt-5 ">Selengkapnya..</a>
+          <p style="text-align: justify;">{{ $profiledesa->sejarah_desa }}</p>
+          <a href="/profile-desa" class="btn-more mt-5 ">Selengkapnya..</a>
         </div>
         <div class="col-lg-7 mt-3">
-          <img src="img/1.jpg" class="image shadow-lg" alt="Desa Sungai Keran">
+          <img src="{{ asset('storage/'.$profiledesa->gambar_profiledesa) }}" class="image shadow-lg" alt="Desa Sungai Keran">
         </div>
       </div>
     </div>
