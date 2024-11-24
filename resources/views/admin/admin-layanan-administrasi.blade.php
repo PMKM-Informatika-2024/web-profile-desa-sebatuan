@@ -21,7 +21,7 @@
                                             <label  class="col-lg-2 col-md-3 col-sm-4 form-label">Nama
                                                 Layanan:</label>
                                             <div class="col-lg-10 col-md-9 col-sm-8">
-                                                <input type="text" class="form-control" name="nama_layanan" required>
+                                                <input type="text" class="form-control" name="nama_layanan" name="nama_layanan" required>
                                             </div>
                                         </div>
 
@@ -128,7 +128,7 @@
 @endsection
 
 
-
+{{-- 
 @section('kodejs')
     <script>
         function loadEditData(layananadministrasi) {
@@ -157,4 +157,4 @@
             }
         }
     </script>
-@endsection
+@endsection --}}
