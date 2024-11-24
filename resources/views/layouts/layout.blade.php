@@ -85,6 +85,7 @@
                 </div>
             </div>
         </nav>
+        
         <!-- Floating Chatbot Button -->
         <a href="https://pemangkat-chatbot.streamlit.app/" target="_blank" id="chatbotBtn" class="btn btn-primary">
             <i class="fas fa-comments"></i> <!-- Chat icon (can be replaced with your own icon) -->

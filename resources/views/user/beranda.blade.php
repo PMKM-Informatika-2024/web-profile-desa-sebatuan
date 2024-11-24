@@ -17,27 +17,29 @@
 
     <!-- Content Section -->
     <section id="content" class="py-5 bg-light">
-        <div class="container transition-container col-lg-10 mt-5 shadow-sm p-4 rounded">
-            <div class="row align-items-center">
-                <!-- Text Content -->
-                <div class="col-lg-6 mb-4">
-                    <h2 class="subjudul mb-3 fw-bold">Mengenal Tentang Desa Perapakan</h2>
-                    <p class="text-muted" style="font-size: 1rem; line-height: 1.7; text-align: justify;">
-                        {{ \Illuminate\Support\Str::limit($profiledesa->sejarah_desa, 300) }}
-                        <!-- Shortened for better UX -->
-                    </p>
-                    <a href="/profile-desa" class="btn btn-outline-primary mt-3 px-4 py-2">
-                        <i class="fas fa-arrow-right me-2"></i> Selengkapnya
-                    </a>
-                </div>
-
+        <div class="container col-lg-10 mt-5 shadow-sm p-4 rounded transition-container">
+            <div class="row align-items-center g-5">
                 <!-- Image Content -->
                 <div class="col-lg-6">
-                    <div class="image-container">
-                        <img src="{{ asset('storage/' . $profiledesa->gambar_profiledesa) }}"
-                            class="image img-fluid rounded shadow" alt="Desa Perapakan"
-                            style="object-fit: cover; width: 100%; max-height: 400px;">
+                    <div class="image-container position-relative overflow-hidden rounded shadow">
+                        <img src="{{ asset('storage/' . $profiledesa->gambar_profiledesa) }}" class="img-fluid rounded"
+                            alt="Desa Perapakan"
+                            style="object-fit: cover; width: 100%; max-height: 400px; transition: transform 0.3s;">
                     </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="col-lg-6">
+                    <h2 class="subjudul mb-4 fw-bold">
+                        Tentang Desa Perapakan
+                    </h2>
+                    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; text-align: justify;">
+                        {{ \Illuminate\Support\Str::limit($profiledesa->sejarah_desa, 300) }}
+                    </p>
+                    <a href="/profile-desa"
+                        class="btn btn-primary mt-4 px-4 py-2 d-inline-flex align-items-center shadow-sm">
+                        <i class="fas fa-info-circle me-2"></i> Selengkapnya
+                    </a>
                 </div>
             </div>
         </div>
@@ -45,48 +47,62 @@
     <!-- End of Content Section -->
 
 
-    <section id="video-profile" class="py-5">
-        <div class="container transition-container mb-3 justify-content-center">
-            <div class="row">
-                <h2 class="subjudul text-center mb-5">Video Profile Desa</h2>
-                <iframe class="rounded" width="560" height="315"
-                    src="https://www.youtube.com/embed/qIAq6TzBxdk?si=M2q1hTPSUpVh2Ske" title="YouTube video player"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <!-- Video Profile Section -->
+    <section id="video-profile" class="py-5 bg-white">
+        <div class="container transition-container text-center">
+            <h2 class="subjudul text-center mb-4 fw-bold">Video Profile Desa</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="ratio ratio-16x9 shadow-sm rounded">
+                        <iframe class="rounded" src="https://www.youtube.com/embed/qIAq6TzBxdk?si=M2q1hTPSUpVh2Ske"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    <!-- End of Video Profile Section -->
 
-    <!-- Perangkat Desa -->
-    <section id="perangkat-desa" class="py-5 mb-5">
-        <div class="container-fluid transition-container perangkat-desa-container shadow">
+
+    <!-- Perangkat Desa Section -->
+    <section id="perangkat-desa" class="py-5 mb-5 bg-light">
+        <div class="container-fluid perangkat-desa-container shadow rounded px-5 py-4">
+            <!-- Section Title -->
             <div class="row mb-4 justify-content-center text-center">
                 <div class="col-12">
-                    <h2 class="subjudul text-center">Perangkat Desa</h2>
+                    <h2 class="subjudul fw-bold">Perangkat Desa</h2>
+                    <p class="text-muted">Berkenalan dengan perangkat desa yang mendukung kemajuan Desa Perapakan.</p>
                 </div>
             </div>
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+
+            <!-- Carousel -->
+            <div id="carouselPerangkatDesa" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                <!-- Carousel Indicators -->
                 <div class="carousel-indicators">
                     @foreach ($perangkatdesas->chunk(3) as $index => $chunk)
-                        <button type="button" data-bs-target="#carouselExampleIndicators"
+                        <button type="button" data-bs-target="#carouselPerangkatDesa"
                             data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}"
                             aria-current="{{ $index === 0 ? 'true' : '' }}" aria-label="Slide {{ $index + 1 }}"></button>
                     @endforeach
                 </div>
+
+                <!-- Carousel Content -->
                 <div class="carousel-inner">
                     @foreach ($perangkatdesas->chunk(3) as $index => $chunk)
                         <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                            <div class="row justify-content-center">
+                            <div class="row justify-content-center g-4">
                                 @foreach ($chunk as $perangkatdesa)
-                                    <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
-                                        <div class="card shadow-sm border-0 rounded">
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="card shadow-sm border-0 rounded h-100">
                                             <img src="{{ asset('storage/' . $perangkatdesa->gambar_perangkatdesa) }}"
-                                                style="height:300px; object-fit:cover; object-position:center;"
-                                                class="card-img-top rounded" alt="{{ $perangkatdesa->jabatan }}">
+                                                alt="{{ $perangkatdesa->jabatan }}" class="card-img-top rounded-top"
+                                                style="height: 250px; object-fit: cover; object-position: center;">
                                             <div class="card-body text-center">
-                                                <h4 class="card-title">{{ $perangkatdesa->nama }}</h4>
-                                                <h5 class="card-title">{{ $perangkatdesa->jabatan }}</h5>
+                                                <h5 class="card-title fw-bold text-primary">{{ $perangkatdesa->nama }}</h5>
+                                                <p class="card-text text-muted">{{ $perangkatdesa->jabatan }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -95,25 +111,30 @@
                         </div>
                     @endforeach
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+
+                <!-- Carousel Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselPerangkatDesa"
                     data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselPerangkatDesa"
                     data-bs-slide="next">
-                    <span class="carousel-control-next-icon" style=" " aria-hidden="true"></span>
+                    <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-            <div class="row">
-                <div class="col-lg-12 text-end pe-5 pb-3">
-                    <a href="/perangkat-desa" class="btn-more">Selengkapnya...</a>
+
+            <!-- "See More" Button -->
+            <div class="row mt-4">
+                <div class="col-lg-12 text-end">
+                    <a href="/perangkat-desa" class="btn btn-outline-primary px-4 py-2 fw-bold">Selengkapnya</a>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End of Perangkat Desa -->
+    <!-- End of Perangkat Desa Section -->
+
 
     <!-- Pengumuman -->
     <section id="pengumuman" class="py-5">

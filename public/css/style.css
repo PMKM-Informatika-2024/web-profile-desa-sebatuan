@@ -299,8 +299,8 @@ footer .social-icons a:hover {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.image:hover {
-  transform: scale(1.03); /* Subtle zoom effect */
+.image-container img:hover {
+  transform: scale(1.05);
   transition: transform 0.3s ease-in-out;
 }
 
