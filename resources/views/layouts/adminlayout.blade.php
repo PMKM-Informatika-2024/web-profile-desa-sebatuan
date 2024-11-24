@@ -87,7 +87,7 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="profildesa" class="sidebar-link {{ Request::is('adminprofildesa*') ? 'active' : '' }}"
+                        <a href="profildesa" class="sidebar-link {{ Request::is('profildesa*') ? 'active' : '' }}"
                             id="admin-profile-desa">
                             <i class="fa-solid fa-id-card pe-2"></i>
                             <span class="link-text">Profile Desa</span>
