@@ -59,8 +59,13 @@ Route::get('/struktur-pemerintahan', function () {
 Route::get('/adminlogin', [LoginController::class, 'index'])->middleware('guest');
 Route::post('/adminlogin', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
-Route::get('/admin', function(){
-    return view('admin/admin-dashboard');
+// Route::get('/admin', function(){
+//     return view('admin/admin-dashboard');
+// })->middleware('auth');
+Route::get('/admin', function () {
+    return view('admin/admin-dashboard',[
+        'profiledesa' => Profildesa::first()
+     ]);
 })->middleware('auth');
 Route::resource('/profildesa', ProfildesaController::class)->middleware('auth');
 Route::resource('/perangkatdesa', PerangkatdesaController::class)->middleware('auth');

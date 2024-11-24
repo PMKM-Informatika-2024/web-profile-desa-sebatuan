@@ -1262,6 +1262,30 @@ a.sidebar-link.active {
   color: rgba(0, 0, 0, 0.7);
 }
 
+.fasilitas-card {
+  position: relative;
+}
+
+.fasilitas-img {
+  transition: transform 0.3s ease;
+}
+
+.fasilitas-img:hover {
+  transform: scale(1.1);
+}
+
+.fasilitas-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.fasilitas-card:hover .fasilitas-overlay {
+  opacity: 1;
+}
+
+
 
 
 

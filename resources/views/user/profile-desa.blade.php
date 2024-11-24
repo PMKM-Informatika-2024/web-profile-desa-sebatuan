@@ -19,6 +19,7 @@
     <h2 class="subjudul text-center mb-4">Sejarah Desa</h2>
     <div class="row">
       <div class="container">
+        <img src="{{ asset('storage/'.$profiledesa->gambar_profiledesa) }}" alt="no image yet" id="previewImage" >
         {!! $profiledesa->sejarah_desa !!}
       </div>
       {{-- <div class="container transition-container">
@@ -62,7 +63,7 @@
       </div>
     </div>
   </section>
-  <!-- End of Visi Misi -->
+  <!-- End of Visi -->
 
   <!-- Kependudukan -->
   <section id="kependudukan" class="py-5">

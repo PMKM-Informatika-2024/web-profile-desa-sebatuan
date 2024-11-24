@@ -14,7 +14,7 @@
                                     <h5>Tambah Layanan Administrasi
                                         <hr>
                                     </h5>
-                                    <form id="tambahLayananForm" action="/pengumuman" method="POST" enctype="multipart/form-data">
+                                    <form id="tambahLayananForm" action="/layananadministrasi" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <!-- Input Nama Layanan -->
                                         <div class="form-group row mb-3">
@@ -102,7 +102,7 @@
                                     <form id="editLayananForm" method="POST">
                                         @method('put')
                                         @csrf
-                                        <input type="hidden" id="editIndex"> <!-- Menyimpan index untuk mengedit -->
+                                        <input type="hidden" id="editId" name="id"> <!-- Menyimpan index untuk mengedit -->
                                         <div class="mb-3">
                                             <label for="editNamaLayanan" class="form-label">Nama Layanan</label>
                                             <input type="text" class="form-control" name="nama_layanan" id="editNamaLayanan" required>
@@ -113,7 +113,7 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="editPersyaratanLayanan" class="form-label">Persyaratan</label>
-                                            <textarea type="text" class="form-control" name="persyaratan" id="editPersyaratanLayanan" required></textarea>
+                                            <textarea type="text" class="form-control" name="persyaratan"id="summernote-layadmin-update" id="editPersyaratanLayanan" required></textarea>
                                         </div>
                                         <button type="submit" class="btn btn-edit">Update</button>
                                     </form>
@@ -128,15 +128,15 @@
 @endsection
 
 
-{{-- 
+
 @section('kodejs')
     <script>
         function loadEditData(layananadministrasi) {
             // Isi nilai input dengan data dari parameter
             document.getElementById('editId').value = layananadministrasi.id;
-            document.getElementById('editJudul').value = layananadministrasi.judul;
+            document.getElementById('editNamaLayanan').value = layananadministrasi.judul;
             document.getElementById('editDeskripsiLayanan').value = layananadministrasi.deskripsi;
-            $('#summernote2').summernote('code', layananadministrasi.deskripsi_singkat);
+            $('#summernote-layadmin-update').summernote('code', layananadministrasi.persyaratan);
 
             // Ubah action form untuk mengarahkan ke route update yang sesuai
             const editForm = document.getElementById('editLayananForm');
@@ -157,4 +157,4 @@
             }
         }
     </script>
-@endsection --}}
+@endsection
