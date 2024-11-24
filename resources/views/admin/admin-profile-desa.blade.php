@@ -28,7 +28,7 @@
                             <div class="form-group row mb-3">
                                 <label for="sejarahDesa" class="col-lg-2 col-md-3 col-sm-4 form-label">Sejarah Desa:</label>
                                 <div class="col-lg-10 col-md-9 col-sm-8">
-                                    <textarea name="sejarah_desa" id="summernote-sejarah" required></textarea>
+                                    <textarea name="sejarah_desa" id="summernote-sejarah" required>{!! $profiledesa->sejarah_desa !!}</textarea>
                                 </div>
                             </div>
 
