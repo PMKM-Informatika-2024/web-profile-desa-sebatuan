@@ -37,7 +37,7 @@ class LayananadministrasiController
         ]);
     
         Layananadministrasi::create($validatedData);
-        return redirect('/layananadministrasi')->with('success', 'Administrasi baru berhasil ditambahkan');
+        return redirect('/layananadministrasi')->with('success', 'Layanan administrasi baru berhasil ditambahkan');
     }
 
     /**
@@ -61,7 +61,15 @@ class LayananadministrasiController
      */
     public function update(Request $request, Layananadministrasi $layananadministrasi)
     {
-        //
+        $validatedData = $request->validate([
+            'nama_layanan' => 'required',
+            'deskripsi' => 'required',
+            'persyaratan' => 'required'
+        ]);
+        Layananadministrasi::where('id', $request->input('id'))
+            ->update($validatedData);
+
+        return redirect('/layananadministrasi')->with('success', 'Layanan administrasi berhasil diupdate');
     }
 
     /**
@@ -69,6 +77,8 @@ class LayananadministrasiController
      */
     public function destroy(Layananadministrasi $layananadministrasi)
     {
-        //
+        // dd($request);
+        Layananadministrasi::destroy($layananadministrasi->id);
+        return redirect('/layananadministrasi')->with('success', 'layanan administrasi berhasil dihapus');
     }
 }
