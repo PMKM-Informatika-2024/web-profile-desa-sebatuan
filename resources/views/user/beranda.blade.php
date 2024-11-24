@@ -67,7 +67,7 @@
                             @foreach($chunk as $perangkatdesa)
                                 <div class="col-lg-2 col-md-4 col-sm-6 mb-4">
                                     <div class="card shadow-sm border-0 rounded">
-                                        <img src="{{ asset('storage/' . $perangkatdesa->gambar_perangkatdesa) }}" style="min-height:300px" class="card-img-top rounded" alt="{{ $perangkatdesa->jabatan }}">
+                                        <img src="{{ asset('storage/' . $perangkatdesa->gambar_perangkatdesa) }}" style="height:300px; object-fit:cover; object-position:center;" class="card-img-top rounded" alt="{{ $perangkatdesa->jabatan }}">
                                         <div class="card-body text-center">
                                           <h4 class="card-title">{{ $perangkatdesa->nama }}</h4>
                                             <h5 class="card-title">{{ $perangkatdesa->jabatan }}</h5>
@@ -84,15 +84,15 @@
                 <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="carousel-control-next-icon" style=" " aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
             </button>
-        <div class="row">
-          <div class="col-lg-12 text-end pe-5 pb-3">
-            <a href="perangkat-desa.html" class="btn-more">Selengkapnya...</a>
           </div>
-        </div>
-      </div>
+          <div class="row">
+            <div class="col-lg-12 text-end pe-5 pb-3">
+              <a href="/perangkat-desa" class="btn-more">Selengkapnya...</a>
+            </div>
+          </div>
     </div>
   </section>
 
@@ -103,62 +103,21 @@
     <div class="container transition-container mb-3 justify-content-center">
       <div class="row">
         <h2 class="subjudul text-center mb-5">Pengumuman</h2>
+        @foreach ($pengumumen as $pengumuman)    
         <div class="col-lg-3 col-md-4 mb-4">
           <div class="card shadow">
             <div class="card-body d-flex flex-column justify-content-between" style="height: 100%;">
-              <h5 class="card-title text-center border-bottom pb-2 mb-3">Pengumuman 1</h5>
+              <img src="{{ asset('storage/' . $pengumuman->gambar_pengumuman) }}" style="height:300px; object-fit:cover; object-position:center;" class="card-img-top rounded">
+              <h5 class="card-title text-center border-bottom pb-2 mb-3">{{ $pengumuman->judul }}</h5>
               <p class="card-text text-muted">
-                <i class="fas fa-clock"></i> 12 Oktober 2024
+                <i class="fas fa-clock"></i> {{ \Carbon\Carbon::parse($pengumuman->created_at)->format('j M Y') }}
               </p>
-              <p class="card-text">Ini adalah isi pengumuman 1. Deskripsi singkat
-                mengenai pengumuman ini.</p>
-
-              <a href="halaman_pengumuman_1.html" class="btn btn-link ms-auto">Read more...</a>
+              <p class="card-text">{!! \Illuminate\Support\Str::limit($pengumuman->deskripsi_singkat, 40) !!}</p>
+              <a href="/detail-pengumuman/{{ $pengumuman->id }}" class="btn btn-link ms-auto">Read more...</a>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-4 mb-4">
-          <div class="card shadow">
-            <div class="card-body d-flex flex-column justify-content-between" style="height: 100%;">
-              <h5 class="card-title text-center border-bottom pb-2 mb-3">Pengumuman 1</h5>
-              <p class="card-text text-muted">
-                <i class="fas fa-clock"></i> 12 Oktober 2024
-              </p>
-              <p class="card-text">Ini adalah isi pengumuman 1. Deskripsi singkat
-                mengenai pengumuman ini.</p>
-
-              <a href="halaman_pengumuman_1.html" class="btn btn-link ms-auto">Read more...</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mb-4">
-          <div class="card shadow">
-            <div class="card-body d-flex flex-column justify-content-between" style="height: 100%;">
-              <h5 class="card-title text-center border-bottom pb-2 mb-3">Pengumuman 1</h5>
-              <p class="card-text text-muted">
-                <i class="fas fa-clock"></i> 12 Oktober 2024
-              </p>
-              <p class="card-text">Ini adalah isi pengumuman 1. Deskripsi singkat
-                mengenai pengumuman ini.</p>
-
-              <a href="halaman_pengumuman_1.html" class="btn btn-link ms-auto">Read more...</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mb-4">
-          <div class="card shadow">
-            <div class="card-body d-flex flex-column justify-content-between" style="height: 100%;">
-              <h5 class="card-title text-center border-bottom pb-2 mb-3">Pengumuman 1</h5>
-              <p class="card-text">
-                <i class="fas fa-clock"></i> 12 Oktober 2024
-              </p>
-              <p class="card-text">Ini adalah isi pengumuman 1. Deskripsi singkat
-                mengenai pengumuman ini.</p>
-
-              <a href="halaman_pengumuman_1.html" class="btn btn-link ms-auto">Read more...</a>
-            </div>
-          </div>
-        </div>
+        @endforeach
       </div>
     </div>
   </section>
