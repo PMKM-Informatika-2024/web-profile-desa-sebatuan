@@ -8,12 +8,10 @@ use App\Http\Controllers\LayananadministrasiController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\KelolakegiatanController;
 use App\Http\Controllers\KelolakontakController;
+use App\Models\Pengumuman;
 use App\Models\Profildesa;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/test-summernote', function(){
-    return view('user/test-summernote');
-});
 Route::get('/', [PerangkatdesaController::class, 'show']);
 Route::get('/lembaga-desa', [LembagadesaController::class, 'show']);
 Route::get('/layanan-publik', [LayananpublikController::class, 'show']);
@@ -49,6 +47,11 @@ Route::get('/pemerintahan-desa', function () {
 });
 Route::get('/daftar-pengumuman', function () {
     return view('user/pengumuman');
+});
+Route::get('/detail-pengumuman/{id}', function ($id) {
+    return view('user/detail-pengumuman', [
+        'pengumuman' => Pengumuman::find($id)
+    ]);
 });
 Route::get('/struktur-pemerintahan', function () {
     return view('user/struktur-pemerintahan');

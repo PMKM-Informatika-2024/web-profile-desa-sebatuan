@@ -11,10 +11,19 @@
                         <div class="card-body">
                             <!-- Nama Desa -->
                             
-                            <form action="/profildesa/{{ $profiledesa->id }}" method="POST">
+                            <form action="/profildesa/{{ $profiledesa->id }}" method="POST" enctype="multipart/form-data">
                                 @method('put')
                                 @csrf
                                 <input type="text" name="id" required hidden value="{{ $profiledesa->id }}">
+                                <!-- Foto Desa -->
+                            <div class="form-group row mb-3">
+                                <img src="{{ asset('storage/'.$profiledesa->gambar_profiledesa) }}" alt="no image yet" id="previewImage" >
+                                <label for="fotoDesa" class="col-lg-2 col-md-3 col-sm-4 form-label">Foto Desa:</label>
+                                <div class="col-lg-10 col-md-9 col-sm-8">
+                                    <input type="file" class="form-control" name="gambar_profiledesa" accept="image/*" required
+                                        multiple onchange="changeImage(event)">
+                                </div>
+                            </div>
                             <!-- Sejarah Desa -->
                             <div class="form-group row mb-3">
                                 <label for="sejarahDesa" class="col-lg-2 col-md-3 col-sm-4 form-label">Sejarah Desa:</label>
@@ -23,15 +32,7 @@
                                 </div>
                             </div>
 
-                            <!-- Foto Desa -->
-                            {{-- <div class="form-group row mb-3">
-                                <label for="fotoDesa" class="col-lg-2 col-md-3 col-sm-4 form-label">Foto Desa:</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">
-                                    <input type="file" class="form-control" id="fotoDesa" accept="image/*" required
-                                        multiple onchange="previewImages()">
-                                </div>
-                                <div id="imagePreview" class="mt-3"></div>
-                            </div> --}}
+                            
 
 
 
@@ -183,5 +184,19 @@
             $('#summernote-sejarah').summernote('code', '{{ $profiledesa->sejarah_desa }}');
             $('#summernote-misidesa').summernote('code', '{{ $profiledesa->misi_desa }}');
         })
+
+        function changeImage(event) {
+            const previewImage = document.getElementById('previewImage');
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    console.log(e.target.result);
+
+                    previewImage.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
     </script>
 @endsection

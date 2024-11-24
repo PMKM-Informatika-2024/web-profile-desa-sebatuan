@@ -40,8 +40,7 @@
             text-decoration: none;
             font-family: 'Poppins', sans-serif;
         }
-
-        li {
+        .sidebar-item{
             list-style: none;
         }
 
@@ -58,6 +57,15 @@
         h5 {
             font-weight: bold;
         }
+
+        /* .bs-sn ol{
+            
+            list-style-type: decimal;
+        }
+        .bs-sn ul{
+            
+            list-style-type: disc;
+        } */
     </style>
 
 </head>
@@ -165,10 +173,11 @@
                                     <i class="fa-solid fa-user-gear pe-2"></i>
                                     Profile
                                 </a>
-                                <a href="#" class="dropdown-item">
+                                <form action="/logout" method="POST" class="dropdown-item">
+                                    @csrf
                                     <i class="fa-solid fa-right-from-bracket pe-2"></i>
-                                    Logout
-                                </a>
+                                    <button type="submit" style="all: unset; cursor: pointer;">Logout</button>
+                                </form>
                             </div>
                         </li>
                     </ul>

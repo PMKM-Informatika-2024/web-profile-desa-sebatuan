@@ -31,8 +31,8 @@
                                 <div class="form-group row mb-3">
                                     <label class="col-lg-2 col-md-3 col-sm-4 form-label">Deskripsi
                                         Singkat:</label>
-                                    <div class="col-lg-10 col-md-9 col-sm-8">
-                                        <textarea name="deskripsi_singkat" id="summernote" required></textarea>
+                                    <div class="col-lg-10 col-md-9 col-sm-8 ">
+                                        <textarea class="" name="deskripsi_singkat" id="summernote" required></textarea>
                                     </div>
                                 </div>
 

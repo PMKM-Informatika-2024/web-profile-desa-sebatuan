@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengumuman;
 use App\Models\Perangkatdesa;
+use App\Models\Profildesa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 class PerangkatdesaController  
@@ -13,7 +15,8 @@ class PerangkatdesaController
     public function index()
     {
         return view('admin.admin-perangkat-desa', [
-            'perangkatdesas' => Perangkatdesa::all()
+            'perangkatdesas' => Perangkatdesa::all(),
+            
         ]);
     }
 
@@ -50,6 +53,8 @@ class PerangkatdesaController
     {
         return view('user.beranda', [
             'perangkatdesas' => Perangkatdesa::all(),
+            'pengumumen'=>Pengumuman::limit(4)->get(),
+            'profiledesa' => Profildesa::first()
         ]);
     }
 

@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Layananadministrasi;
-use App\Http\Requests\StoreLayananadministrasiRequest;
-use App\Http\Requests\UpdateLayananadministrasiRequest;
-
+use Illuminate\Http\Request; 
 class LayananadministrasiController  
 {
     /**
@@ -61,7 +59,7 @@ class LayananadministrasiController
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateLayananadministrasiRequest $request, Layananadministrasi $layananadministrasi)
+    public function update(Request $request, Layananadministrasi $layananadministrasi)
     {
         //
     }

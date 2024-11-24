@@ -15,40 +15,44 @@
                                     <h5>Tambah Lembaga Desa
                                         <hr>
                                     </h5>
-                                    <form id="tambahLembagaForm" action="/lembagadesa" method="POST" enctype="multipart/form-data">
+                                    <form id="tambahLembagaForm" action="/lembagadesa" method="POST"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group row mb-3">
                                             <label for="namaLembaga" class="col-lg-2 col-md-3 col-sm-4 form-label">Nama
                                                 Lembaga:</label>
                                             <div class="col-lg-10 col-md-9 col-sm-8">
-                                                <input type="text" class="form-control" name="nama_lembaga" id="namaLembaga" required>
+                                                <input type="text" class="form-control" name="nama_lembaga"
+                                                    id="namaLembaga" required>
                                             </div>
                                         </div>
                                         <div class="form-group row mb-3">
                                             <label for="alamatLembaga" class="col-lg-2 col-md-3 col-sm-4 form-label">Alamat
                                                 Lembaga:</label>
                                             <div class="col-lg-10 col-md-9 col-sm-8">
-                                                <input type="text" class="form-control" name="alamat_lembaga" id="alamatLembaga" required>
+                                                <input type="text" class="form-control" name="alamat_lembaga"
+                                                    id="alamatLembaga" required>
                                             </div>
                                         </div>
                                         <div class="form-group row mb-3">
                                             <label for="namaKetua" class="col-lg-2 col-md-3 col-sm-4 form-label">Nama
                                                 Ketua:</label>
                                             <div class="col-lg-10 col-md-9 col-sm-8">
-                                                <input type="text" class="form-control" name="nama_ketua" id="namaKetua" required>
+                                                <input type="text" class="form-control" name="nama_ketua" id="namaKetua"
+                                                    required>
                                             </div>
                                         </div>
                                         <div class="form-group row mb-3">
                                             <label for="foto"
                                                 class="col-lg-2 col-md-3 col-sm-4 form-label">Foto:</label>
                                             <div class="col-lg-10 col-md-9 col-sm-8">
-                                                <input type="file" name="gambar_lembaga" class="form-control" id="foto" accept="image/*"
-                                                    required>
+                                                <input type="file" name="gambar_lembaga" class="form-control"
+                                                    id="foto" accept="image/*" required>
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end mt-4">
                                             <button type="submit" class="btn btn-simpan">Simpan</button>
-                                            <button type="button" class="btn btn-batal ms-2">Batal</button>
+                                            <button type="button" class="btn btn-batal ms-2" onclick="resetForm()">Batal</button>
                                         </div>
                                     </form>
                                 </div>
@@ -74,8 +78,8 @@
                                     <td>{{ $lembagadesa->nama_lembaga }}</td>
                                     <td>{{ $lembagadesa->alamat_lembaga }}</td>
                                     <td>{{ $lembagadesa->nama_ketua }}</td>
-                                    <td><img src="{{ asset('storage/' . $lembagadesa->gambar_lembaga) }}"
-                                            alt="" class="img-thumbnail" style="width: 50px; height: 50px;"></td>
+                                    <td><img src="{{ asset('storage/' . $lembagadesa->gambar_lembaga) }}" alt=""
+                                            class="img-thumbnail" style="width: 50px; height: 50px;"></td>
                                     <td>
                                         <a class=" btn btn-warning" href="javascript:void(0)" data-bs-toggle="modal"
                                             data-bs-target="#editLembagaModal"
@@ -117,8 +121,8 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="editAlamat" class="form-label">Alamat Lembaga</label>
-                                            <input type="text" name="alamat_lembaga" class="form-control" id="editAlamat"
-                                                required>
+                                            <input type="text" name="alamat_lembaga" class="form-control"
+                                                id="editAlamat" required>
                                         </div>
                                         <div class="mb-3">
                                             <label for="editKetua" class="form-label">Nama Ketua</label>
@@ -178,5 +182,9 @@
                 reader.readAsDataURL(file);
             }
         }
-            </script>
+
+        function resetForm() {
+            document.getElementById("tambahLembagaForm").reset();
+        }
+    </script>
 @endsection
