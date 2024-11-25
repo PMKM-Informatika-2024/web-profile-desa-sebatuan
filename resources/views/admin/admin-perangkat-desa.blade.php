@@ -7,6 +7,42 @@
             </div>
             <div class="row">
                 <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card" id="tambahPerangkatCard">
+                                <div class="card-body">
+                                    <h5>Tambah Struktur Perangkat Desa
+                                        <hr>
+                                    </h5>
+                                    <form action="/perangkatdesa" method="POST" id="tambahPerangkatForm"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group row mb-3">
+                                            <label for="nama"
+                                                class="col-lg-2 col-md-3 col-sm-4 form-label">Nama:</label>
+                                            <div class="col-lg-10 col-md-9 col-sm-8">
+                                                <input type="text" class="form-control" name="nama" required>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row mb-3">
+                                            <label for="foto"
+                                                class="col-lg-2 col-md-3 col-sm-4 form-label">Foto:</label>
+                                            <div class="col-lg-10 col-md-9 col-sm-8">
+                                                <input type="file" class="form-control" name="gambar_perangkatdesa"
+                                                    accept="image/*" required>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-end mt-4">
+                                            <button type="submit" class="btn btn-simpan">Simpan</button>
+                                            {{-- <button type="button" onclick="toggleTambahPerangkatCard()"
+                            class="btn btn-batal ms-2">Batal</button> --}}
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <!-- Card Form untuk Tambah Perangkat -->
                     <div class="row">

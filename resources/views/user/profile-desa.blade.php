@@ -120,6 +120,13 @@
               <canvas id="agamaChart"></canvas>
             </div>
           </div>
+
+          <div class="col-lg-6 mb-4 d-flex flex-column align-items-center">
+            <h5 class="mb-4 text-center w-100">Agama</h5>
+            <div class="card chart-card w-75 p-3">
+              <canvas id="agamaChart"></canvas>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -129,7 +136,7 @@
   <!-- Kantor Desa -->
   <section id="kantor-desa" class="py-5">
     <div class="container transition-container">
-      <h2 class="subjudul text-center mb-4">Kantor Desa Sungai Keran</h2>
+      <h2 class="subjudul text-center mb-4">Desa Perapakan</h2>
       <div class="row">
         <div class="col-lg-12">
           {!! $profiledesa->peta_desa !!}
