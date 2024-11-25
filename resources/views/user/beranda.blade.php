@@ -2,22 +2,22 @@
 
 @section('child')
     <!-- Banner -->
-    <section id="banner-beranda">
+    <section id="banner-beranda" class="bg-light">
         <div class="container-fluid banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
             <div class="row">
                 <div class="text-center">
                     <h2 class="text-banner-h2">Selamat Datang</h2>
-                    <h2 class="text-banner-h1">Website Resmi Desa Perapakan</h2>
+                    <h2 class="text-banner-h1">Website Desa Perapakan</h2>
                 </div>
             </div>
         </div>
     </section>
     <!-- End of Banner -->
 
-
     <!-- Content Section -->
     <section id="content" class="py-5 bg-light">
-        <div class="container transition-container col-lg-10 mt-5 shadow-sm p-4 rounded">
+        <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
+            <h2 class="subjudul mb-4 text-center fw-bold">Tentang Desa Perapakan</h2>
             <div class="row align-items-center">
                 <!-- Image Content -->
                 <div class="col-lg-6">
@@ -30,11 +30,8 @@
 
                 <!-- Text Content -->
                 <div class="col-lg-6">
-                    <h2 class="subjudul mb-4 fw-bold">
-                        Tentang Desa Perapakan
-                    </h2>
                     <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; text-align: justify;">
-                        {!! \Illuminate\Support\Str::limit($profiledesa->sejarah_desa, 300) !!}
+                        {!! \Illuminate\Support\Str::limit($profiledesa->sejarah_desa, 400) !!}
                     </p>
                     <a href="/profile-desa"
                         class="btn btn-primary mt-4 px-4 py-2 d-inline-flex align-items-center shadow-sm">
@@ -46,13 +43,12 @@
     </section>
     <!-- End of Content Section -->
 
-
     <!-- Video Profile Section -->
-    <section id="video-profile" class="py-5 bg-white">
-        <div class="container transition-container text-center">
+    <section id="video-profile" class="py-5 bg-light">
+        <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
             <h2 class="subjudul text-center mb-4 fw-bold">Video Profile Desa</h2>
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="ratio ratio-16x9 shadow-sm rounded">
                         <iframe class="rounded" src="https://www.youtube.com/embed/qIAq6TzBxdk?si=M2q1hTPSUpVh2Ske"
                             title="YouTube video player" frameborder="0"
@@ -66,10 +62,9 @@
     </section>
     <!-- End of Video Profile Section -->
 
-
     <!-- Perangkat Desa Section -->
-    <section id="perangkat-desa" class="py-5 mb-5 bg-light">
-        <div class="container-fluid perangkat-desa-container shadow rounded px-5 py-4">
+    <section id="perangkat-desa" class="py-5 bg-light">
+        <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
             <!-- Section Title -->
             <div class="row mb-4 justify-content-center text-center">
                 <div class="col-12">
@@ -124,22 +119,14 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-
-            <!-- "See More" Button -->
-            <div class="row mt-4">
-                <div class="col-lg-12 text-end">
-                    <a href="/perangkat-desa" class="btn btn-outline-primary px-4 py-2 fw-bold">Selengkapnya</a>
-                </div>
-            </div>
         </div>
     </section>
     <!-- End of Perangkat Desa Section -->
 
-
     <!-- Pengumuman -->
     <section id="pengumuman" class="py-5 bg-light">
         <div class="container transition-container mb-3">
-            <h2 class="subjudul text-center mb-5 fw-bold text-primary">Pengumuman</h2>
+            <h2 class="subjudul text-center mb-5 fw-bold">Pengumuman</h2>
             <div class="row g-4 justify-content-center">
                 @foreach ($pengumumen as $pengumuman)
                     <div class="col-lg-4 col-md-6">
