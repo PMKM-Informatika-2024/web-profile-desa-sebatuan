@@ -137,25 +137,30 @@
 
 
     <!-- Pengumuman -->
-    <section id="pengumuman" class="py-5">
-        <div class="container transition-container mb-3 justify-content-center">
-            <div class="row">
-                <h2 class="subjudul text-center mb-5">Pengumuman</h2>
+    <section id="pengumuman" class="py-5 bg-light">
+        <div class="container transition-container mb-3">
+            <h2 class="subjudul text-center mb-5 fw-bold text-primary">Pengumuman</h2>
+            <div class="row g-4 justify-content-center">
                 @foreach ($pengumumen as $pengumuman)
-                    <div class="col-lg-3 col-md-4 mb-4">
-                        <div class="card shadow">
-                            <div class="card-body d-flex flex-column justify-content-between" style="height: 100%;">
-                                <img src="{{ asset('storage/' . $pengumuman->gambar_pengumuman) }}"
-                                    style="height:300px; object-fit:cover; object-position:center;"
-                                    class="card-img-top rounded">
-                                <h5 class="card-title text-center border-bottom pb-2 mb-3">{{ $pengumuman->judul }}</h5>
-                                <p class="card-text text-muted">
-                                    <i class="fas fa-clock"></i>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card shadow-sm h-100">
+                            <img src="{{ asset('storage/' . $pengumuman->gambar_pengumuman) }}"
+                                style="height: 250px; object-fit: cover; object-position: center;"
+                                class="card-img-top rounded-top">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <h5 class="card-title text-center fw-bold text-primary mb-3">
+                                    {{ $pengumuman->judul }}
+                                </h5>
+                                <p class="card-text text-muted small mb-2">
+                                    <i class="fas fa-clock me-2"></i>
                                     {{ \Carbon\Carbon::parse($pengumuman->created_at)->format('j M Y') }}
                                 </p>
-                                <p class="card-text">{!! \Illuminate\Support\Str::limit($pengumuman->deskripsi_singkat, 40) !!}</p>
-                                <a href="/detail-pengumuman/{{ $pengumuman->id }}" class="btn btn-link ms-auto">Read
-                                    more...</a>
+                                <p class="card-text text-muted">
+                                    {!! \Illuminate\Support\Str::limit($pengumuman->deskripsi_singkat, 100) !!}
+                                </p>
+                                <a href="/detail-pengumuman/{{ $pengumuman->id }}" class="btn btn-primary btn-sm mt-auto">
+                                    Selengkapnya <i class="fas fa-arrow-right ms-1"></i>
+                                </a>
                             </div>
                         </div>
                     </div>

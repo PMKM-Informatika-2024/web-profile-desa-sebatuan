@@ -100,7 +100,7 @@
     @yield('child')
     <!-- End of Kantor Desa -->
 
-    <!-- Footer -->
+    
     <!-- Footer -->
     <footer class="bg-dark text-white py-5">
         <div class="container">
