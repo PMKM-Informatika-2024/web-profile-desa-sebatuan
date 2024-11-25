@@ -12,86 +12,118 @@
         </div>
     </section>
     <!-- End of Banner -->
-
-    <!-- Fasilitas Pendidikan -->
-    <section id="fasilitas-pendidikan">
-        <div class="container transition-container mt-5">
-            <div class="text-center py-5">
-                <h2 class="subjudul">Fasilitas Pendidikan</h2>
+    <section id="slider-otomatis" class="py-5 mb-5 bg-light">
+        <div class="container-fluid shadow rounded px-5 py-4">
+            <!-- Section Title -->
+            <div class="row mb-4 justify-content-center text-center">
+                <div class="col-12">
+                    <h2 class="subjudul fw-bold">Fasilitas Pendidikan</h2>
+                    <p class="text-muted">Berbagai fasilitas pendidikan yang tersedia untuk mendukung kemajuan pembelajaran.</p>
+                </div>
             </div>
-            <div id="fasilitasPendidikanCarousel" class="carousel slide" data-bs-ride="carousel">
+
+            <!-- Carousel -->
+            <div id="carouselOtomatis" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    @foreach ($fasilitasPendidikan->chunk(3) as $index => $chunk)
+                        <button type="button" data-bs-target="#carouselOtomatis"
+                            data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}"
+                            aria-current="{{ $index === 0 ? 'true' : '' }}" aria-label="Slide {{ $index + 1 }}"></button>
+                    @endforeach
+                </div>
+
+                <!-- Content -->
                 <div class="carousel-inner">
-                    @foreach ($fasilitasPendidikan as $index => $fasilitas)
+                    @foreach ($fasilitasPendidikan->chunk(3) as $index => $chunk)
                         <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                            <div class="row justify-content-center">
-                                <div class="col-md-8">
-                                    <div class="fasilitas-card position-relative overflow-hidden">
-                                        <img src="{{ asset('storage/' . $fasilitas->gambar_fasilitas) }}" 
-                                             alt="Foto {{ $fasilitas->nama_fasilitas }}" 
-                                             class="fasilitas-img img-fluid w-100">
-                                        <div class="fasilitas-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
-                                            <h3 class="fasilitas-name text-white mb-3">{{ $fasilitas->nama_fasilitas }}</h3>
-                                            <a href="{{ $fasilitas->url_alamat }}" target="_blank">
-                                                <button class="btn btn-primary btn-sm">Lihat Lokasi</button>
-                                            </a>
+                            <div class="row justify-content-center g-4">
+                                @foreach ($chunk as $fasilitas)
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="card shadow-sm border-0 rounded h-100">
+                                            <img src="{{ asset('storage/' . $fasilitas->gambar_fasilitas) }}"
+                                                alt="{{ $fasilitas->nama_fasilitas }}" class="card-img-top rounded-top"
+                                                style="height: 250px; object-fit: cover; object-position: center;">
+                                            <div class="card-body text-center">
+                                                <a href="{{ $fasilitas->url_alamat }}" class="card-title fw-bold text-primary" style="text-decoration: none; font-size:1.2rem">{{ $fasilitas->nama_fasilitas }}</a>
+                                                <p class="card-text text-muted">{{ $fasilitas->deskripsi_fasilitas }}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     @endforeach
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#fasilitasPendidikanCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselOtomatis" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#fasilitasPendidikanCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselOtomatis" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
         </div>
     </section>
-    <!-- End of Fasilitas Pendidikan -->
-
-    <!-- Fasilitas Publik -->
-    <section id="fasilitas-publik">
-        <div class="container transition-container mt-5">
-            <div class="text-center py-5">
-                <h2 class="subjudul">Fasilitas Publik</h2>
+    <!-- Slider Otomatis -->
+    <section id="slider-otomatis" class="py-5 mb-5 bg-light">
+        <div class="container-fluid shadow rounded px-5 py-4">
+            <!-- Section Title -->
+            <div class="row mb-4 justify-content-center text-center">
+                <div class="col-12">
+                    <h2 class="subjudul fw-bold">Fasilitas Publik</h2>
+                    <p class="text-muted">Berbagai fasilitas pendidikan yang tersedia untuk mendukung kemajuan pembelajaran.</p>
+                </div>
             </div>
-            <div id="fasilitasPublikCarousel" class="carousel slide" data-bs-ride="carousel">
+
+            <!-- Carousel -->
+            <div id="carouselOtomatis" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                <!-- Indicators -->
+                <div class="carousel-indicators">
+                    @foreach ($fasilitasPublik->chunk(3) as $index => $chunk)
+                        <button type="button" data-bs-target="#carouselOtomatis"
+                            data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}"
+                            aria-current="{{ $index === 0 ? 'true' : '' }}" aria-label="Slide {{ $index + 1 }}"></button>
+                    @endforeach
+                </div>
+
+                <!-- Content -->
                 <div class="carousel-inner">
-                    @foreach ($fasilitasPublik as $index => $fasilitas)
+                    @foreach ($fasilitasPublik->chunk(3) as $index => $chunk)
                         <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                            <div class="row justify-content-center">
-                                <div class="col-md-8">
-                                    <div class="fasilitas-card position-relative overflow-hidden">
-                                        <img src="{{ asset('storage/' . $fasilitas->gambar_fasilitas) }}" 
-                                             alt="Foto {{ $fasilitas->nama_fasilitas }}" 
-                                             class="fasilitas-img img-fluid w-100">
-                                        <div class="fasilitas-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center">
-                                            <h3 class="fasilitas-name text-white mb-3">{{ $fasilitas->nama_fasilitas }}</h3>
-                                            <a href="{{ $fasilitas->url_alamat }}" target="_blank">
-                                                <button class="btn btn-primary btn-sm">Lihat Lokasi</button>
-                                            </a>
+                            <div class="row justify-content-center g-4">
+                                @foreach ($chunk as $fasilitas)
+                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                        <div class="card shadow-sm border-0 rounded h-100">
+                                            <img src="{{ asset('storage/' . $fasilitas->gambar_fasilitas) }}"
+                                                alt="{{ $fasilitas->nama_fasilitas }}" class="card-img-top rounded-top"
+                                                style="height: 250px; object-fit: cover; object-position: center;">
+                                            <div class="card-body text-center">
+                                                <a href="{{ $fasilitas->url_alamat }}" class="card-title fw-bold text-primary" style="text-decoration: none; font-size:1.2rem">{{ $fasilitas->nama_fasilitas }}</a>
+                                                <p class="card-text text-muted">{{ $fasilitas->deskripsi_fasilitas }}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     @endforeach
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#fasilitasPublikCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                <!-- Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselOtomatis" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#fasilitasPublikCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselOtomatis" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
         </div>
     </section>
-    <!-- End of Fasilitas Publik -->
+    <!-- End of Slider Otomatis -->
 @endsection

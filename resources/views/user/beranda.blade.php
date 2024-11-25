@@ -17,8 +17,20 @@
 
     <!-- Content Section -->
     <section id="content" class="py-5 bg-light">
-        <div class="container col-lg-10 mt-5 shadow-sm p-4 rounded transition-container">
-            <div class="row align-items-center g-5">
+        <div class="container transition-container col-lg-10 mt-5 shadow-sm p-4 rounded">
+            <div class="row align-items-center">
+                <!-- Text Content -->
+                <div class="col-lg-6 mb-4">
+                    <h2 class="subjudul mb-3 fw-bold">Mengenal Tentang Desa Perapakan</h2>
+                    <p class="text-muted" style="font-size: 1rem; line-height: 1.7; text-align: justify;">
+                        {!! \Illuminate\Support\Str::limit($profiledesa->sejarah_desa, 300) !!}
+                        <!-- Shortened for better UX -->
+                    </p>
+                    <a href="/profile-desa" class="btn btn-outline-primary mt-3 px-4 py-2">
+                        <i class="fas fa-arrow-right me-2"></i> Selengkapnya
+                    </a>
+                </div>
+
                 <!-- Image Content -->
                 <div class="col-lg-6">
                     <div class="image-container position-relative overflow-hidden rounded shadow">
