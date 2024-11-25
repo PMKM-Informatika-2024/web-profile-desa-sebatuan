@@ -13,56 +13,47 @@
     <!-- End of Banner -->
 
     <!-- Pengumuman -->
-    <section id="pengumuman">
-        <div class="container transition-container py-5 mb-5" style="background: none;">
-            <div class="col-12 col-md-6 col-lg-4 ms-auto mb-3">
-                <form class="d-flex justify-content-end">
-                    <input type="text" class="form-control me-2" placeholder="Cari pengumuman..." aria-label="Search">
-                    <button class="btn btn-more" type="submit">Cari</button>
-                </form>
+    <section id="pengumuman" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="subjudul text-center mb-5 fw-bold text-primary">Pengumuman</h2>
+            <div class="row g-4 justify-content-center">
+                @foreach ($pengumumen as $pengumuman)
+                    <div class="col-lg-4 col-md-6">
+                        <!-- Card Klikable -->
+                        <a href="/detail-pengumuman/{{ $pengumuman->id }}" class="text-decoration-none">
+                            <div class="card shadow-sm border-0 h-100">
+                                <!-- Gambar -->
+                                <img src="{{ asset('storage/' . $pengumuman->gambar_pengumuman) }}" 
+                                    style="height: 200px; object-fit: cover; object-position: center;" 
+                                    class="card-img-top rounded-top">
+                                <!-- Konten -->
+                                <div class="card-body d-flex flex-column p-3">
+                                    <div class="d-flex justify-content-between text-muted mb-2" style="font-size: 0.8rem;">
+                                        <!-- Ikon Tanggal -->
+                                        <span>
+                                            <i class="fas fa-calendar-alt" style="margin-right: 8px;"></i>
+                                            {{ \Carbon\Carbon::parse($pengumuman->created_at)->format('j F Y') }}
+                                        </span>
+                                        <!-- Ikon Penulis -->
+                                        <span>
+                                            <i class="fas fa-user" style="margin-right: 8px;"></i>
+                                            {{ $pengumuman->penulis ?? 'Penulis Tidak Diketahui' }}
+                                        </span>
+                                    </div>
+                                    <!-- Judul -->
+                                    <h5 class="card-title fw-bold text-dark mb-1" style="margin-top:3px;">
+                                        {{ $pengumuman->judul }}
+                                    </h5>
+                                    <!-- Deskripsi Singkat -->
+                                    <p class="card-text text-muted small">
+                                        {!! \Illuminate\Support\Str::limit($pengumuman->deskripsi_singkat, 100) !!}
+                                    </p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
             </div>
-            <table class="table table-bordered table-striped">
-                <thead class="table-light text-center">
-                    <tr>
-                        <th>No</th>
-                        <th>Tanggal</th>
-                        <th>Judul</th>
-                        <th>Rincian</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>22 Oktober 2024</td>
-                        <td>Pengumuman Pendaftaran Layanan Desa</td>
-                        <td><a href="pengumuman1.html" class="btn btn-more">Selengkapnya</a></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>20 Oktober 2024</td>
-                        <td>Rapat Koordinasi Bulanan</td>
-                        <td><a href="pengumuman2.html" class="btn btn-more">Selengkapnya</a></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>18 Oktober 2024</td>
-                        <td>Penyampaian Informasi Pelayanan Publik</td>
-                        <td><a href="pengumuman3.html" class="btn btn-more">Selengkapnya</a></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>15 Oktober 2024</td>
-                        <td>Program Bantu Jaminan Sosial</td>
-                        <td><a href="pengumuman4.html" class="btn btn-more">Selengkapnya</a></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>10 Oktober 2024</td>
-                        <td>Update Program Pengembangan Desa</td>
-                        <td><a href="pengumuman5.html" class="btn btn-more">Selengkapnya</a></td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </section>
     <!-- End of Pengumuman -->

@@ -46,7 +46,9 @@ Route::get('/pemerintahan-desa', function () {
     return view('user/pemerintahan-desa');
 });
 Route::get('/daftar-pengumuman', function () {
-    return view('user/pengumuman');
+    return view('user/pengumuman',[
+        'pengumumen' => Pengumuman::all()
+    ]);
 });
 Route::get('/detail-pengumuman/{id}', function ($id) {
     return view('user/detail-pengumuman', [

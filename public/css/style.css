@@ -253,7 +253,7 @@ footer .social-icons a:hover {
   color: var(--pr-color);
 }
 
-/* CSS for responsive banner */
+/* CSS for responsive banner */ 
 #banner-beranda .banner-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://media.istockphoto.com/id/2163917140/id/foto/lereng-bukit-hijau-subur-dengan-jalan-tanah-menuju-desa-langit-cerah-dan-biru-dan-pepohonan.jpg?s=612x612&w=0&k=20&c=YFflDu5rLy-lxzBNfnoqzt0bcdJ8IqGckTPfNGCEuIc=');
   background-size: cover;
@@ -264,6 +264,7 @@ footer .social-icons a:hover {
   position: relative;
 
 }
+
 
 .banner-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://media.istockphoto.com/id/2163917140/id/foto/lereng-bukit-hijau-subur-dengan-jalan-tanah-menuju-desa-langit-cerah-dan-biru-dan-pepohonan.jpg?s=612x612&w=0&k=20&c=YFflDu5rLy-lxzBNfnoqzt0bcdJ8IqGckTPfNGCEuIc=');
