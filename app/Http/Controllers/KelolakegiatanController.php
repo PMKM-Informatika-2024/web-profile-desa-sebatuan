@@ -88,9 +88,10 @@ class KelolakegiatanController
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kelolakegiatan $kelolakegiatan)
+    public function destroy(Request $request, Kelolakegiatan $kelolakegiatan)
     {
-        // dd($request);
+        dd($request);
+        // dd($kelolakegiatan->id);
         if($kelolakegiatan->gambar_kegiatan){
             Storage::delete($kelolakegiatan->gambar_kegiatan);
         }

@@ -57,24 +57,25 @@
                             </tr>
                         </thead>
                         <tbody id="kegiatanTableBody">
-                            @foreach ($kelolakegiatans as $kegiatan)
+                            @foreach ($kelolakegiatans as $kelolakegiatan)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $kegiatan->nama_kegiatan }}</td>
+                                    <td>{{ $kelolakegiatan->nama_kegiatan }}</td>
                                     <td>
-                                        @if ($kegiatan->gambar_kegiatan)
-                                            <img src="{{ asset('storage/' . $kegiatan->gambar_kegiatan) }}" alt="Gambar Kegiatan" class="img-thumbnail" style="width: 50px; height: 50px;">
+                                        @if ($kelolakegiatan->gambar_kegiatan)
+                                            <img src="{{ asset('storage/' . $kelolakegiatan->gambar_kegiatan) }}" alt="Gambar Kegiatan" class="img-thumbnail" style="width: 50px; height: 50px;">
                                         @else
                                             Tidak Ada Gambar
                                         @endif
                                     </td>
                                     <td>
                                         <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editKegiatanModal"
-                                            onclick="loadEditData({{ $kegiatan }})">Edit</button>
-                                        <form action="{{ route('kegiatan.destroy', $kegiatan->id) }}" method="POST" class="d-inline">
+                                            onclick="loadEditData({{ $kelolakegiatan }})">Edit</button>
+                                        <form action="/kegiatan/{{ $kelolakegiatan->id }}" method="POST" class="d-inline">
+                                            @method('delete')
                                             @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus kegiatan ini?')">Hapus</button>
+                                            <input type="text" name="id" value="{{ $kelolakegiatan->id }}">
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus kegiatan {{ $kelolakegiatan->nama_kegiatan }}?')">Hapus</button>
                                         </form>
                                     </td>
                                 </tr>
@@ -96,6 +97,8 @@
                                     <form id="editKegiatanForm" method="POST" enctype="multipart/form-data">
                                         @method('put')
                                         @csrf
+                                        <input type="text" id="editId" hidden name="id">
+                                        <input type="hidden" name="oldImage" id="editFotoKegiatan">
                                         <div class="mb-3">
                                             <label for="editNamaKegiatan" class="form-label">Nama Kegiatan</label>
                                             <input name="nama_kegiatan" type="text" class="form-control"
@@ -106,7 +109,7 @@
                                             <img alt="" id="previewImage" class="img-thumbnail"
                                                 style="width: 50px; height: 50px;">
                                             <input name="gambar_kegiatan" type="file" class="form-control"
-                                                id="editFotoKegiatan" accept="image/*">
+                                                accept="image/*" onchange="changeImage(event)">
                                         </div>
                                         <button type="submit" class="btn btn-edit">Update</button>
                                     </form>
@@ -121,21 +124,23 @@
 @endsection
 @section('kodejs')
     <script>
-        function loadEditData(lembagadesa) {
+        function loadEditData(kelolakegiatan) {
+            console.log(kelolakegiatan);
+            
             // Isi nilai input dengan data dari parameter
-            document.getElementById('editId').value = lembagadesa.id;
-            document.getElementById('editFotoKegiatan').value = lembagadesa.gambar_kegiatan;
-            document.getElementById('editNamaKegiatan').value = lembagadesa.nama_kegiatan;
+            document.getElementById('editId').value = kelolakegiatan.id;
+            document.getElementById('editFotoKegiatan').value = kelolakegiatan.gambar_kegiatan;
+            document.getElementById('editNamaKegiatan').value = kelolakegiatan.nama_kegiatan;
             const previewImage = document.getElementById('previewImage');
-            if (lembagadesa.gambar_kegiatan) {
-                previewImage.src = `/storage/${lembagadesa.gambar_kegiatan}`;
+            if (kelolakegiatan.gambar_kegiatan) {
+                previewImage.src = `/storage/${kelolakegiatan.gambar_kegiatan}`;
             } else {
                 previewImage.src = ''; // Kosongkan jika tidak ada foto
             }
 
             // Ubah action form untuk mengarahkan ke route update yang sesuai
             const editForm = document.getElementById('editKegiatanForm');
-            editForm.action = `/kegiatan/${lembagadesa.id}`;
+            editForm.action = `/kegiatan/${kelolakegiatan.id}`;
         }
 
         function changeImage(event) {
