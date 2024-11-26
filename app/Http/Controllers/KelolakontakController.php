@@ -55,9 +55,11 @@ class KelolakontakController
     {
         // dd($request);
         $validatedData = $request->validate([
-            'no_whatsapp' => 'required',
-            'username_instagram' => 'required',
-            'email' => 'required'
+            'no_hp' => 'required',
+            'url_ig' => 'required',
+            'email' => 'required',
+            'url_fb' => 'required',
+            'url_yt' => 'required',
         ]);
         Kelolakontak::where('id', $request->input('id'))
             ->update($validatedData);
