@@ -71,15 +71,10 @@
                                     <td>
                                         <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editKegiatanModal"
                                             onclick="loadEditData({{ $kelolakegiatan }})">Edit</button>
-                                        <form action="/kegiatan/{{ $kelolakegiatan->id }}" method="POST" class="d-inline">
-                                            @method('delete')
-                                            @csrf
-                                            <input type="text" name="id" value="{{ $kelolakegiatan->id }}" hidden>
-                                            <input type="text" name="gambar_kegiatan" value="{{ $kelolakegiatan->gambar_kegiatan }}" hidden>
-                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus kegiatan {{ $kelolakegiatan->nama_kegiatan }}?')">Hapus</button>
-                                        </form>
-                                    </td>
-                                </tr>
+                                        <button class="btn btn-danger btn-sm" onclick="showDeleteModal('{{ $kelolakegiatan->id }}', '{{ $kelolakegiatan->nama_kegiatan }}')">
+                                            Hapus
+                                        </button>
+                                    </td>                                    
                             @endforeach
                         </tbody>                        
                     </table>
@@ -118,6 +113,29 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Modal Konfirmasi Hapus -->
+<div class="modal fade" id="deleteKegiatanModal" tabindex="-1" aria-labelledby="deleteKegiatanModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteKegiatanModalLabel">Konfirmasi Hapus</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Apakah Anda yakin ingin menghapus kegiatan <strong id="deleteKegiatanName"></strong>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <form id="deleteKegiatanForm" method="POST" class="d-inline">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
                 </div>
             </div>
         </div>
@@ -157,6 +175,20 @@
                 reader.readAsDataURL(file);
             }
         }
+
+        function showDeleteModal(id, namaKegiatan) {
+    // Tampilkan nama kegiatan di modal
+    document.getElementById('deleteKegiatanName').textContent = namaKegiatan;
+
+    // Atur action form penghapusan
+    const deleteForm = document.getElementById('deleteKegiatanForm');
+    deleteForm.action = `/kegiatan/${id}`;
+
+    // Tampilkan modal konfirmasi
+    const deleteModal = new bootstrap.Modal(document.getElementById('deleteKegiatanModal'));
+    deleteModal.show();
+}
+
 
         function resetForm() {
             document.getElementById("tambahKegiatanForm").reset();
