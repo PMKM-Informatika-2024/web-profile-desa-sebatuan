@@ -12,7 +12,7 @@
                             <div class="d-flex align-items-start">
                                 <div class="flex-grow-1">
                                     <h4 class="mb-2">
-                                        {{ $profiledesa->total_dusun }}
+                                        {{ $profiledesa->total_laki_laki }}
                                     </h4>
                                     <p class="jumlah mb-2">
                                         Jumlah Dusun

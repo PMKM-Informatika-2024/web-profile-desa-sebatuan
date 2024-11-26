@@ -16,8 +16,14 @@
 
 
     <!-- Content Section -->
+<<<<<<< HEAD
     <section id="content" class="py-5 bg-light">
         <div class="container transition-container col-lg-10 mt-5 shadow-sm p-4 rounded">
+=======
+    <section id="content" class="py-5">
+        <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
+            <h2 class="subjudul mb-4 text-center fw-bold">Tentang Desa Perapakan</h2>
+>>>>>>> 859b6f581a55683f637e6345ebd20f2295548be6
             <div class="row align-items-center">
                 <!-- Image Content -->
                 <div class="col-lg-6">
@@ -48,8 +54,13 @@
 
 
     <!-- Video Profile Section -->
+<<<<<<< HEAD
     <section id="video-profile" class="py-5 bg-white">
         <div class="container transition-container text-center">
+=======
+    <section id="video-profile" class="py-5">
+        <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
+>>>>>>> 859b6f581a55683f637e6345ebd20f2295548be6
             <h2 class="subjudul text-center mb-4 fw-bold">Video Profile Desa</h2>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -68,8 +79,13 @@
 
 
     <!-- Perangkat Desa Section -->
+<<<<<<< HEAD
     <section id="perangkat-desa" class="py-5 mb-5 bg-light">
         <div class="container-fluid perangkat-desa-container shadow rounded px-5 py-4">
+=======
+    <section id="perangkat-desa" class="py-5">
+        <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
+>>>>>>> 859b6f581a55683f637e6345ebd20f2295548be6
             <!-- Section Title -->
             <div class="row mb-4 justify-content-center text-center">
                 <div class="col-12">
@@ -136,9 +152,9 @@
     <!-- End of Perangkat Desa Section -->
 
     <!-- Pengumuman -->
-    <section id="pengumuman" class="py-5 bg-light">
-        <div class="container">
-            <h2 class="subjudul text-center mb-5 fw-bold text-primary">Pengumuman</h2>
+    <section id="pengumuman" class="py-5 bg-white">
+        <div class="container transition-container mb-3">
+            <h2 class="subjudul text-center mb-5 fw-bold">Pengumuman</h2>
             <div class="row g-4 justify-content-center">
                 @foreach ($pengumumen as $pengumuman)
                     <div class="col-lg-4 col-md-6">

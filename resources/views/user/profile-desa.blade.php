@@ -14,9 +14,9 @@
     <!-- End of Banner -->
 
     <!-- Content Section -->
-    <section id="content" class="py-5 bg-light">
+    <section id="content" class="py-5">
         <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
-            <h2 class="subjudul mb-4 fw-bold  text-center">Sejarah Desa</h2>
+            <h2 class="subjudul mb-4 fw-bold text-center">Sejarah Desa</h2>
             <!-- Image Section -->
             <div class="d-flex justify-content-center mb-4">
                 <img src="{{ asset('storage/' . $profiledesa->gambar_profiledesa) }}" alt="Desa Image"
@@ -29,13 +29,13 @@
                 </div>
             </div>
         </div>
-        </div>
     </section>
     <!-- End of Content Section -->
 
+
     <!-- Visi Misi Section -->
-    <section id="visi-misi" class="py-5 bg-light">
-        <div class="container col-lg-10 shadow-sm p-4 rounded">
+    <section id="visi-misi" class="py-5">
+        <div class="container transition-container col-lg-10 shadow-sm p-4 rounded">
             <h2 class="subjudul text-center mb-5 fw-bold">Visi & Misi</h2>
             <div class="row g-4">
                 <!-- Visi Section -->
@@ -73,9 +73,9 @@
     <!-- End of Visi Misi Section -->
 
     <!-- Kependudukan Section -->
-    <section id="kependudukan" class="py-5 bg-light">
-        <div class="container col-lg-10 shadow-sm p-4 rounded">
-            <h2 class="subjudul text-center mb-5 fw-bold">Kependudukan</h2>
+    <section id="kependudukan" class="py-5 bg-white">
+        <div class="container transition-container col-lg-10 shadow-sm p-4 rounded">
+            <h2 class="subjudul text-center mb-5 fw-bold">Demografis Desa</h2>
             <!-- Key Statistics Section -->
             <div class="row g-4 text-center">
                 <!-- Total Jiwa -->
@@ -83,8 +83,7 @@
                     <div class="card p-3 shadow-sm border-0">
                         <div class="card-body">
                             <h5 class="card-title fw-bold mb-2">Total Jiwa</h5>
-                            <span class="counter display-4"
-                                data-target="{{ $profiledesa->total_jiwa }}">0</span>
+                            <span class="counter display-4" data-target="{{ $profiledesa->total_jiwa }}">0</span>
                         </div>
                     </div>
                 </div>
@@ -92,7 +91,7 @@
                 <div class="col-lg-6">
                     <div class="card p-3 shadow-sm border-0">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold mb-2">Total KK</h5>
+                            <h5 class="card-title fw-bold mb-2">Kepala Keluarga</h5>
                             <span class="counter display-4" data-target="{{ $profiledesa->total_kk }}">0</span>
                         </div>
                     </div>
@@ -101,9 +100,8 @@
                 <div class="col-lg-6">
                     <div class="card p-3 shadow-sm border-0">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold mb-2">Dusun</h5>
-                            <span class="counter display-4"
-                                data-target="{{ $profiledesa->total_dusun }}">0</span>
+                            <h5 class="card-title fw-bold mb-2">Laki-Laki</h5>
+                            <span class="counter display-4" data-target="{{ $profiledesa->total_laki_laki }}">0</span>
                         </div>
                     </div>
                 </div>
@@ -111,8 +109,8 @@
                 <div class="col-lg-6">
                     <div class="card p-3 shadow-sm border-0">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold mb-2">Jumlah RT</h5>
-                            <span class="counter display-4" data-target="{{ $profiledesa->total_rt }}">0</span>
+                            <h5 class="card-title fw-bold mb-2">Perempuan</h5>
+                            <span class="counter display-4" data-target="{{ $profiledesa->total_perempuan }}">0</span>
                         </div>
                     </div>
                 </div>
@@ -140,14 +138,59 @@
     <!-- End of Kependudukan Section -->
 
     <!-- Kantor Desa Section -->
-    <section id="kantor-desa" class="py-5 bg-light">
-        <div class="container-fluid col-lg-10 shadow-sm p-4 rounded">
+    <section id="kantor-desa" class="py-5">
+        <div class="container transition-container col-lg-10 shadow-sm p-4 rounded">
+            <!-- Section Title -->
             <h2 class="subjudul text-center mb-5 fw-bold">Lokasi Desa</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <!-- Map Section -->
+
+            <!-- Map Section -->
+            <div class="row mb-5">
+                <div class="col-12">
                     <div class="map-container rounded overflow-hidden shadow-sm">
                         {!! $profiledesa->peta_desa !!}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Info Section -->
+            <div class="row g-4">
+                <!-- Desa Information -->
+                <div class="col-lg-6">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary">Informasi Desa</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <strong>Batas Utara:</strong> {{ $profiledesa->batas_utara }}
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>Batas Timur:</strong> {{ $profiledesa->batas_timur }}
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>Batas Selatan:</strong> {{ $profiledesa->batas_selatan }}
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>Batas Barat:</strong> {{ $profiledesa->batas_barat }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistical Information -->
+                <div class="col-lg-6">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary">Statistik Desa</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <strong>Luas Desa:</strong> {{ $profiledesa->luas_desa }} km²
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>Jumlah Dusun:</strong> {{ $profiledesa->jumlah_dusun }}
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

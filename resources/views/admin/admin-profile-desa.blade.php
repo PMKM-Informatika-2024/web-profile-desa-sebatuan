@@ -51,11 +51,11 @@
                             </div>
                             <div class="row mb-3">
                                 <label class="col-lg-2 col-md-3 col-sm-4">Total Dusun:</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_dusun }}</div>
+                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_laki_laki }}</div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-lg-2 col-md-3 col-sm-4">Total RT:</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_rt }}</div>
+                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_perempuan }}</div>
                             </div>
                             <div class="row mb-3">
                                 <label class="col-lg-2 col-md-3 col-sm-4">Melayu</label>
@@ -182,14 +182,14 @@
                                                         value="{{ $profiledesa->total_kk }}">
                                                 </div>
                                                 <div class="col-lg-3 col-md-6">
-                                                    <label class="form-label">Total Dusun:</label>
-                                                    <input type="number" class="form-control" name="total_dusun"
-                                                        required value="{{ $profiledesa->total_dusun }}">
+                                                    <label class="form-label">Total Laki-Laki:</label>
+                                                    <input type="number" class="form-control" name="total_laki_laki"
+                                                        required value="{{ $profiledesa->total_laki_laki }}">
                                                 </div>
                                                 <div class="col-lg-3 col-md-6">
-                                                    <label class="form-label">Total RT:</label>
-                                                    <input type="number" class="form-control" name="total_rt" required
-                                                        value="{{ $profiledesa->total_rt }}">
+                                                    <label class="form-label">Total Perempuan:</label>
+                                                    <input type="number" class="form-control" name="total_perempuan" required
+                                                        value="{{ $profiledesa->total_perempuan }}">
                                                 </div>
                                             </div>
 

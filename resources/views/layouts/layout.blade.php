@@ -66,7 +66,7 @@
                                 Informasi Publik
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/layanan-administrasi">Layanan Administrasi Desa</a>
+                                <li><a class="dropdown-item" href="/layanan-administrasi">Layanan Administrasi</a>
                                 </li>
                                 <li>
                                     <hr class="dropdown-divider">
