@@ -18,9 +18,9 @@
         <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
             <h2 class="subjudul mb-4 fw-bold  text-center">Sejarah Desa</h2>
             <!-- Image Section -->
-            <div class="card-img-top overflow-hidden rounded mb-4">
+            <div class="d-flex justify-content-center mb-4">
                 <img src="{{ asset('storage/' . $profiledesa->gambar_profiledesa) }}" alt="Desa Image"
-                    class="img-fluid rounded" style="object-fit: cover; width: 100%;">
+                    class="img-fluid rounded" style="object-fit: cover; width: 50%;">
             </div>
             <!-- Text Section -->
             <div class="card-body">
