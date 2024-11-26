@@ -66,6 +66,7 @@ class ProfildesaController
             'total_kk' => 'required',
             'total_laki_laki' => 'required',
             'total_perempuan' => 'required',
+
             'total_melayu' => 'required',
             'total_madura' => 'required',
             'total_tionghoa' => 'required',
@@ -73,12 +74,34 @@ class ProfildesaController
             'total_jawa' => 'required',
             'total_bugis' => 'required',
             'total_suku_lainnya' => 'required',
+            
             'total_islam' => 'required',
             'total_katolik' => 'required',
             'total_protestan' => 'required',
             'total_buddha' => 'required',
             'total_hindu' => 'required',
             'total_konghuchu' => 'required',
+
+            'total_belum_sekolah' => 'required',
+            'total_tamat_SD' => 'required',
+            'total_tamat_SMP' => 'required',
+            'total_tamat_SMA' => 'required',
+            'total_diploma1' => 'required',
+            'total_diploma2' => 'required',
+            'total_diploma3' => 'required',
+            'total_sarjana1' => 'required',
+            'total_sarjana2' => 'required',
+            'total_sarjana3' => 'required',
+
+            'total_petani_pekebun' => 'required',
+            'total_buruhTani' => 'required',
+            'total_swasta' => 'required',
+            'total_pns' => 'required',
+            'total_pedagang' => 'required',
+            'total_pengrajin' => 'required',
+            'total_peternak' => 'required',
+            'total_nelayan' => 'required',
+            'total_lainlain' => 'required',
             'peta_desa' => 'required',
         ]);
         if($request->file('gambar_profiledesa')) {

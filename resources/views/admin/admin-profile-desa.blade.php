@@ -169,7 +169,7 @@
                                                 </div>
                                             </div>
 
-                                            <!-- Additional Details (Total Jiwa, Total KK, Total Dusun, Total RT) -->
+                                            <!-- Additional Details (Total Jiwa, Total KK, Total Laki-laki, Total Perempuan) -->
                                             <div class="form-group row gx-3 gy-3">
                                                 <div class="col-lg-3 col-md-6">
                                                     <label class="form-label">Total Jiwa:</label>
@@ -177,7 +177,7 @@
                                                         value="{{ $profiledesa->total_jiwa }}">
                                                 </div>
                                                 <div class="col-lg-3 col-md-6">
-                                                    <label class="form-label">Total KK:</label>
+                                                    <label class="form-label">Total Kepala Keluarga:</label>
                                                     <input type="number" class="form-control" name="total_kk" required
                                                         value="{{ $profiledesa->total_kk }}">
                                                 </div>
@@ -294,6 +294,84 @@
                                                                 name="total_konghuchu"
                                                                 value="{{ $profiledesa->total_konghuchu }}"
                                                                 placeholder="" min="0">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Pendidikan -->
+                                            <div class="form-group row mt-3 mb-3">
+                                                <label class="col-lg-2 col-md-3 col-sm-4 form-label"> Pendidikan:</label>
+                                                <div class="col-lg-10 col-md-9 col-sm-8">
+                                                    <div class="row gx-3 gy-2">
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="belum_sekolah" class="form-label">Belum Sekolah</label>
+                                                            <input type="number" class="form-control" name="belum_sekolah"
+                                                                value="{{ $profiledesa->total_belum_sekolah }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="tamat_SD" class="form-label">Tamat SD</label>
+                                                            <input type="number" class="form-control"
+                                                                name="tamat_SD"
+                                                                value="{{ $profiledesa->total_tamat_SD }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="tamat_SMP" class="form-label">Tamat SMP</label>
+                                                            <input type="number" class="form-control"
+                                                                name="tamat_SMP"
+                                                                value="{{ $profiledesa->total_tamat_SMP }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="tamat_SMA" class="form-label">Tamat SMA</label>
+                                                            <input type="number" class="form-control"
+                                                                name="tamat_SMA"
+                                                                value="{{ $profiledesa->total_tamat_SMA }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="diploma1" class="form-label">Diploma 1</label>
+                                                            <input type="number" class="form-control"
+                                                                name="diploma1"
+                                                                value="{{ $profiledesa->total_diploma1 }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="diploma2" class="form-label">Diploma 2</label>
+                                                            <input type="number" class="form-control"
+                                                                name="diploma2"
+                                                                value="{{ $profiledesa->total_diploma2 }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="diploma3" class="form-label">Diploma 3</label>
+                                                            <input type="number" class="form-control"
+                                                                name="diploma3"
+                                                                value="{{ $profiledesa->total_diploma3 }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="sarjana1" class="form-label">Sarjana 1</label>
+                                                            <input type="number" class="form-control"
+                                                                name="sarjana1"
+                                                                value="{{ $profiledesa->total_sarjana1 }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="sarjana2" class="form-label">Sarjana 2</label>
+                                                            <input type="number" class="form-control"
+                                                                name="sarjana2"
+                                                                value="{{ $profiledesa->total_sarjana2 }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="sarjana3" class="form-label">Sarjana 3</label>
+                                                            <input type="number" class="form-control"
+                                                                name="sarjana3"
+                                                                value="{{ $profiledesa->total_sarjana3 }}" placeholder=""
+                                                                min="0">
                                                         </div>
                                                     </div>
                                                 </div>

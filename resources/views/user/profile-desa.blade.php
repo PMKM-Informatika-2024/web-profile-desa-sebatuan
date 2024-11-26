@@ -96,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Total Dusun -->
+                <!-- Total Laki-laki -->
                 <div class="col-lg-6">
                     <div class="card p-3 shadow-sm border-0">
                         <div class="card-body">
@@ -105,7 +105,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Jumlah RT -->
+                <!-- Jumlah Perempuan -->
                 <div class="col-lg-6">
                     <div class="card p-3 shadow-sm border-0">
                         <div class="card-body">
@@ -129,6 +129,20 @@
                 <div class="col-lg-6">
                     <div class="card shadow-sm border-0 p-4">
                         <h5 class="fw-bold mb-4">Agama</h5>
+                        <canvas id="agamaChart" class="chart-canvas"></canvas>
+                    </div>
+                </div>
+                <!-- Diagram Lingkaran Pendidikan -->
+                <div class="col-lg-6">
+                    <div class="card shadow-sm border-0 p-4">
+                        <h5 class="fw-bold mb-4">Pendidikan</h5>
+                        <canvas id="agamaChart" class="chart-canvas"></canvas>
+                    </div>
+                </div>
+                <!-- Diagram Lingkaran Mata Pencaharian -->
+                <div class="col-lg-6">
+                    <div class="card shadow-sm border-0 p-4">
+                        <h5 class="fw-bold mb-4">Mata Pencaharian</h5>
                         <canvas id="agamaChart" class="chart-canvas"></canvas>
                     </div>
                 </div>
@@ -193,6 +207,22 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Dusun Details -->
+                {{-- <div class="col-lg-4">
+                    <div class="card shadow-sm border-0">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold text-primary">Detail Dusun</h5>
+                            <ul class="list-group list-group-flush">
+                                @foreach ($dusunList as $dusun)
+                                    <li class="list-group-item">
+                                        <i class="fas fa-map-marker-alt text-primary me-2"></i> {{ $dusun->nama_dusun }}
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div> --}}
             </div>
         </div>
     </section>
@@ -218,6 +248,32 @@
             {{ $profiledesa->total_hindu }},
             {{ $profiledesa->total_konghuchu }}
         ];
+
+        const dataPendidikan = [
+            {{ $profiledesa->total_belum_sekolah }},
+            {{ $profiledesa->total_tamat_SD }},
+            {{ $profiledesa->total_tamat_SMP }},
+            {{ $profiledesa->total_tamat_SMA }},
+            {{ $profiledesa->total_diploma1 }},
+            {{ $profiledesa->total_diploma2 }},
+            {{ $profiledesa->total_diploma3 }},
+            {{ $profiledesa->total_sarjana1 }},
+            {{ $profiledesa->total_sarjana2 }},
+            {{ $profiledesa->total_sarjana3 }},
+        ];
+
+        const dataMataPencaharian = [
+            {{ $profiledesa->total_petani_pekebun }},
+            {{ $profiledesa->total_buruhTani }},
+            {{ $profiledesa->total_swasta }},
+            {{ $profiledesa->total_pns }},
+            {{ $profiledesa->total_pedagang }},
+            {{ $profiledesa->total_pengrajin }},
+            {{ $profiledesa->total_peternak }},
+            {{ $profiledesa->total_nelayan }},
+            {{ $profiledesa->total_lainlain }}
+        ];
+
         // Diagram Lingkaran Suku
         const sukuCtx = document.getElementById('sukuChart').getContext('2d');
         const sukuChart = new Chart(sukuCtx, {
@@ -273,6 +329,104 @@
                     label: 'Jumlah Agama',
                     data: dataAgama,
                     backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'magenta'],
+                    hoverOffset: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            pointStyle: 'circle'
+                        }
+                    },
+                    datalabels: {
+                        color: '#000',
+                        anchor: 'end',
+                        align: 'end',
+                        offset: -50,
+                        formatter: (value, context) => {
+                            const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                            const percentage = (value / total * 100).toFixed(1) + '%';
+                            return percentage;
+                        },
+                        font: {
+                            weight: 'medium'
+                        }
+                    }
+                },
+                layout: {
+                    padding: 0
+                }
+            },
+            plugins: [ChartDataLabels]
+        });
+
+        // Diagram Lingkaran Pendidikan
+        const pendidikanCtx = document.getElementById('pendidikanChart').getContext('2d');
+        const pendidikanChart = new Chart(pendidikanCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Belum Sekolah', 'Tamat SD/Sederajat', 'Tamat SMP/Sederajat', 'Tamat SMA/Sederajat',
+                    'Diploma 1', 'Diploma 2', 'Diploma 3', 'Sarjana 1', 'Sarjana 2', 'Sarjana 3'
+                ],
+                datasets: [{
+                    label: 'Jumlah',
+                    data: dataSuku,
+                    backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'magenta',
+                        'cyan', 'pink', 'purple'
+                    ],
+                    hoverOffset: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            usePointStyle: true,
+                            pointStyle: 'circle'
+                        }
+                    },
+                    datalabels: {
+                        color: '#000',
+                        anchor: 'end',
+                        align: 'end',
+                        offset: -50,
+                        formatter: (value, context) => {
+                            const total = context.chart.data.datasets[0].data.reduce((a, b) => a + b, 0);
+                            const percentage = (value / total * 100).toFixed(1) + '%';
+                            return percentage;
+                        },
+                        font: {
+                            weight: 'medium'
+                        }
+                    }
+                },
+                layout: {
+                    padding: 0
+                }
+            },
+            plugins: [ChartDataLabels]
+        });
+
+        // Diagram Lingkaran Mata Pencaharian
+        const mataPencaharianCtx = document.getElementById('mataPencaharianChart').getContext('2d');
+        const mataPencaharianChart = new Chart(mataPencaharianCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Petani/Pekebun', 'Buruh Tani', 'Swasta', 'Pegawai Negeri (PNS)',
+                    'Pedagang', 'Pengrajin', 'Peternak', 'Nelayan', 'Lain-lain'
+                ],
+                datasets: [{
+                    label: 'Jumlah',
+                    data: dataSuku,
+                    backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'magenta',
+                        'cyan', 'pink'
+                    ],
                     hoverOffset: 0
                 }]
             },
