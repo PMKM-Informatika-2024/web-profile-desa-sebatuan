@@ -13,7 +13,9 @@ class KelolakegiatanController
      */
     public function index()
     {
-        return view('admin.admin-kegiatan', []);
+        return view('admin.admin-kegiatan', [
+            'kelolakegiatans' => Kelolakegiatan::all()
+        ]);
     }
 
     /**

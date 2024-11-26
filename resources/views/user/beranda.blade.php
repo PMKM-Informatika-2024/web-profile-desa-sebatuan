@@ -2,22 +2,28 @@
 
 @section('child')
     <!-- Banner -->
-    <section id="banner-beranda" class="bg-light">
+    <section id="banner-beranda">
         <div class="container-fluid banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
             <div class="row">
                 <div class="text-center">
                     <h2 class="text-banner-h2">Selamat Datang</h2>
-                    <h2 class="text-banner-h1">Website Desa Perapakan</h2>
+                    <h2 class="text-banner-h1">Website Resmi Desa Perapakan</h2>
                 </div>
             </div>
         </div>
     </section>
     <!-- End of Banner -->
 
+
     <!-- Content Section -->
+<<<<<<< HEAD
+    <section id="content" class="py-5 bg-light">
+        <div class="container transition-container col-lg-10 mt-5 shadow-sm p-4 rounded">
+=======
     <section id="content" class="py-5">
         <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
             <h2 class="subjudul mb-4 text-center fw-bold">Tentang Desa Perapakan</h2>
+>>>>>>> 859b6f581a55683f637e6345ebd20f2295548be6
             <div class="row align-items-center">
                 <!-- Image Content -->
                 <div class="col-lg-6">
@@ -30,8 +36,11 @@
 
                 <!-- Text Content -->
                 <div class="col-lg-6">
+                    <h2 class="subjudul mb-4 fw-bold">
+                        Tentang Desa Perapakan
+                    </h2>
                     <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; text-align: justify;">
-                        {!! \Illuminate\Support\Str::limit($profiledesa->sejarah_desa, 400) !!}
+                        {!! \Illuminate\Support\Str::limit($profiledesa->sejarah_desa, 300) !!}
                     </p>
                     <a href="/profile-desa"
                         class="btn btn-primary mt-4 px-4 py-2 d-inline-flex align-items-center shadow-sm">
@@ -43,12 +52,18 @@
     </section>
     <!-- End of Content Section -->
 
+
     <!-- Video Profile Section -->
+<<<<<<< HEAD
+    <section id="video-profile" class="py-5 bg-white">
+        <div class="container transition-container text-center">
+=======
     <section id="video-profile" class="py-5">
         <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
+>>>>>>> 859b6f581a55683f637e6345ebd20f2295548be6
             <h2 class="subjudul text-center mb-4 fw-bold">Video Profile Desa</h2>
             <div class="row justify-content-center">
-                <div class="col-lg-12">
+                <div class="col-lg-8">
                     <div class="ratio ratio-16x9 shadow-sm rounded">
                         <iframe class="rounded" src="https://www.youtube.com/embed/qIAq6TzBxdk?si=M2q1hTPSUpVh2Ske"
                             title="YouTube video player" frameborder="0"
@@ -62,9 +77,15 @@
     </section>
     <!-- End of Video Profile Section -->
 
+
     <!-- Perangkat Desa Section -->
+<<<<<<< HEAD
+    <section id="perangkat-desa" class="py-5 mb-5 bg-light">
+        <div class="container-fluid perangkat-desa-container shadow rounded px-5 py-4">
+=======
     <section id="perangkat-desa" class="py-5">
         <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
+>>>>>>> 859b6f581a55683f637e6345ebd20f2295548be6
             <!-- Section Title -->
             <div class="row mb-4 justify-content-center text-center">
                 <div class="col-12">
@@ -119,6 +140,13 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
+
+            <!-- "See More" Button -->
+            <div class="row mt-4">
+                <div class="col-lg-12 text-end">
+                    <a href="/perangkat-desa" class="btn btn-outline-primary px-4 py-2 fw-bold">Selengkapnya</a>
+                </div>
+            </div>
         </div>
     </section>
     <!-- End of Perangkat Desa Section -->
@@ -130,26 +158,38 @@
             <div class="row g-4 justify-content-center">
                 @foreach ($pengumumen as $pengumuman)
                     <div class="col-lg-4 col-md-6">
-                        <div class="card shadow-sm h-100">
-                            <img src="{{ asset('storage/' . $pengumuman->gambar_pengumuman) }}"
-                                style="height: 250px; object-fit: cover; object-position: center;"
-                                class="card-img-top rounded-top">
-                            <div class="card-body d-flex flex-column justify-content-between">
-                                <h5 class="card-title text-center fw-bold text-primary mb-3">
-                                    {{ $pengumuman->judul }}
-                                </h5>
-                                <p class="card-text text-muted small mb-2">
-                                    <i class="fas fa-clock me-2"></i>
-                                    {{ \Carbon\Carbon::parse($pengumuman->created_at)->format('j M Y') }}
-                                </p>
-                                <p class="card-text text-muted">
-                                    {!! \Illuminate\Support\Str::limit($pengumuman->deskripsi_singkat, 100) !!}
-                                </p>
-                                <a href="/detail-pengumuman/{{ $pengumuman->id }}" class="btn btn-primary btn-sm mt-auto">
-                                    Selengkapnya <i class="fas fa-arrow-right ms-1"></i>
-                                </a>
+                        <!-- Card Klikable -->
+                        <a href="/detail-pengumuman/{{ $pengumuman->id }}" class="text-decoration-none">
+                            <div class="card shadow-sm border-0 h-100">
+                                <!-- Gambar -->
+                                <img src="{{ asset('storage/' . $pengumuman->gambar_pengumuman) }}" 
+                                    style="height: 200px; object-fit: cover; object-position: center;" 
+                                    class="card-img-top rounded-top">
+                                <!-- Konten -->
+                                <div class="card-body d-flex flex-column p-3">
+                                    <div class="d-flex justify-content-between text-muted mb-2" style="font-size: 0.8rem;">
+                                        <!-- Ikon Tanggal -->
+                                        <span>
+                                            <i class="fas fa-calendar-alt" style="margin-right: 8px;"></i>
+                                            {{ \Carbon\Carbon::parse($pengumuman->created_at)->format('j F Y') }}
+                                        </span>
+                                        <!-- Ikon Penulis -->
+                                        <span>
+                                            <i class="fas fa-user" style="margin-right: 8px;"></i>
+                                            {{ $pengumuman->penulis ?? 'Penulis Tidak Diketahui' }}
+                                        </span>
+                                    </div>
+                                    <!-- Judul -->
+                                    <h5 class="card-title fw-bold text-dark mb-1" style="margin-top:3px;">
+                                        {{ $pengumuman->judul }}
+                                    </h5>
+                                    <!-- Deskripsi Singkat -->
+                                    <p class="card-text text-muted small">
+                                        {!! \Illuminate\Support\Str::limit($pengumuman->deskripsi_singkat, 100) !!}
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 @endforeach
             </div>

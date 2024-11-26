@@ -10,6 +10,7 @@ use App\Http\Controllers\KelolakegiatanController;
 use App\Http\Controllers\KelolakontakController;
 use App\Models\Pengumuman;
 use App\Models\Profildesa;
+use App\Models\Kelolakegiatan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PerangkatdesaController::class, 'show']);
@@ -25,7 +26,9 @@ Route::get('/perangkat-desa', function () {
     return view('user/perangkat-desa');
 });
 Route::get('/daftar-kegiatan', function () {
-    return view('user/kegiatan');
+    return view('user/kegiatan',[
+        'kelolakegiatans' => Kelolakegiatan::all()
+    ]);
 });
 Route::get('/daftar-kontak', function () {
     return view('user/kontak');

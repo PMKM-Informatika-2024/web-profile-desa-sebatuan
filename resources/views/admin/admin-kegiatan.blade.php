@@ -57,8 +57,29 @@
                             </tr>
                         </thead>
                         <tbody id="kegiatanTableBody">
-                            <!-- Data kegiatan akan ditampilkan di sini -->
-                        </tbody>
+                            @foreach ($kelolakegiatans as $kegiatan)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $kegiatan->nama_kegiatan }}</td>
+                                    <td>
+                                        @if ($kegiatan->gambar_kegiatan)
+                                            <img src="{{ asset('storage/' . $kegiatan->gambar_kegiatan) }}" alt="Gambar Kegiatan" class="img-thumbnail" style="width: 50px; height: 50px;">
+                                        @else
+                                            Tidak Ada Gambar
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editKegiatanModal"
+                                            onclick="loadEditData({{ $kegiatan }})">Edit</button>
+                                        <form action="{{ route('kegiatan.destroy', $kegiatan->id) }}" method="POST" class="d-inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus kegiatan ini?')">Hapus</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>                        
                     </table>
 
                     <!-- Modal untuk Edit Kegiatan -->
