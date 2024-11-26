@@ -80,3 +80,4 @@ Route::resource('/layananadministrasi', LayananadministrasiController::class)->m
 Route::resource('/pengumuman', PengumumanController::class)->middleware('auth');
 Route::resource('/kegiatan', KelolakegiatanController::class)->middleware('auth');
 Route::resource('/kontak', KelolakontakController::class)->middleware('auth');
+Route::resource('/strukturperangkatdesa', StrukturperangkatdesaController::class)->middleware('auth');

@@ -107,17 +107,13 @@
                                     <td><img src="{{ asset('storage/' . $perangkatdesa->gambar_perangkatdesa) }}"
                                             alt="" class="img-thumbnail" style="width: 50px; height: 50px;"></td>
                                     <td>
-                                        <a class=" btn btn-warning" href="javascript:void(0)" data-bs-toggle="modal"
-                                            data-bs-target="#editPerangkatModal"
-                                            onclick="loadEditData({{ $perangkatdesa }})"><i
-                                                class="fa-solid fa-pen-to-square"></i></a>
-                                        <form action="/perangkatdesa/{{ $perangkatdesa->id }}" method="post" class="d-inline">
-                                            @method('delete')
-                                            @csrf
-                                            <button class=" btn btn-danger border-0"
-                                                onclick="return confirm('Hapus data {{ $perangkatdesa->nama }}?')"><i
-                                                    class="fa-solid fa-trash-can"></i></button>
-                                        </form>
+                                        <a class="btn btn-warning" href="javascript:void(0)" data-bs-toggle="modal"
+                                            data-bs-target="#editPerangkatModal" onclick="loadEditData({{ $perangkatdesa }})">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </a>
+                                        <button class="btn btn-danger border-0" onclick="showDeleteModal('{{ $perangkatdesa->id }}', '{{ $perangkatdesa->nama }}')">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -166,6 +162,29 @@
                         </div>
                     </div>
                     {{-- modal stops here --}}
+                    <!-- Modal Konfirmasi Hapus -->
+<div class="modal fade" id="deletePerangkatModal" tabindex="-1" aria-labelledby="deletePerangkatModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deletePerangkatModalLabel">Konfirmasi Hapus</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Apakah Anda yakin ingin menghapus perangkat <strong id="deletePerangkatName"></strong>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <form id="deletePerangkatForm" method="POST" class="d-inline">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
                 </div>
             </div>
         </div>
@@ -204,90 +223,19 @@
                 reader.readAsDataURL(file);
             }
         }
-        // tambah perangkat
-        // let perangkat = [];
 
-        // function displayPerangkat() {
-        //   const tableBody = document.getElementById('perangkatTableBody');
-        //   tableBody.innerHTML = '';
+        function showDeleteModal(id, nama) {
+    // Tampilkan nama perangkat di modal
+    document.getElementById('deletePerangkatName').textContent = nama;
 
-        //   perangkat.forEach((item, index) => {
-        //     const row = `
-    //   <tr>
-    //     <td>${index + 1}</td>
-    //     <td>${item.nama}</td>
-    //     <td>${item.jabatan}</td>
-    //     <td><img src="${item.foto}" alt="Foto ${item.nama}" class="img-thumbnail" style="width: 50px; height: 50px;"></td>
-    //     <td>
-    //       <button class="btn btn-edit btn-sm" onclick="openEditModal(${index})">Edit</button>
-    //       <button class="btn btn-hapus btn-sm" onclick="deletePerangkat(${index})">Hapus</button>
-    //     </td>
-    //   </tr>
-    // `;
-        //     tableBody.innerHTML += row;
-        //   });
-        // }
+    // Atur action form penghapusan
+    const deleteForm = document.getElementById('deletePerangkatForm');
+    deleteForm.action = `/perangkatdesa/${id}`;
 
-        // menambahkan perangkat
-        // document.getElementById('tambahPerangkatForm').onsubmit = function (event) {
-        //   event.preventDefault();
-        //   const nama = document.getElementById('nama').value;
-        //   const jabatan = document.getElementById('jabatan').value;
-        //   const foto = document.getElementById('foto').files[0];
+    // Tampilkan modal konfirmasi
+    const deleteModal = new bootstrap.Modal(document.getElementById('deletePerangkatModal'));
+    deleteModal.show();
+}
 
-        //   const reader = new FileReader();
-        //   reader.onloadend = function () {
-        //     perangkat.push({ nama, jabatan, foto: reader.result });
-        //     displayPerangkat();
-        //     alert('Data telah disimpan');
-        //     document.getElementById('tambahPerangkatForm').reset();
-        //   };
-        //   reader.readAsDataURL(foto);
-        // };
-
-        // membuka modal edit
-        // function openEditModal(index) {
-        //   document.getElementById('editIndex').value = index;
-        //   document.getElementById('editNama').value = perangkat[index].nama;
-        //   document.getElementById('editJabatan').value = perangkat[index].jabatan;
-        //   const myModal = new bootstrap.Modal(document.getElementById('editPerangkatModal'));
-        //   myModal.show();
-        // }
-
-        // mengupdate perangkat
-        // document.getElementById('editPerangkatForm').onsubmit = function (event) {
-        //   event.preventDefault();
-        //   const index = document.getElementById('editIndex').value;
-        //   const nama = document.getElementById('editNama').value;
-        //   const jabatan = document.getElementById('editJabatan').value;
-        //   const foto = document.getElementById('editFoto').files[0];
-
-        //   if (foto) {
-        //     const reader = new FileReader();
-        //     reader.onloadend = function () {
-        //       perangkat[index] = { nama, jabatan, foto: reader.result };
-        //       displayPerangkat();
-        //       alert('Data telah diperbarui'); 
-        //       var myModal = bootstrap.Modal.getInstance(document.getElementById('editPerangkatModal'));
-        //       myModal.hide();
-        //     };
-        //     reader.readAsDataURL(foto);
-        //   } else {
-        //     perangkat[index] = { nama, jabatan, foto: perangkat[index].foto };
-        //     displayPerangkat();
-        //     alert('Data telah di-update');
-        //     var myModal = bootstrap.Modal.getInstance(document.getElementById('editPerangkatModal'));
-        //     myModal.hide();
-        //   }
-        // };
-
-        // menghapus perangkat
-        // function deletePerangkat(index) {
-        //   if (confirm('Apakah Anda yakin ingin menghapus data ini?')) { 
-        //     perangkat.splice(index, 1);
-        //     displayPerangkat();
-        //     alert('Data telah dihapus');
-        //   }
-        // }
     </script>
 @endsection

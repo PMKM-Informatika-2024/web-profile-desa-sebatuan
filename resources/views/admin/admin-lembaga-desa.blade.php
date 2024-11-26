@@ -81,18 +81,16 @@
                                     <td><img src="{{ asset('storage/' . $lembagadesa->gambar_lembaga) }}" alt=""
                                             class="img-thumbnail" style="width: 50px; height: 50px;"></td>
                                     <td>
-                                        <a class=" btn btn-warning" href="javascript:void(0)" data-bs-toggle="modal"
-                                            data-bs-target="#editLembagaModal"
-                                            onclick="loadEditData({{ $lembagadesa }})"><i
-                                                class="fa-solid fa-pen-to-square"></i></a>
-                                        <form action="/lembagadesa/{{ $lembagadesa->id }}" method="post" class="d-inline">
-                                            @method('delete')
-                                            @csrf
-                                            <button class=" btn btn-danger border-0"
-                                                onclick="return confirm('Hapus data {{ $lembagadesa->nama }}?')"><i
-                                                    class="fa-solid fa-trash-can"></i></button>
-                                        </form>
-                                    </td>
+                                        <a class="btn btn-warning" href="javascript:void(0)" data-bs-toggle="modal"
+                                           data-bs-target="#editLembagaModal"
+                                           onclick="loadEditData({{ $lembagadesa }})">
+                                           <i class="fa-solid fa-pen-to-square"></i>
+                                        </a>
+                                        <button class="btn btn-danger border-0"
+                                                onclick="showDeleteModal('{{ $lembagadesa->id }}', '{{ $lembagadesa->nama_lembaga }}')">
+                                           <i class="fa-solid fa-trash-can"></i>
+                                        </button>
+                                    </td>     
                                 </tr>
                             @endforeach
                         </tbody>
@@ -143,6 +141,29 @@
                         </div>
                     </div>
                     {{-- modal stops here --}}
+                    <!-- Modal Konfirmasi Hapus -->
+<div class="modal fade" id="deleteLembagaModal" tabindex="-1" aria-labelledby="deleteLembagaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteLembagaModalLabel">Konfirmasi Hapus</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Apakah Anda yakin ingin menghapus lembaga <strong id="deleteLembagaName"></strong>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <form id="deleteLembagaForm" method="POST" class="d-inline">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
                 </div>
             </div>
         </div>
@@ -182,6 +203,20 @@
                 reader.readAsDataURL(file);
             }
         }
+
+        function showDeleteModal(id, nama) {
+    // Menampilkan nama lembaga yang akan dihapus
+    document.getElementById('deleteLembagaName').textContent = nama;
+
+    // Mengubah action form untuk mengarahkan ke route hapus sesuai ID lembaga
+    const deleteForm = document.getElementById('deleteLembagaForm');
+    deleteForm.action = `/lembagadesa/${id}`;
+
+    // Menampilkan modal konfirmasi
+    const deleteModal = new bootstrap.Modal(document.getElementById('deleteLembagaModal'));
+    deleteModal.show();
+}
+
 
         function resetForm() {
             document.getElementById("tambahLembagaForm").reset();
