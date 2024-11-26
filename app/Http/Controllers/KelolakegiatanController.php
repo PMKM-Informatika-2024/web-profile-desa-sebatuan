@@ -90,12 +90,12 @@ class KelolakegiatanController
      */
     public function destroy(Request $request, Kelolakegiatan $kelolakegiatan)
     {
-        dd($request);
-        // dd($kelolakegiatan->id);
-        if($kelolakegiatan->gambar_kegiatan){
-            Storage::delete($kelolakegiatan->gambar_kegiatan);
+        // dd($request);
+        // dd($request->gambar_kegiatan);
+        if($request->gambar_kegiatan){
+            Storage::delete($request->gambar_kegiatan);
         }
-        Kelolakegiatan::destroy($kelolakegiatan->id);
+        Kelolakegiatan::destroy($request->id);
         return redirect('/kegiatan')->with('success', 'Kegiatan berhasil dihapus');
     }
 }

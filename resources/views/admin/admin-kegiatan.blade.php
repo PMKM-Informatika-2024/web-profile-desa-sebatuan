@@ -74,7 +74,8 @@
                                         <form action="/kegiatan/{{ $kelolakegiatan->id }}" method="POST" class="d-inline">
                                             @method('delete')
                                             @csrf
-                                            <input type="text" name="id" value="{{ $kelolakegiatan->id }}">
+                                            <input type="text" name="id" value="{{ $kelolakegiatan->id }}" hidden>
+                                            <input type="text" name="gambar_kegiatan" value="{{ $kelolakegiatan->gambar_kegiatan }}" hidden>
                                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Hapus kegiatan {{ $kelolakegiatan->nama_kegiatan }}?')">Hapus</button>
                                         </form>
                                     </td>
