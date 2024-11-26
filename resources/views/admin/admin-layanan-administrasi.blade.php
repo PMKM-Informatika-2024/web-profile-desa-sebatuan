@@ -71,17 +71,15 @@
                                     <td>{{ $layananadministrasi->nama_layanan }}</td>
                                     <td>{!! $layananadministrasi->deskripsi !!}</td>
                                     <td>
-                                        <a class=" btn btn-warning" href="javascript:void(0)" data-bs-toggle="modal"
+                                        <a class="btn btn-warning" href="javascript:void(0)" data-bs-toggle="modal"
                                             data-bs-target="#editLayananAdministrasiModal"
-                                            onclick="loadEditData({{ $layananadministrasi }})"><i
-                                                class="fa-solid fa-pen-to-square"></i></a>
-                                        <form action="/layananadministrasi/{{ $layananadministrasi->id }}" method="post" class="d-inline">
-                                            @method('delete')
-                                            @csrf
-                                            <button class=" btn btn-danger border-0"
-                                                onclick="return confirm('Hapus data {{ $layananadministrasi->nama_layanan }}?')"><i
-                                                    class="fa-solid fa-trash-can"></i></button>
-                                        </form>
+                                            onclick="loadEditData({{ $layananadministrasi }})">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </a>
+                                        <button class="btn btn-danger border-0"
+                                            onclick="showDeleteModal('{{ $layananadministrasi->id }}', '{{ $layananadministrasi->nama_layanan }}')">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </button>
                                     </td>
                                 </tr>
                             @endforeach
@@ -121,6 +119,31 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <!-- Modal Konfirmasi Hapus -->
+<div class="modal fade" id="deleteLayananModal" tabindex="-1" aria-labelledby="deleteLayananModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="deleteLayananModalLabel">Konfirmasi Hapus</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Apakah Anda yakin ingin menghapus layanan <strong id="deleteLayananName"></strong>?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                <form id="deleteLayananForm" method="POST" class="d-inline">
+                    @csrf
+                    @method('delete')
+                    <button type="submit" class="btn btn-danger">Hapus</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
                 </div>
             </div>
         </div>
@@ -156,5 +179,19 @@
                 reader.readAsDataURL(file);
             }
         }
+
+        function showDeleteModal(id, namaLayanan) {
+    // Tampilkan nama layanan di modal
+    document.getElementById('deleteLayananName').textContent = namaLayanan;
+
+    // Atur action form penghapusan
+    const deleteForm = document.getElementById('deleteLayananForm');
+    deleteForm.action = `/layananadministrasi/${id}`;
+
+    // Tampilkan modal konfirmasi
+    const deleteModal = new bootstrap.Modal(document.getElementById('deleteLayananModal'));
+    deleteModal.show();
+}
+
     </script>
 @endsection

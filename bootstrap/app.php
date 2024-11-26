@@ -11,7 +11,8 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->redirectUsersTo("/admin");
+        $middleware->redirectUsersTo("/adminlogin");
+        $middleware->redirectTo(guests: '/adminlogin',);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

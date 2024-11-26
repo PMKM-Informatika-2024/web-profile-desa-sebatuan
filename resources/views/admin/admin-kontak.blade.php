@@ -16,18 +16,17 @@
                                 @csrf
                                 <input type="text" name="id" value="{{ $kontak->id }}" hidden>
                             <div class="form-group row mb-3">
-                                <label for="whatsapp" class="col-lg-2 col-md-3 col-sm-4 form-label">Nomor WhatsApp:</label>
+                                <label for="whatsapp" class="col-lg-2 col-md-3 col-sm-4 form-label">Nomor HP:</label>
                                 <div class="col-lg-10 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" value="{{ $kontak->no_whatsapp }}" name="no_whatsapp" id="whatsapp" required>
+                                    <input type="text" class="form-control" value="{{ $kontak->no_hp }}" name="no_hp" id="whatsapp" required>
                                 </div>
                             </div>
 
                             <!-- Instagram -->
                             <div class="form-group row mb-3">
-                                <label for="instagram" class="col-lg-2 col-md-3 col-sm-4 form-label">Username
-                                    Instagram:</label>
+                                <label for="instagram" class="col-lg-2 col-md-3 col-sm-4 form-label">URL Instagram:</label>
                                 <div class="col-lg-10 col-md-9 col-sm-8">
-                                    <input type="text" class="form-control" value="{{ $kontak->username_instagram }}" name="username_instagram" id="instagram" required>
+                                    <input type="text" class="form-control" value="{{ $kontak->url_ig }}" name="url_ig" id="instagram" required>
                                 </div>
                             </div>
 
@@ -39,7 +38,21 @@
                                 </div>
                             </div>
 
+                            <!-- Facebook -->
+                            <div class="form-group row mb-3">
+                                <label class="col-lg-2 col-md-3 col-sm-4 form-label">URL Facebook:</label>
+                                <div class="col-lg-10 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" value="{{ $kontak->url_fb }}" name="url_fb" required>
+                                </div>
+                            </div>
 
+                            <!-- Facebook -->
+                            <div class="form-group row mb-3">
+                                <label class="col-lg-2 col-md-3 col-sm-4 form-label">URL Youtube:</label>
+                                <div class="col-lg-10 col-md-9 col-sm-8">
+                                    <input type="text" class="form-control" value="{{ $kontak->url_yt }}" name="url_yt" required>
+                                </div>
+                            </div>
                             <!-- Submit Button -->
                             <div class="d-flex justify-content-end mt-4">
                                 <button type="submit" class="btn btn-simpan">Simpan</button>

@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('kelolakontaks', function (Blueprint $table) {
+        Schema::create('strukturperangkatdesas', function (Blueprint $table) {
             $table->id();
+            $table->string('nama');
+            $table->string('gambar_strukturdesa');
             $table->timestamps();
-            $table->string('no_hp');
-            $table->string('url_ig');
-            $table->string('email');
-            $table->string('url_fb');
-            $table->string('url_yt');
         });
     }
 
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('kelolakontaks');
+        Schema::dropIfExists('strukturperangkatdesas');
     }
 };
