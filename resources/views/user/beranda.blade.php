@@ -15,7 +15,7 @@
     <!-- End of Banner -->
 
     <!-- Content Section -->
-    <section id="content" class="py-5 bg-light">
+    <section id="content" class="py-5">
         <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
             <h2 class="subjudul mb-4 text-center fw-bold">Tentang Desa Perapakan</h2>
             <div class="row align-items-center">
@@ -44,7 +44,7 @@
     <!-- End of Content Section -->
 
     <!-- Video Profile Section -->
-    <section id="video-profile" class="py-5 bg-light">
+    <section id="video-profile" class="py-5">
         <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
             <h2 class="subjudul text-center mb-4 fw-bold">Video Profile Desa</h2>
             <div class="row justify-content-center">
@@ -63,7 +63,7 @@
     <!-- End of Video Profile Section -->
 
     <!-- Perangkat Desa Section -->
-    <section id="perangkat-desa" class="py-5 bg-light">
+    <section id="perangkat-desa" class="py-5">
         <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
             <!-- Section Title -->
             <div class="row mb-4 justify-content-center text-center">
@@ -124,7 +124,7 @@
     <!-- End of Perangkat Desa Section -->
 
     <!-- Pengumuman -->
-    <section id="pengumuman" class="py-5 bg-light">
+    <section id="pengumuman" class="py-5 bg-white">
         <div class="container transition-container mb-3">
             <h2 class="subjudul text-center mb-5 fw-bold">Pengumuman</h2>
             <div class="row g-4 justify-content-center">

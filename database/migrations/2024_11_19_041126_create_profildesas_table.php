@@ -20,8 +20,8 @@ return new class extends Migration
             $table->text('misi_desa');
             $table->integer('total_jiwa');
             $table->integer('total_kk');
-            $table->integer('total_dusun');
-            $table->integer('total_rt');
+            $table->integer('total_laki_laki');
+            $table->integer('total_perempuan');
             $table->integer('total_melayu');
             $table->integer('total_madura');
             $table->integer('total_tionghoa');
