@@ -59,9 +59,10 @@ class ProfildesaController
         // dd($request);
         $validatedData = $request->validate([
             'sejarah_desa' => 'required',
+            // 'gambar_profiledesa'=>'image',
             'visi_desa' => 'required',
-            'gambar_profiledesa'=>'image',
             'misi_desa' => 'required',
+            
             'total_jiwa' => 'required',
             'total_kk' => 'required',
             'total_laki_laki' => 'required',
@@ -102,6 +103,17 @@ class ProfildesaController
             'total_peternak' => 'required',
             'total_nelayan' => 'required',
             'total_lainlain' => 'required',
+
+            'batas_utara' => 'required',
+            'batas_selatan' => 'required',
+            'batas_barat' => 'required',
+            'batas_timur' => 'required',
+
+            'luas_desa' => 'required',
+            'jumlah_dusun' => 'required',
+            'jumlah_rt' => 'required',
+            'jumlah_rw' => 'required',
+
             'peta_desa' => 'required',
         ]);
         if($request->file('gambar_profiledesa')) {

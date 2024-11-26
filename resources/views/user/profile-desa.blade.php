@@ -136,14 +136,14 @@
                 <div class="col-lg-6">
                     <div class="card shadow-sm border-0 p-4">
                         <h5 class="fw-bold mb-4">Pendidikan</h5>
-                        <canvas id="agamaChart" class="chart-canvas"></canvas>
+                        <canvas id="pendidikanChart" class="chart-canvas"></canvas>
                     </div>
                 </div>
                 <!-- Diagram Lingkaran Mata Pencaharian -->
                 <div class="col-lg-6">
                     <div class="card shadow-sm border-0 p-4">
                         <h5 class="fw-bold mb-4">Mata Pencaharian</h5>
-                        <canvas id="agamaChart" class="chart-canvas"></canvas>
+                        <canvas id="mataPencaharianChart" class="chart-canvas"></canvas>
                     </div>
                 </div>
             </div>
@@ -178,13 +178,13 @@
                                     <strong>Batas Utara:</strong> {{ $profiledesa->batas_utara }}
                                 </li>
                                 <li class="list-group-item">
-                                    <strong>Batas Timur:</strong> {{ $profiledesa->batas_timur }}
-                                </li>
-                                <li class="list-group-item">
                                     <strong>Batas Selatan:</strong> {{ $profiledesa->batas_selatan }}
                                 </li>
                                 <li class="list-group-item">
                                     <strong>Batas Barat:</strong> {{ $profiledesa->batas_barat }}
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>Batas Timur:</strong> {{ $profiledesa->batas_timur }}
                                 </li>
                             </ul>
                         </div>
@@ -203,26 +203,16 @@
                                 <li class="list-group-item">
                                     <strong>Jumlah Dusun:</strong> {{ $profiledesa->jumlah_dusun }}
                                 </li>
+                                <li class="list-group-item">
+                                    <strong>Jumlah RT:</strong> {{ $profiledesa->jumlah_rt }}
+                                </li>
+                                <li class="list-group-item">
+                                    <strong>Jumlah RW:</strong> {{ $profiledesa->jumlah_rw }}
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-
-                <!-- Dusun Details -->
-                {{-- <div class="col-lg-4">
-                    <div class="card shadow-sm border-0">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold text-primary">Detail Dusun</h5>
-                            <ul class="list-group list-group-flush">
-                                @foreach ($dusunList as $dusun)
-                                    <li class="list-group-item">
-                                        <i class="fas fa-map-marker-alt text-primary me-2"></i> {{ $dusun->nama_dusun }}
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
         </div>
     </section>

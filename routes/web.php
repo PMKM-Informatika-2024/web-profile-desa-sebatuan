@@ -18,6 +18,7 @@ Route::get('/lembaga-desa', [LembagadesaController::class, 'show']);
 Route::get('/layanan-publik', [LayananpublikController::class, 'show']);
 
 Route::get('/profile-desa', function () {
+    $profil = Profildesa::first();
     return view('user/profile-desa',[
         'profiledesa' => Profildesa::first()
      ]);

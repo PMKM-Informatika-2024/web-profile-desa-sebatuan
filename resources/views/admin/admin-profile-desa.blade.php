@@ -7,7 +7,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                    <div class="card-admin">
                         <div class="card-body" id="showDataProfil">
                             {{-- foto --}}
                             <div class="row mb-3">
@@ -301,76 +301,216 @@
 
                                             <!-- Pendidikan -->
                                             <div class="form-group row mt-3 mb-3">
-                                                <label class="col-lg-2 col-md-3 col-sm-4 form-label"> Pendidikan:</label>
+                                                <label class="col-lg-2 col-md-3 col-sm-4 form-label">Pendidikan:</label>
                                                 <div class="col-lg-10 col-md-9 col-sm-8">
                                                     <div class="row gx-3 gy-2">
                                                         <div class="col-lg-2 col-md-3">
                                                             <label for="belum_sekolah" class="form-label">Belum Sekolah</label>
-                                                            <input type="number" class="form-control" name="belum_sekolah"
+                                                            <input type="number" class="form-control" name="total_belum_sekolah"
                                                                 value="{{ $profiledesa->total_belum_sekolah }}" placeholder=""
                                                                 min="0">
                                                         </div>
                                                         <div class="col-lg-2 col-md-3">
                                                             <label for="tamat_SD" class="form-label">Tamat SD</label>
                                                             <input type="number" class="form-control"
-                                                                name="tamat_SD"
+                                                                name="total_tamat_SD"
                                                                 value="{{ $profiledesa->total_tamat_SD }}" placeholder=""
                                                                 min="0">
                                                         </div>
                                                         <div class="col-lg-2 col-md-3">
                                                             <label for="tamat_SMP" class="form-label">Tamat SMP</label>
                                                             <input type="number" class="form-control"
-                                                                name="tamat_SMP"
+                                                                name="total_tamat_SMP"
                                                                 value="{{ $profiledesa->total_tamat_SMP }}" placeholder=""
                                                                 min="0">
                                                         </div>
                                                         <div class="col-lg-2 col-md-3">
                                                             <label for="tamat_SMA" class="form-label">Tamat SMA</label>
                                                             <input type="number" class="form-control"
-                                                                name="tamat_SMA"
+                                                                name="total_tamat_SMA"
                                                                 value="{{ $profiledesa->total_tamat_SMA }}" placeholder=""
                                                                 min="0">
                                                         </div>
                                                         <div class="col-lg-2 col-md-3">
                                                             <label for="diploma1" class="form-label">Diploma 1</label>
                                                             <input type="number" class="form-control"
-                                                                name="diploma1"
+                                                                name="total_diploma1"
                                                                 value="{{ $profiledesa->total_diploma1 }}" placeholder=""
                                                                 min="0">
                                                         </div>
                                                         <div class="col-lg-2 col-md-3">
                                                             <label for="diploma2" class="form-label">Diploma 2</label>
                                                             <input type="number" class="form-control"
-                                                                name="diploma2"
+                                                                name="total_diploma2"
                                                                 value="{{ $profiledesa->total_diploma2 }}" placeholder=""
                                                                 min="0">
                                                         </div>
                                                         <div class="col-lg-2 col-md-3">
                                                             <label for="diploma3" class="form-label">Diploma 3</label>
                                                             <input type="number" class="form-control"
-                                                                name="diploma3"
+                                                                name="total_diploma3"
                                                                 value="{{ $profiledesa->total_diploma3 }}" placeholder=""
                                                                 min="0">
                                                         </div>
                                                         <div class="col-lg-2 col-md-3">
                                                             <label for="sarjana1" class="form-label">Sarjana 1</label>
                                                             <input type="number" class="form-control"
-                                                                name="sarjana1"
+                                                                name="total_sarjana1"
                                                                 value="{{ $profiledesa->total_sarjana1 }}" placeholder=""
                                                                 min="0">
                                                         </div>
                                                         <div class="col-lg-2 col-md-3">
                                                             <label for="sarjana2" class="form-label">Sarjana 2</label>
                                                             <input type="number" class="form-control"
-                                                                name="sarjana2"
+                                                                name="total_sarjana2"
                                                                 value="{{ $profiledesa->total_sarjana2 }}" placeholder=""
                                                                 min="0">
                                                         </div>
                                                         <div class="col-lg-2 col-md-3">
                                                             <label for="sarjana3" class="form-label">Sarjana 3</label>
                                                             <input type="number" class="form-control"
-                                                                name="sarjana3"
+                                                                name="total_sarjana3"
                                                                 value="{{ $profiledesa->total_sarjana3 }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Mata Pencaharian -->
+                                            <div class="form-group row mt-3 mb-3">
+                                                <label class="col-lg-2 col-md-3 col-sm-4 form-label"> Mata Pencaharian:</label>
+                                                <div class="col-lg-10 col-md-9 col-sm-8">
+                                                    <div class="row gx-3 gy-2">
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="petani_pekebun" class="form-label">Petani/Pekebun</label>
+                                                            <input type="number" class="form-control" name="total_petani_pekebun"
+                                                                value="{{ $profiledesa->total_petani_pekebun }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="buruhTani" class="form-label">Buruh Tani</label>
+                                                            <input type="number" class="form-control"
+                                                                name="total_buruhTani"
+                                                                value="{{ $profiledesa->total_buruhTani }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="swasta" class="form-label">Swasta</label>
+                                                            <input type="number" class="form-control"
+                                                                name="total_swasta"
+                                                                value="{{ $profiledesa->total_swasta }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="pns" class="form-label">PNS</label>
+                                                            <input type="number" class="form-control"
+                                                                name="total_pns"
+                                                                value="{{ $profiledesa->total_pns }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="pedagang" class="form-label">Pedagang</label>
+                                                            <input type="number" class="form-control"
+                                                                name="total_pedagang"
+                                                                value="{{ $profiledesa->total_pedagang }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="pengrajin" class="form-label">Pengrajin</label>
+                                                            <input type="number" class="form-control"
+                                                                name="total_pengrajin"
+                                                                value="{{ $profiledesa->total_pengrajin }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="peternak" class="form-label">Peternak</label>
+                                                            <input type="number" class="form-control"
+                                                                name="total_peternak"
+                                                                value="{{ $profiledesa->total_peternak }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="nelayan" class="form-label">Nelayan</label>
+                                                            <input type="number" class="form-control"
+                                                                name="total_nelayan"
+                                                                value="{{ $profiledesa->total_nelayan }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="lainlain" class="form-label">Lain-lain</label>
+                                                            <input type="number" class="form-control"
+                                                                name="total_lainlain"
+                                                                value="{{ $profiledesa->total_lainlain }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Batas Desa -->
+                                            <div class="form-group row mt-3 mb-3">
+                                                <label for="batasUtaraDesa" class="col-lg-2 col-md-3 col-sm-4 form-label">Batas Utara:</label>
+                                                <div class="col-lg-10 col-md-9 col-sm-8">
+                                                    <input type="text" class="form-control" id="batasUtaraDesa"
+                                                        name="batas_utara"
+                                                        required value="{{ $profiledesa->batas_utara }}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mt-3 mb-3">
+                                                <label for="batasTimurDesa" class="col-lg-2 col-md-3 col-sm-4 form-label">Batas Timur:</label>
+                                                <div class="col-lg-10 col-md-9 col-sm-8">
+                                                    <input type="text" class="form-control" id="batasTimurDesa"
+                                                        name="batas_timur"
+                                                        required value="{{ $profiledesa->batas_timur }}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mt-3 mb-3">
+                                                <label for="batasSelatanDesa" class="col-lg-2 col-md-3 col-sm-4 form-label">Batas Selatan:</label>
+                                                <div class="col-lg-10 col-md-9 col-sm-8">
+                                                    <input type="text" class="form-control" id="batasSelatanDesa"
+                                                        name="batas_selatan"
+                                                        required value="{{ $profiledesa->batas_selatan }}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mt-3 mb-3">
+                                                <label for="batasBaratDesa" class="col-lg-2 col-md-3 col-sm-4 form-label">Batas Barat:</label>
+                                                <div class="col-lg-10 col-md-9 col-sm-8">
+                                                    <input type="text" class="form-control" id="batasBaratDesa"
+                                                        name="batas_barat"
+                                                        required value="{{ $profiledesa->batas_barat }}">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mt-3 mb-3">
+                                                <label class="col-lg-2 col-md-3 col-sm-4 form-label">Statistika Desa:</label>
+                                                <div class="col-lg-10 col-md-9 col-sm-8">
+                                                    <div class="row gx-3 gy-2">
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="luas_desa" class="form-label">Luas Desa</label>
+                                                            <input type="number" class="form-control" name="luas_desa"
+                                                                value="{{ $profiledesa->luas_desa }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="jumlah_dusun" class="form-label">Jumlah Dusun</label>
+                                                            <input type="number" class="form-control"
+                                                                name="jumlah_dusun"
+                                                                value="{{ $profiledesa->jumlah_dusun }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="jumlah_rt" class="form-label">Jumlah RT</label>
+                                                            <input type="number" class="form-control"
+                                                                name="jumlah_rt"
+                                                                value="{{ $profiledesa->jumlah_rt }}" placeholder=""
+                                                                min="0">
+                                                        </div>
+                                                        <div class="col-lg-2 col-md-3">
+                                                            <label for="jumlah_rw" class="form-label">Jumlah RW</label>
+                                                            <input type="number" class="form-control"
+                                                                name="jumlah_rw"
+                                                                value="{{ $profiledesa->jumlah_rw }}" placeholder=""
                                                                 min="0">
                                                         </div>
                                                     </div>
