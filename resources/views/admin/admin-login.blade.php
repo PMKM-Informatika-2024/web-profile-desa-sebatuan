@@ -3,96 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
-    <!-- Bootstrap CSS -->
+    <title>Login Desa Perapakan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(to bottom, #d9f2d9, #bde4bd);
-            font-family: 'Roboto Slab', serif;
+            background-color: #f0f4f8;
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
+            font-family: Arial, sans-serif;
         }
-        .form-signin {
+        .login-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
             width: 100%;
-            max-width: 500px;
-            padding: 40px;
-            background: #fff;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            padding: 30px;
         }
-        .form-signin h2 {
-            font-weight: 500;
-            color: #4CAF50;
+        .login-container img {
+            display: block;
+            margin: 0 auto 20px;
+            width: 80px;
         }
-        .form-signin .form-control {
-            padding-left: 45px;
-            height: 50px;
-            font-size: 16px;
-        }
-        .form-signin .input-icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #4CAF50;
-            font-size: 20px;
+        .login-container h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
         }
         .form-group {
             position: relative;
+            margin-bottom: 20px;
         }
-        .btn-custom {
-            background-color: #4CAF50;
-            color: #fff;
-            font-weight: bold;
+        .form-control {
             border: none;
-            height: 50px;
-            font-size: 18px;
-            transition: all 0.3s ease-in-out;
-        }
-        .btn-custom:hover {
-            background-color: #3e8e41;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        .alert {
+            border-bottom: 2px solid #ccc;
+            border-radius: 0;
+            height: 45px;
             font-size: 14px;
+            padding-left: 10px;
+            box-shadow: none;
+            transition: border-color 0.3s;
+        }
+        .form-control:focus {
+            border-color: #ccc; /* Tetap netral */
+            outline: none; /* Hilangkan efek outline */
+        }
+        .form-control::placeholder {
+            color: #aaa;
+        }
+        .btn-submit {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            height: 45px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn-submit:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
-    <form action="/adminlogin" method="POST" class="form-signin">
-        @csrf
-        <h2 class="text-center mb-4">Login</h2>
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul class="mb-0">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+    <div class="login-container">
+        <img src="{{ asset('image/Sambas Logo.png') }}" alt="Logo Kecamatan">
+        <h2>Desa Perapakan</h2>
+        <form action="/adminlogin" method="POST">
+            @csrf
+            <!-- Username Field -->
+            <div class="form-group">
+                <input type="text" name="username" class="form-control" placeholder="Username" required>
             </div>
-        @endif
-
-        <div class="form-group mb-4">
-            <i class="bi bi-person-fill input-icon"></i>
-            <input type="text" name="username" id="nipUsername" class="form-control" placeholder="Username" required>
-        </div>
-        <div class="form-group mb-4">
-            <i class="bi bi-lock-fill input-icon"></i>
-            <input type="password" name="password" id="password" class="form-control" placeholder="Password" required>
-        </div>
-        <button type="submit" class="btn btn-custom w-100">Login</button>
-    </form>
-
-    <!-- Bootstrap Bundle JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Password Field -->
+            <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Password" required>
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-submit w-100">Login</button>
+        </form>
+    </div>
 </body>
 </html>
