@@ -11,9 +11,19 @@
     </div>
   </section>
   <!-- End of Banner -->
+  <section id="content" class="py-5">
+    <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
+      <h4 class="subjudul text-center mb-5">STRUKTUR ORGANISASI PEMERINTAHAN <br> DESA SUNGAI KERAN <br>{{$strukturperangkatdesa->nama}}</h4>
+        <!-- Image Section -->
+        <div class="d-flex justify-content-center mb-4">
+            <img src="{{ asset('storage/' . $strukturperangkatdesa->gambar_strukturdesa) }}" alt="Desa Image"
+                class="img-fluid rounded" style="object-fit: cover; width: 100%;">
+        </div>
+    </div>
+  </section>
 
   <!-- Perangkat Desa -->
-  <section id="perangkat-desa">
+  {{-- <section id="perangkat-desa">
     <div class="container transition-container mt-5">
       <h4 class="subjudul text-center mb-5">STRUKTUR ORGANISASI PEMERINTAHAN <br> DESA SUNGAI KERAN <br>2020-2026</h4>
       <div class="row">
@@ -256,6 +266,6 @@
       </div>
     </div>
     </div>
-  </section>
+  </section> --}}
   <!-- End of Perangkat Desa -->
   @endsection

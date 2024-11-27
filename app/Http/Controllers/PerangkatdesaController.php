@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pengumuman;
 use App\Models\Perangkatdesa;
 use App\Models\Profildesa;
+use App\Models\Strukturperangkatdesa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 class PerangkatdesaController  
@@ -15,7 +16,8 @@ class PerangkatdesaController
     public function index()
     {
         return view('admin.admin-perangkat-desa', [
-            'perangkatdesas' => Perangkatdesa::all(),
+            'perangkatdesas' => Perangkatdesa::all(), 
+            'strukturperangkatdesa' => Strukturperangkatdesa::first(),
             
         ]);
     }
