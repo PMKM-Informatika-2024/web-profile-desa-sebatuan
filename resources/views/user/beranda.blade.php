@@ -30,11 +30,8 @@
 
                 <!-- Text Content -->
                 <div class="col-lg-6">
-                    <h2 class="subjudul mb-4 fw-bold">
-                        Tentang Desa Perapakan
-                    </h2>
                     <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; text-align: justify;">
-                        {!! \Illuminate\Support\Str::limit($profiledesa->sejarah_desa, 300) !!}
+                        {!! \Illuminate\Support\Str::limit($profiledesa->sejarah_desa, 700) !!}
                     </p>
                     <a href="/profile-desa"
                         class="btn btn-primary mt-4 px-4 py-2 d-inline-flex align-items-center shadow-sm">

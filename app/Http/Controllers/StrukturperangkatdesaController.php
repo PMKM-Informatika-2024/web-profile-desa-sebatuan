@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Strukturperangkatdesa;
-use App\Http\Requests\StoreStrukturperangkatdesaRequest;
-use App\Http\Requests\UpdateStrukturperangkatdesaRequest;
-
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 class StrukturperangkatdesaController
 {
     /**
@@ -27,7 +26,7 @@ class StrukturperangkatdesaController
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreStrukturperangkatdesaRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -53,9 +52,10 @@ class StrukturperangkatdesaController
      */
     public function update(Request $request, Strukturperangkatdesa $strukturperangkatdesa)
     {
+        // dd($request->oldImage);
         $validatedData = $request->validate([
             'nama' => 'required',
-            'gambar_strukturdesa' => 'image'
+            
         ]);
         if($request->file('gambar_strukturdesa')) {
             if($request->oldImage){

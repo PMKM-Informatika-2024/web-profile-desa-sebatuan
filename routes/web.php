@@ -8,9 +8,11 @@ use App\Http\Controllers\LayananadministrasiController;
 use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\KelolakegiatanController;
 use App\Http\Controllers\KelolakontakController;
+use App\Http\Controllers\StrukturperangkatdesaController;
 use App\Models\Pengumuman;
 use App\Models\Profildesa;
 use App\Models\Kelolakegiatan;
+use App\Models\Strukturperangkatdesa;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PerangkatdesaController::class, 'show']);
@@ -24,7 +26,9 @@ Route::get('/profile-desa', function () {
      ]);
 });
 Route::get('/perangkat-desa', function () {
-    return view('user/perangkat-desa');
+    return view('user/perangkat-desa',[
+        'strukturperangkatdesa' => Strukturperangkatdesa::first()
+    ]);
 });
 Route::get('/daftar-kegiatan', function () {
     return view('user/kegiatan',[

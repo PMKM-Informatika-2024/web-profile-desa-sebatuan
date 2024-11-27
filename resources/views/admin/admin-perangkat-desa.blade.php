@@ -14,22 +14,25 @@
                                     <h5>Tambah Struktur Perangkat Desa
                                         <hr>
                                     </h5>
-                                    <form action="/perangkatdesa" method="POST" id="tambahPerangkatForm"
+                                    <form action="/strukturperangkatdesa/{{$strukturperangkatdesa->id}}" method="POST" id="tambahPerangkatForm"
                                         enctype="multipart/form-data">
+                                        @method('put')
                                         @csrf
+                                        <input type="text" value="{{$strukturperangkatdesa->id }}" name="id" hidden>
+                                        <input type="text" name="oldImage" hidden value="{{$strukturperangkatdesa->gambar_strukturdesa }}" >
                                         <div class="form-group row mb-3">
                                             <label for="nama"
                                                 class="col-lg-2 col-md-3 col-sm-4 form-label">Nama:</label>
                                             <div class="col-lg-10 col-md-9 col-sm-8">
-                                                <input type="text" class="form-control" name="nama" required>
+                                                <input type="text" class="form-control" name="nama" value="{{$strukturperangkatdesa->nama}}" required>
                                             </div>
                                         </div>
                                         <div class="form-group row mb-3">
                                             <label for="foto"
                                                 class="col-lg-2 col-md-3 col-sm-4 form-label">Foto:</label>
                                             <div class="col-lg-10 col-md-9 col-sm-8">
-                                                <input type="file" class="form-control" name="gambar_perangkatdesa"
-                                                    accept="image/*" required>
+                                                <input type="file" class="form-control" name="gambar_strukturdesa"
+                                                    accept="image/*">
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end mt-4">
