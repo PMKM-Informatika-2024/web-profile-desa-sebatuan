@@ -13,6 +13,7 @@ use App\Models\Pengumuman;
 use App\Models\Profildesa;
 use App\Models\Kelolakegiatan;
 use App\Models\Strukturperangkatdesa;
+use App\Models\Layananadministrasi;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PerangkatdesaController::class, 'show']);
@@ -39,7 +40,9 @@ Route::get('/daftar-kontak', function () {
     return view('user/kontak');
 });
 Route::get('/layanan-administrasi', function () {
-    return view('user/layanan-administrasi');
+    return view('user/layanan-administrasi',[
+        'layananadministrasis' => Layananadministrasi::all()
+    ]);
 });
 // Route::get('/layanan-publik', function () {
 //     return view('user/layanan-publik');
