@@ -12,93 +12,86 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-</head>
 
-<body>
-    <!-- Navbar -->
-    <section id="navbar">
-        <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top navbar-transparent">
+        <style>
+            body {
+                padding-top: 30px; /* Sesuaikan dengan tinggi navbar */
+            }
+            .navbar {
+                background-color: #286a59; /* Warna solid navbar */
+            }
+            .navbar .nav-link {
+                color: #fff;
+                transition: color 0.3s;
+            }
+            .navbar .nav-link:hover,
+            .navbar .nav-link.active {
+                color: #ffc107; /* Warna kuning untuk item aktif atau hover */
+            }
+            #chatbotBtn {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                z-index: 1030;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand ms-3 d-flex align-items-center" href="/">
                     <img src="{{ asset('image/Sambas Logo.png') }}" width="40" class="me-3" alt="Logo of Desa Parapakan">
                     <span class="logo-text d-flex flex-column">
-                        <strong>Desa Perapakan</strong>
+                        <strong>Desa Parapakan</strong>
                         <small>Kecamatan Pemangkat</small>
                     </span>
-                </a>                
-
-                <!-- Toggler for mobile -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
-                <!-- Navbar Links -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="/">Beranda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::is('profile-desa') ? 'active' : '' }}"
-                                href="/profile-desa">Profil Desa</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="/">Beranda</a></li>
+                        <li class="nav-item"><a class="nav-link {{ Request::is('profile-desa') ? 'active' : '' }}" href="/profile-desa">Profil Desa</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {{ Request::is('perangkat-desa', 'lembaga-desa') ? 'active' : '' }}"
-                                href="#" id="pemerintahan-desa" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
+                            <a class="nav-link dropdown-toggle {{ Request::is('perangkat-desa', 'lembaga-desa') ? 'active' : '' }}" href="#" id="pemerintahan-desa" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Pemerintahan Desa
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="/perangkat-desa">Perangkat Desa</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
+                                <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="/lembaga-desa">Lembaga Desa</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {{ Request::is('layanan-administrasi', 'daftar-pengumuman', 'daftar-kegiatan') ? 'active' : '' }}"
-                                href="#" id="informasi-publik" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
+                            <a class="nav-link dropdown-toggle {{ Request::is('layanan-administrasi', 'daftar-pengumuman', 'daftar-kegiatan') ? 'active' : '' }}" href="#" id="informasi-publik" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Informasi Publik
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/layanan-administrasi">Layanan Administrasi Desa</a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
+                                <li><a class="dropdown-item" href="/layanan-administrasi">Layanan Administrasi Desa</a></li>
+                                <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="/daftar-pengumuman">Pengumuman</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
+                                <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="/daftar-kegiatan">Kegiatan</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ Request::is('layanan-publik') ? 'active' : '' }}"
-                                href="/layanan-publik">Layanan Publik</a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link {{ Request::is('layanan-publik') ? 'active' : '' }}" href="/layanan-publik">Layanan Publik</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        
-        <!-- Floating Chatbot Button -->
-        <a href="https://pemangkat-chatbot.streamlit.app/" target="_blank" id="chatbotBtn" class="btn btn-primary">
-            <i class="fas fa-comments"></i> <!-- Chat icon (can be replaced with your own icon) -->
-        </a>
-    </section>
 
-    </section>
-    <!-- End of Navbar -->
-    <!-- End of Banner -->
+    <!-- Floating Chatbot Button -->
+    <a href="https://pemangkat-chatbot.streamlit.app/" target="_blank" id="chatbotBtn" class="btn btn-primary">
+        <i class="fas fa-comments"></i>
+    </a>
 
     <!-- Content -->
-    @yield('child')
-    <!-- End of Kantor Desa -->
+    <div class="container mt-5">
+        @yield('child')
+    </div>
 
     
     <!-- Footer -->

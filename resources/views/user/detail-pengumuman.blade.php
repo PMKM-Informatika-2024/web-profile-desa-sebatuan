@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.pengumuman')
 
 @section('child')
 <div class="container-fluid px-4 pt-4" style="max-width: 1300px; margin-bottom: 25px;">
