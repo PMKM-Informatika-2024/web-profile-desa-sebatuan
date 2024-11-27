@@ -20,15 +20,15 @@
         <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top navbar-transparent">
             <div class="container-fluid">
                 <a class="navbar-brand ms-3 d-flex align-items-center" href="/">
-                    <img src="{{ asset('image/Sambas Logo.png') }}" width="40" class="me-3" alt="Logo of Desa Parapakan">
-
+                    <img src="{{ asset('image/Sambas Logo.png') }}" width="40" class="me-3"
+                        alt="Logo of Desa Parapakan">
                     <span class="logo-text d-flex flex-column">
                         <strong>Desa Perapakan</strong>
                         <small>Kecamatan Pemangkat</small>
                     </span>
-                </a>                
+                </a>
 
-                <!-- Toggler for mobile -->
+                <!-- Toggler for Mobile -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -86,7 +86,7 @@
                 </div>
             </div>
         </nav>
-        
+
         <!-- Floating Chatbot Button -->
         <a href="https://pemangkat-chatbot.streamlit.app/" target="_blank" id="chatbotBtn" class="btn btn-primary">
             <i class="fas fa-comments"></i> <!-- Chat icon (can be replaced with your own icon) -->
@@ -101,7 +101,7 @@
     @yield('child')
     <!-- End of Kantor Desa -->
 
-    
+
     <!-- Footer -->
     <footer class="bg-dark text-white py-5">
         <div class="container">
@@ -175,38 +175,6 @@
             // Initial check and attach scroll listener
             updateNavbarTransparency();
             window.addEventListener('scroll', updateNavbarTransparency);
-        });
-
-
-        // Menutup sidebar
-        document.addEventListener('DOMContentLoaded', function() {
-            const navbarCollapse = document.getElementById('navbarSupportedContent');
-            const closeBtn = document.getElementById('closeSidebar');
-            const toggleBtn = document.querySelector('.navbar-toggler');
-
-            // Event listener untuk membuka dan menutup sidebar
-            toggleBtn.addEventListener('click', function() {
-                navbarCollapse.classList.toggle('show');
-            });
-
-            // Event listener untuk menutup sidebar menggunakan tombol 'X'
-            closeBtn.addEventListener('click', function() {
-                navbarCollapse.classList.remove('show'); // Menutup sidebar
-                closeBtn.style.display = 'none'; // Sembunyikan tombol 'X'
-                toggleBtn.style.display = 'block'; // Tampilkan ikon sidebar
-            });
-
-            // Event listener untuk menghilangkan ikon sidebar saat sidebar terbuka
-            navbarCollapse.addEventListener('show.bs.collapse', function() {
-                closeBtn.style.display = 'block'; // Tampilkan tombol 'X'
-                toggleBtn.style.display = 'none'; // Sembunyikan ikon toggler
-            });
-
-            // Event listener untuk mengembalikan ikon sidebar saat sidebar ditutup
-            navbarCollapse.addEventListener('hide.bs.collapse', function() {
-                closeBtn.style.display = 'none'; // Sembunyikan tombol 'X'
-                toggleBtn.style.display = 'block'; // Tampilkan ikon toggler
-            });
         });
 
         // Fungsi untuk mengecek posisi elemen dan menambahkan kelas 'show'

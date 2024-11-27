@@ -91,9 +91,9 @@
   color: var(--pr-color) !important;
 }
 
-.nav-item.dropdown:hover .dropdown-menu {
+/* .nav-item.dropdown:hover .dropdown-menu {
   display: block;
-}
+} */
 
 .navbar-transparent {
   background-color: transparent;
@@ -216,7 +216,7 @@ footer .social-icons a:hover {
 
 @media (max-width: 991px) {
   .navbar-collapse {
-    background-color: var(--sec-color);
+    background-color: #5eb64e;
   }
 
   .navbar-nav .nav-link {
