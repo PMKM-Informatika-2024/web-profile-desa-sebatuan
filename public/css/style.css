@@ -923,7 +923,7 @@ footer {
 #sidebar {
   max-width: 264px;
   min-width: 264px;
-  background: var(--pr-color);
+  background: #286a59;
   transition: all 0.35s ease-in-out;
 }
 
@@ -962,7 +962,7 @@ a.sidebar-link {
 }
 
 a.sidebar-link.active {
-  background-color: var(--sec-color);
+  background-color: #45ba36;
   color: var(--pr-color);
   cursor: pointer;
 }

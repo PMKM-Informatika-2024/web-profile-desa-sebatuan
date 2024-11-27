@@ -76,11 +76,11 @@
             <!-- Content fo Sidebar -->
             <div class="h100">
                 <div class="sidebar-logo collapsed-icon">
-                    <a href="#">Desa Sungai Keran</a>
+                    <a href="#">Desa Perapakan</a>
                 </div>
                 <ul class="sidebar-nav">
                     <li class="sidebar-item">
-                        <a href="admin" class="sidebar-link {{ Request::is('admin') ? 'active-link' : '' }}"
+                        <a href="admin" class="sidebar-link {{ Request::is('admin*') ? 'active' : '' }}"
                             id="admin-dashboard">
                             <i class="fa-solid fa-list pe-2"></i>
                             <span class="link-text">Dashboard</span>
