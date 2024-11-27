@@ -16,16 +16,24 @@
     <!-- Content Section -->
     <section id="content" class="py-5">
         <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
-            <h2 class="subjudul mb-4 fw-bold text-center">Sejarah Desa</h2>
-            <!-- Image Section -->
-            <div class="d-flex justify-content-center mb-4">
-                <img src="{{ asset('storage/' . $profiledesa->gambar_profiledesa) }}" alt="Desa Image"
-                    class="img-fluid rounded" style="object-fit: cover; width: 50%;">
-            </div>
-            <!-- Text Section -->
-            <div class="card-body">
-                <div class="text-muted" style="font-size: 1.125rem; line-height: 1.8; text-align: justify;">
-                    {!! $profiledesa->sejarah_desa !!}
+            <!-- Section Title -->
+            <h2 class="subjudul mb-4 text-center fw-bold">Tentang Desa Perapakan</h2>
+
+            <div class="row align-items-center flex-column">
+                <!-- Image Content -->
+                <div class="col-12 mb-4">
+                    <div class="image-container position-relative overflow-hidden rounded shadow">
+                        <img src="{{ asset('storage/' . $profiledesa->gambar_profiledesa) }}" class="img-fluid rounded"
+                            alt="Desa Perapakan"
+                            style="object-fit: cover; width: 100%; max-height: 400px; transition: transform 0.3s;">
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="col-12">
+                    <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; text-align: justify;">
+                        {!! \Illuminate\Support\Str::limit($profiledesa->sejarah_desa, 700) !!}
+                    </p>
                 </div>
             </div>
         </div>

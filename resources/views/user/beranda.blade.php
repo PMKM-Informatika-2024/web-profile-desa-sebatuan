@@ -77,7 +77,7 @@
             <div id="carouselPerangkatDesa" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                 <!-- Carousel Indicators -->
                 <div class="carousel-indicators">
-                    @foreach ($perangkatdesas->chunk(3) as $index => $chunk)
+                    @foreach ($perangkatdesas->chunk(1) as $index => $chunk)
                         <button type="button" data-bs-target="#carouselPerangkatDesa"
                             data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}"
                             aria-current="{{ $index === 0 ? 'true' : '' }}" aria-label="Slide {{ $index + 1 }}"></button>
@@ -86,17 +86,18 @@
 
                 <!-- Carousel Content -->
                 <div class="carousel-inner">
-                    @foreach ($perangkatdesas->chunk(3) as $index => $chunk)
+                    @foreach ($perangkatdesas->chunk(1) as $index => $chunk)
                         <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                             <div class="row justify-content-center g-4">
                                 @foreach ($chunk as $perangkatdesa)
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                    <div class="col-lg-4 col-md-6 col-sm-12">
                                         <div class="card shadow-sm border-0 rounded h-100">
+                                            <!-- Adjusted Image -->
                                             <img src="{{ asset('storage/' . $perangkatdesa->gambar_perangkatdesa) }}"
                                                 alt="{{ $perangkatdesa->jabatan }}" class="card-img-top rounded-top"
-                                                style="height: 250px; object-fit: cover; object-position: center;">
+                                                style="height: 350px; object-fit: cover; object-position: center;">
                                             <div class="card-body text-center">
-                                                <h5 class="card-title fw-bold text-primary">{{ $perangkatdesa->nama }}</h5>
+                                                <h3 class="card-title fw-bold">{{ $perangkatdesa->nama }}</h3>
                                                 <p class="card-text text-muted">{{ $perangkatdesa->jabatan }}</p>
                                             </div>
                                         </div>
@@ -122,13 +123,14 @@
 
             <!-- "See More" Button -->
             <div class="row mt-4">
-                <div class="col-lg-12 text-end">
+                <div class="col-lg-12 text-center">
                     <a href="/perangkat-desa" class="btn btn-outline-primary px-4 py-2 fw-bold">Selengkapnya</a>
                 </div>
             </div>
         </div>
     </section>
     <!-- End of Perangkat Desa Section -->
+
 
     <!-- Pengumuman -->
     <section id="pengumuman" class="py-5 bg-white">
@@ -141,8 +143,8 @@
                         <a href="/detail-pengumuman/{{ $pengumuman->id }}" class="text-decoration-none">
                             <div class="card shadow-sm border-0 h-100">
                                 <!-- Gambar -->
-                                <img src="{{ asset('storage/' . $pengumuman->gambar_pengumuman) }}" 
-                                    style="height: 200px; object-fit: cover; object-position: center;" 
+                                <img src="{{ asset('storage/' . $pengumuman->gambar_pengumuman) }}"
+                                    style="height: 200px; object-fit: cover; object-position: center;"
                                     class="card-img-top rounded-top">
                                 <!-- Konten -->
                                 <div class="card-body d-flex flex-column p-3">

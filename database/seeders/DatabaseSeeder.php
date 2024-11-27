@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Kelolakontak;
 use App\Models\Profildesa;
+use App\Models\Strukturperangkatdesa;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -92,7 +93,10 @@ class DatabaseSeeder extends Seeder
             'email' =>'test@gmail.com',
             'url_fb'=>'youhou',
             'url_yt'=>'youhou',
-
+        ]);
+        Strukturperangkatdesa::create([
+            'nama'=>'youhou',
+            'gambar_strukturdesa'=>'gambar_yang_tersimpan/1AHM3BU6CJuSik5tgCegqRJztL1IG1oVhBurhJUm.jpg',
         ]);
     }
 }

@@ -26,7 +26,7 @@
             <div id="carouselOtomatis" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                 <!-- Indicators -->
                 <div class="carousel-indicators">
-                    @foreach ($fasilitasPendidikan->chunk(3) as $index => $chunk)
+                    @foreach ($fasilitasPendidikan->chunk(2) as $index => $chunk)
                         <button type="button" data-bs-target="#carouselOtomatis"
                             data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}"
                             aria-current="{{ $index === 0 ? 'true' : '' }}" aria-label="Slide {{ $index + 1 }}"></button>
@@ -35,7 +35,7 @@
 
                 <!-- Content -->
                 <div class="carousel-inner">
-                    @foreach ($fasilitasPendidikan->chunk(3) as $index => $chunk)
+                    @foreach ($fasilitasPendidikan->chunk(2) as $index => $chunk)
                         <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                             <div class="row justify-content-center g-4">
                                 @foreach ($chunk as $fasilitas)
@@ -83,7 +83,7 @@
             <div id="carouselOtomatis" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                 <!-- Indicators -->
                 <div class="carousel-indicators">
-                    @foreach ($fasilitasPublik->chunk(3) as $index => $chunk)
+                    @foreach ($fasilitasPublik->chunk(2) as $index => $chunk)
                         <button type="button" data-bs-target="#carouselOtomatis"
                             data-bs-slide-to="{{ $index }}" class="{{ $index === 0 ? 'active' : '' }}"
                             aria-current="{{ $index === 0 ? 'true' : '' }}" aria-label="Slide {{ $index + 1 }}"></button>
@@ -92,7 +92,7 @@
 
                 <!-- Content -->
                 <div class="carousel-inner">
-                    @foreach ($fasilitasPublik->chunk(3) as $index => $chunk)
+                    @foreach ($fasilitasPublik->chunk(2) as $index => $chunk)
                         <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                             <div class="row justify-content-center g-4">
                                 @foreach ($chunk as $fasilitas)
