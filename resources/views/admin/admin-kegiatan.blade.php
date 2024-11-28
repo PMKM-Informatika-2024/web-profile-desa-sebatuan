@@ -71,7 +71,7 @@
                                     <td>
                                         <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editKegiatanModal"
                                             onclick="loadEditData({{ $kelolakegiatan }})">Edit</button>
-                                        <button class="btn btn-danger btn-sm" onclick="showDeleteModal('{{ $kelolakegiatan->id }}', '{{ $kelolakegiatan->nama_kegiatan }}')">
+                                        <button class="btn btn-danger btn-sm" onclick="showDeleteModal({{ $kelolakegiatan }})">
                                             Hapus
                                         </button>
                                     </td>                                    
@@ -129,8 +129,8 @@
                 <form id="deleteKegiatanForm" method="POST" class="d-inline">
                     @csrf
                     @method('delete')
-                    <input type="text" name="id" id="deleteDesaId" value="{{  }}">
-                    <input type="text" name="id" id="deleteDesaId" value="{{  }}">
+                    <input type="text" name="id" id="deleteId" hidden>
+                    <input type="text" name="gambar_desa" id="deleteGambarKegiatan" hidden>
                     <button type="submit" class="btn btn-danger">Hapus</button>
                 </form>
             </div>
@@ -178,14 +178,15 @@
             }
         }
 
-        function showDeleteModal(id, namaKegiatan) {
+        function showDeleteModal(kelolakegiatan) {
+            console.log(kelolakegiatan);
     // Tampilkan nama kegiatan di modal
-    document.getElementById('deleteKegiatanName').textContent = namaKegiatan;
-    document.getElementById('deleteDesaId').value = id;
-    document.getElementById('delteDesaGambar').value = gambar_desa;
+    document.getElementById('deleteKegiatanName').textContent = kelolakegiatan.nama_kegiatan;
+    document.getElementById('deleteId').value = kelolakegiatan.id;
+    document.getElementById('deleteGambarKegiatan').value = kelolakegiatan.gambar_kegiatan;
     // Atur action form penghapusan
     const deleteForm = document.getElementById('deleteKegiatanForm');
-    deleteForm.action = `/kegiatan/${id}`;
+    deleteForm.action = `/kegiatan/${kelolakegiatan.id}`;
 
     // Tampilkan modal konfirmasi
     const deleteModal = new bootstrap.Modal(document.getElementById('deleteKegiatanModal'));

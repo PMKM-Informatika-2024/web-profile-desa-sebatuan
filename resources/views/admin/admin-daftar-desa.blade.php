@@ -178,6 +178,7 @@
 
         function showDeleteModal(id, namaKegiatan) {
     // Tampilkan nama kegiatan di modal
+    console.log(id);
     document.getElementById('deleteKegiatanName').textContent = namaKegiatan;
 
     // Atur action form penghapusan
