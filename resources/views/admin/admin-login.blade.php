@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Desa Perapakan</title>
+    <title>Login Desa Pemangkat Kota</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -73,7 +73,7 @@
 <body>
     <div class="login-container">
         <img src="{{ asset('image/Sambas Logo.png') }}" alt="Logo Kecamatan">
-        <h2>Desa Perapakan</h2>
+        <h2>Desa Pemangkat Kota</h2>
         <form action="/adminlogin" method="POST">
             @csrf
             <!-- Username Field -->
