@@ -19,6 +19,9 @@
     <link href="https://cdn.jsdelivr.net/npm/summernote/dist/summernote-bs5.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote/dist/summernote-bs5.min.js"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+
     @yield('kodeatas')
     <style>
         *,
@@ -146,11 +149,11 @@
                         </a>
                     </li>
                     <li class="sidebar-item">
-                        <a href="kelolapengguna"
-                            class="sidebar-link {{ Request::is('kelolapengguna*') ? 'active' : '' }}"
-                            id="kelola-pengguna">
+                        <a href="daftardesa"
+                            class="sidebar-link {{ Request::is('daftardesa*') ? 'active' : '' }}"
+                            id="">
                             <i class="fa-solid fa-user pe-2"></i>
-                            <span class="link-text">Pengguna</span>
+                            <span class="link-text">Daftar Desa</span>
                         </a>
                     </li>
                 </ul>
@@ -193,6 +196,7 @@
     <!-- Scripts -->
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     @yield('kodejs')
     <script>
         const sidebarToggle = document.querySelector("#sidebar-toggle");
@@ -274,9 +278,26 @@
                     ['view', ['fullscreen', 'codeview', 'help']]
                 ]
             });
+
+            // Toastr configuration
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "timeOut": "5000"
+            };
+
+            // Show Toastr based on Laravel session
+            @if (session('success'))
+                toastr.success("{{ session('success') }}");
+            @elseif (session('error'))
+                toastr.error("{{ session('error') }}");
+            @elseif (session('info'))
+                toastr.info("{{ session('info') }}");
+            @elseif (session('warning'))
+                toastr.warning("{{ session('warning') }}");
+            @endif
         });
     </script>
-
 </body>
-
 </html>

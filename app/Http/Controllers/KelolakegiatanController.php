@@ -96,6 +96,6 @@ class KelolakegiatanController
             Storage::delete($request->gambar_kegiatan);
         }
         Kelolakegiatan::destroy($request->id);
-        return redirect('/kegiatan')->with('success', 'Kegiatan berhasil dihapus');
+        return redirect('/kegiatan')->with('error', 'Kegiatan berhasil dihapus');
     }
 }

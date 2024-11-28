@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Desa Perapakan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <style>
         body {
             background-color: #f0f4f8;
@@ -68,6 +69,11 @@
         .btn-submit:hover {
             background-color: #0056b3;
         }
+
+        .toast {
+            border-radius: 15px !important;
+        }
+
     </style>
 </head>
 <body>
@@ -88,5 +94,24 @@
             <button type="submit" class="btn btn-submit w-100">Login</button>
         </form>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "timeOut": "5000"
+            };
+
+            @if (session('error'))
+                toastr.error("{{ session('error') }}");
+            @elseif (session('info'))
+                toastr.info("{{ session('info') }}");
+            @endif
+        });
+    </script>
 </body>
 </html>

@@ -53,31 +53,31 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="/">Beranda</a></li>
-                        <li class="nav-item"><a class="nav-link {{ Request::is('profile-desa') ? 'active' : '' }}" href="/profile-desa">Profil Desa</a></li>
+                        <li class="nav-item"><a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="/">BERANDA</a></li>
+                        <li class="nav-item"><a class="nav-link {{ Request::is('profile-desa') ? 'active' : '' }}" href="/profile-desa">PROFIL DESA</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle {{ Request::is('perangkat-desa', 'lembaga-desa') ? 'active' : '' }}" href="#" id="pemerintahan-desa" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Pemerintahan Desa
+                                PEMERINTAHAN DESA
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/perangkat-desa">Perangkat Desa</a></li>
+                                <li><a class="dropdown-item" href="/perangkat-desa">PERANGKAT DESA</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="/lembaga-desa">Lembaga Desa</a></li>
+                                <li><a class="dropdown-item" href="/lembaga-desa">LEMBAGA DESA</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle {{ Request::is('layanan-administrasi', 'daftar-pengumuman', 'daftar-kegiatan') ? 'active' : '' }}" href="#" id="informasi-publik" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Informasi Publik
+                                INFORMASI PUBLIK
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/layanan-administrasi">Layanan Administrasi Desa</a></li>
+                                <li><a class="dropdown-item" href="/layanan-administrasi">LAYANAN ADMINISTRASI DESA</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="/daftar-pengumuman">Pengumuman</a></li>
+                                <li><a class="dropdown-item" href="/daftar-pengumuman">PENGUMUMAN</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="/daftar-kegiatan">Kegiatan</a></li>
+                                <li><a class="dropdown-item" href="/daftar-kegiatan">KEGIATAN</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link {{ Request::is('layanan-publik') ? 'active' : '' }}" href="/layanan-publik">Layanan Publik</a></li>
+                        <li class="nav-item"><a class="nav-link {{ Request::is('layanan-publik') ? 'active' : '' }}" href="/layanan-publik">LAYANAN PUBLIK</a></li>
                     </ul>
                 </div>
             </div>

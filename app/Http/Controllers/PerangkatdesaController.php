@@ -103,6 +103,6 @@ class PerangkatdesaController
             Storage::delete($perangkatdesa->gambar_perangkatadesa);
         }
         Perangkatdesa::destroy($perangkatdesa->id);
-        return redirect('/perangkatdesa')->with('success', 'Perangkat desa berhasil dihapus');
+        return redirect('/perangkatdesa')->with('error', 'Perangkat desa berhasil dihapus');
     }
 }
