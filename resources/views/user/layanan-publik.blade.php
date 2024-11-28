@@ -12,7 +12,8 @@
         </div>
     </section>
     <!-- End of Banner -->
-    <section id="slider-otomatis" class="py-5 mb-5 bg-light">
+    
+    <section id="slider-otomatis" class="py-5 mb-5">
         <div class="container-fluid shadow rounded px-5 py-4">
             <!-- Section Title -->
             <div class="row mb-4 justify-content-center text-center">
@@ -45,7 +46,7 @@
                                                 alt="{{ $fasilitas->nama_fasilitas }}" class="card-img-top rounded-top"
                                                 style="height: 250px; object-fit: cover; object-position: center;">
                                             <div class="card-body text-center">
-                                                <a href="{{ $fasilitas->url_alamat }}" class="card-title fw-bold text-primary" style="text-decoration: none; font-size:1.2rem">{{ $fasilitas->nama_fasilitas }}</a>
+                                                <a href="{{ $fasilitas->url_alamat }}" class="card-title fw-bold" style="text-decoration: none; font-size:1.2rem">{{ $fasilitas->nama_fasilitas }}</a>
                                                 <p class="card-text text-muted">{{ $fasilitas->deskripsi_fasilitas }}</p>
                                             </div>
                                         </div>
@@ -68,14 +69,15 @@
             </div>
         </div>
     </section>
+
     <!-- Slider Otomatis -->
-    <section id="slider-otomatis" class="py-5 mb-5 bg-light">
+    <section id="slider-otomatis" class="py-5 mb-5">
         <div class="container-fluid shadow rounded px-5 py-4">
             <!-- Section Title -->
             <div class="row mb-4 justify-content-center text-center">
                 <div class="col-12">
                     <h2 class="subjudul fw-bold">Fasilitas Publik</h2>
-                    <p class="text-muted">Berbagai fasilitas pendidikan yang tersedia untuk mendukung kemajuan pembelajaran.</p>
+                    <p class="text-muted">Berbagai fasilitas publik yang tersedia untuk mendukung kemajuan desa.</p>
                 </div>
             </div>
 
@@ -102,7 +104,7 @@
                                                 alt="{{ $fasilitas->nama_fasilitas }}" class="card-img-top rounded-top"
                                                 style="height: 250px; object-fit: cover; object-position: center;">
                                             <div class="card-body text-center">
-                                                <a href="{{ $fasilitas->url_alamat }}" class="card-title fw-bold text-primary" style="text-decoration: none; font-size:1.2rem">{{ $fasilitas->nama_fasilitas }}</a>
+                                                <a href="{{ $fasilitas->url_alamat }}" class="card-title fw-bold" style="text-decoration: none; font-size:1.2rem">{{ $fasilitas->nama_fasilitas }}</a>
                                                 <p class="card-text text-muted">{{ $fasilitas->deskripsi_fasilitas }}</p>
                                             </div>
                                         </div>
