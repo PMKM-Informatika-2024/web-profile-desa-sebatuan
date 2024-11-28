@@ -17,8 +17,7 @@
     <section id="content" class="py-5">
         <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
             <!-- Section Title -->
-            <h2 class="subjudul mb-4 text-center fw-bold">Tentang Desa Perapakan</h2>
-
+            <h2 class="subjudul mb-4 text-center fw-bold">Sejarah Desa</h2>
             <div class="row align-items-center flex-column">
                 <!-- Image Content -->
                 <div class="col-12 mb-4">
@@ -44,17 +43,17 @@
     <!-- Visi Misi Section -->
     <section id="visi-misi" class="py-5">
         <div class="container transition-container col-lg-10 shadow-sm p-4 rounded">
+            <!-- Section Title -->
             <h2 class="subjudul text-center mb-5 fw-bold">Visi & Misi</h2>
             <div class="row g-4">
                 <!-- Visi Section -->
-                <div class="col-12">
-                    <div class="card shadow-sm border-0">
-                        <div class="card-header bg-primary text-white text-center py-3 rounded-top">
+                <div class="col-lg-6 col-md-12">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-header bg-success text-white text-center py-3 rounded-top">
                             <h5 class="mb-0 fw-bold">Visi</h5>
                         </div>
                         <div class="card-body">
-                            <p class="mb-0"
-                                style="font-size: 1.125rem; line-height: 1.8; text-align: justify; color: #555;">
+                            <p class="mb-0" style="font-size: 1rem; line-height: 1.6; text-align: justify; color: #555;">
                                 {{ $profiledesa->visi_desa }}
                             </p>
                         </div>
@@ -62,14 +61,14 @@
                 </div>
 
                 <!-- Misi Section -->
-                <div class="col-12">
-                    <div class="card shadow-sm border-0">
-                        <div class="card-header bg-primary text-white text-center py-3 rounded-top">
+                <div class="col-lg-6 col-md-12">
+                    <div class="card shadow-sm border-0 h-100">
+                        <div class="card-header bg-success text-white text-center py-3 rounded-top">
                             <h5 class="mb-0 fw-bold">Misi</h5>
                         </div>
                         <div class="card-body">
                             <ul class="mb-0 ps-3"
-                                style="font-size: 1.125rem; line-height: 1.8; list-style-type: disc; text-align: justify; color: #555;">
+                                style="font-size: 1rem; line-height: 1.6; list-style-type: disc; text-align: justify; color: #00;">
                                 {!! $profiledesa->misi_desa !!}
                             </ul>
                         </div>
@@ -180,7 +179,7 @@
                 <div class="col-lg-6">
                     <div class="card shadow-sm border-0">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold text-primary">Informasi Desa</h5>
+                            <h5 class="card-title fw-bold text-success">Informasi Desa</h5>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <strong>Batas Utara:</strong> {{ $profiledesa->batas_utara }}
@@ -203,7 +202,7 @@
                 <div class="col-lg-6">
                     <div class="card shadow-sm border-0">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold text-primary">Statistik Desa</h5>
+                            <h5 class="card-title fw-bold text-success">Statistik Desa</h5>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <strong>Luas Desa:</strong> {{ $profiledesa->luas_desa }} km²

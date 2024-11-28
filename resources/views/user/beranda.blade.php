@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="text-center">
                     <h2 class="text-banner-h2">Selamat Datang</h2>
-                    <h2 class="text-banner-h1">Website Resmi Desa Perapakan</h2>
+                    <h2 class="text-banner-h1">Website Desa Perapakan</h2>
                 </div>
             </div>
         </div>
@@ -34,7 +34,8 @@
                         {!! \Illuminate\Support\Str::limit($profiledesa->sejarah_desa, 700) !!}
                     </p>
                     <a href="/profile-desa"
-                        class="btn btn-primary mt-4 px-4 py-2 d-inline-flex align-items-center shadow-sm">
+                        class="btn bg-success text-white mt-4 px-4 py-2 d-inline-flex align-items-center shadow-sm"
+                        style="font-size: 1rem; border-radius: 0.5rem; transition: background-color 0.3s, transform 0.2s;">
                         <i class="fas fa-info-circle me-2"></i> Selengkapnya
                     </a>
                 </div>
@@ -124,10 +125,12 @@
             <!-- "See More" Button -->
             <div class="row mt-4">
                 <div class="col-lg-12 text-center">
-                    <a href="/perangkat-desa" class="btn btn-outline-primary px-4 py-2 fw-bold">Selengkapnya</a>
+                    <a href="/perangkat-desa" class="btn bg-success text-white px-4 py-2 fw-bold shadow-sm"
+                        style="border-radius: 0.5rem; font-size: 1rem; transition: background-color 0.3s, transform 0.2s;">
+                        Selengkapnya
+                    </a>
                 </div>
             </div>
-        </div>
     </section>
     <!-- End of Perangkat Desa Section -->
 
@@ -157,7 +160,7 @@
                                         <!-- Ikon Penulis -->
                                         <span>
                                             <i class="fas fa-user" style="margin-right: 8px;"></i>
-                                            {{ $pengumuman->penulis ?? 'Penulis Tidak Diketahui' }}
+                                            {{ $pengumuman->penulis ?? 'Admin' }}
                                         </span>
                                     </div>
                                     <!-- Judul -->
