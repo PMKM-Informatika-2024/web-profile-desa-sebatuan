@@ -13,27 +13,29 @@
     <!-- End of Banner -->
 
     <!-- Informasi Layanan -->
-    <section>
-      <div class="container transition-container py-5 mt-5 mb-5">
-        <div class="row">
-            @foreach ($layananadministrasis as $item)
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card shadow-sm border-0 rounded-lg">
-                        <div class="card-body text-center">
-                            <div class="icon-circle mb-3">
-                                <i class="bi bi-house-door-fill" style="font-size: 3rem; color: #007bff;"></i>
+    <section id="informasi-layanan" class="py-5">
+        <div class="container transition-container">
+            <div class="row text-center mb-5">
+                <h2 class="fw-bold">Informasi Layanan</h2>
+                <p class="text-muted">Pelayanan administrasi yang tersedia di Desa Perapakan.</p>
+            </div>
+            <div class="row g-4">
+                @foreach ($layananadministrasis as $item)
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card shadow-sm border-0 rounded-lg h-100">
+                            <div class="card-body text-center">
+                                <!-- Service Title -->
+                                <h5 class="card-title fw-bold">{{ $item->nama_layanan }}</h5>
+                                <!-- Service Description -->
+                                <p class="card-text text-muted mb-3">{{ $item->deskripsi }}</p>
+                                <!-- Service Requirements -->
+                                <p class="card-text text-muted small">{!! $item->persyaratan !!}</p>
                             </div>
-                            <h5 class="card-title">{{ $item->nama_layanan }}</h5>
-                            <p class="card-text">{{ $item->deskripsi }}</p>
-                            <p class="card-text">{!! $item->persyaratan !!}</p>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
-    </div>
-    
-
     </section>
     <!-- End of Informasi Layanan -->
 @endsection
