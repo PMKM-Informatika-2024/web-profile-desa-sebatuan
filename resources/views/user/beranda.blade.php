@@ -7,7 +7,7 @@
             <div class="row">
                 <div class="text-center">
                     <h2 class="text-banner-h2">Selamat Datang</h2>
-                    <h2 class="text-banner-h1">Website Desa Perapakan</h2>
+                    <h2 class="text-banner-h1">Website Desa Pemangkat Kota</h2>
                 </div>
             </div>
         </div>
@@ -17,13 +17,13 @@
     <!-- Content Section -->
     <section id="content" class="py-5">
         <div class="container-fluid transition-container col-lg-10 shadow-sm p-4 rounded">
-            <h2 class="subjudul mb-4 text-center fw-bold">Tentang Desa Perapakan</h2>
+            <h2 class="subjudul mb-4 text-center fw-bold">Tentang Desa Pemangkat Kota</h2>
             <div class="row align-items-center">
                 <!-- Image Content -->
                 <div class="col-lg-6">
                     <div class="image-container position-relative overflow-hidden rounded shadow">
                         <img src="{{ asset('storage/' . $profiledesa->gambar_profiledesa) }}" class="img-fluid rounded"
-                            alt="Desa Perapakan"
+                            alt="Desa Pemangkat Kota"
                             style="object-fit: cover; width: 100%; max-height: 400px; transition: transform 0.3s;">
                     </div>
                 </div>
@@ -70,7 +70,7 @@
             <div class="row mb-4 justify-content-center text-center">
                 <div class="col-12">
                     <h2 class="subjudul fw-bold">Perangkat Desa</h2>
-                    <p class="text-muted">Berkenalan dengan perangkat desa yang mendukung kemajuan Desa Perapakan.</p>
+                    <p class="text-muted">Berkenalan dengan perangkat desa yang mendukung kemajuan Desa Pemangkat Kota.</p>
                 </div>
             </div>
 
@@ -133,7 +133,6 @@
             </div>
     </section>
     <!-- End of Perangkat Desa Section -->
-
 
     <!-- Pengumuman -->
     <section id="pengumuman" class="py-5 bg-white">

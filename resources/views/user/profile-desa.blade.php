@@ -23,7 +23,7 @@
                 <div class="col-12 mb-4">
                     <div class="image-container position-relative overflow-hidden rounded shadow">
                         <img src="{{ asset('storage/' . $profiledesa->gambar_profiledesa) }}" class="img-fluid rounded"
-                            alt="Desa Perapakan"
+                            alt="Desa Pemangkat Kota"
                             style="object-fit: cover; width: 100%; max-height: 400px; transition: transform 0.3s;">
                     </div>
                 </div>

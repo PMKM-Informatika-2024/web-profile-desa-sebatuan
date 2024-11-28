@@ -28,7 +28,7 @@
                     <img src="{{ asset('image/Sambas Logo.png') }}" width="40" class="me-3"
                         alt="Logo of Desa Parapakan">
                     <span class="logo-text d-flex flex-column">
-                        <strong>Desa Perapakan</strong>
+                        <strong>Desa Pemangkat Kota</strong>
                         <small>Kecamatan Pemangkat</small>
                     </span>
                 </a>
@@ -114,7 +114,7 @@
                 <div class="col-md-4 mb-4">
                     <h5 class="text-uppercase">Tentang Desa</h5>
                     <p>
-                        Desa Parapakan adalah desa yang berlokasi di Kabupaten Sambas, dikenal dengan keragaman budaya
+                        Desa Pemangkat Kota adalah desa yang berlokasi di Kabupaten Sambas, dikenal dengan keragaman budaya
                         dan potensi alamnya.
                     </p>
                 </div>
@@ -125,7 +125,6 @@
                         <li><a href="/" class="text-white text-decoration-none">Beranda</a></li>
                         <li><a href="/profile-desa" class="text-white text-decoration-none">Profil Desa</a></li>
                         <li><a href="/layanan-publik" class="text-white text-decoration-none">Layanan Publik</a></li>
-                        <li><a href="/daftar-kontak" class="text-white text-decoration-none">Kontak</a></li>
                     </ul>
                 </div>
                 <!-- Contact Section -->
@@ -133,8 +132,8 @@
                     <h5 class="text-uppercase">Hubungi Kami</h5>
                     <p>
                         <i class="fas fa-phone-alt me-2"></i>0812-3456-7890<br>
-                        <i class="fas fa-envelope me-2"></i>parapakan@example.com<br>
-                        <i class="fas fa-map-marker-alt me-2"></i>Desa Parapakan, Sambas, Kalimantan Barat
+                        <i class="fas fa-envelope me-2"></i>pemangkatkota@example.com<br>
+                        <i class="fas fa-map-marker-alt me-2"></i>Desa Pemangkat Kota, Sambas, Kalimantan Barat
                     </p>
                     <div>
                         <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
@@ -146,7 +145,7 @@
             </div>
             <hr class="bg-light">
             <div class="text-center">
-                <p class="mb-0">Copyright &copy; 2024 Desa Parapakan. All rights reserved.</p>
+                <p class="mb-0">Copyright &copy; 2024 Desa Pemangkat Kota. All rights reserved.</p>
             </div>
         </div>
     </footer>
