@@ -91,10 +91,6 @@
   color: var(--pr-color) !important;
 }
 
-/* .nav-item.dropdown:hover .dropdown-menu {
-  display: block;
-} */
-
 .navbar-transparent {
   background-color: transparent;
   transition: background-color 0.3s ease;
@@ -228,6 +224,14 @@ footer .social-icons a:hover {
 
   .navbar-toggler {
     background-color: #1E90FF;
+  }
+  
+  .logo-text strong {
+    font-size: 1rem;
+  }
+  
+  .logo-text small {
+    font-size: 0.8rem;
   }
 }
 

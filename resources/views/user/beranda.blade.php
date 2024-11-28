@@ -121,23 +121,13 @@
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
-
-            <!-- "See More" Button -->
-            <div class="row mt-4">
-                <div class="col-lg-12 text-center">
-                    <a href="/perangkat-desa" class="btn bg-success text-white px-4 py-2 fw-bold shadow-sm"
-                        style="border-radius: 0.5rem; font-size: 1rem; transition: background-color 0.3s, transform 0.2s;">
-                        Selengkapnya
-                    </a>
-                </div>
-            </div>
     </section>
     <!-- End of Perangkat Desa Section -->
 
     <!-- Pengumuman -->
     <section id="pengumuman" class="py-5 bg-white">
         <div class="container transition-container mb-3">
-            <h2 class="subjudul text-center mb-5 fw-bold">Berita</h2>
+            <h2 class="subjudul text-center mb-5 fw-bold">Pengumuman</h2>
             <div class="row g-4 justify-content-center">
                 @foreach ($pengumuman as $pengumuman)
                     <div class="col-lg-4 col-md-6">
