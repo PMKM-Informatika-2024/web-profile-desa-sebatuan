@@ -6,7 +6,7 @@
         <div class="container-fluid banner-image w-100 vh-100 d-flex justify-content-center align-items-center">
             <div class="row">
                 <div class="text-center">
-                    <h2 class="text-banner-h2">Selamat Datang</h2>
+                    <h2 class="text-banner-h2">Selamat Datang di</h2>
                     <h2 class="text-banner-h1">Website Desa Pemangkat Kota</h2>
                 </div>
             </div>
@@ -51,7 +51,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="ratio ratio-16x9 shadow-sm rounded">
-                        <iframe class="rounded" src="https://www.youtube.com/embed/qIAq6TzBxdk?si=M2q1hTPSUpVh2Ske"
+                        <iframe class="rounded" src="https://www.youtube.com/embed/Qa_Kk4HMBo4?si=au0mILm9f-OFGTXV"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen>
