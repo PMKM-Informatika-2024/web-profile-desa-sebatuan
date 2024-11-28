@@ -1323,6 +1323,10 @@ a.sidebar-link.active {
   background: rgba(0, 0, 0, 0.7); /* Overlay lebih gelap saat hover */
 }
 
+.toast {
+  border-radius: 15px !important;
+}
+
 
 
 

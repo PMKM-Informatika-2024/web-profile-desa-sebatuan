@@ -9,6 +9,7 @@ use App\Http\Controllers\PengumumanController;
 use App\Http\Controllers\KelolakegiatanController;
 use App\Http\Controllers\KelolakontakController;
 use App\Http\Controllers\StrukturperangkatdesaController;
+use App\Http\Controllers\DaftardesaController;
 use App\Models\Pengumuman;
 use App\Models\Profildesa;
 use App\Models\Kelolakegiatan;
@@ -69,6 +70,11 @@ Route::get('/detail-pengumuman/{id}', function ($id) {
 Route::get('/struktur-pemerintahan', function () {
     return view('user/struktur-pemerintahan');
 });
+Route::get('/daftar-desa', function () {
+    return view('user/daftar-desa',[
+        'daftardesas' => Daftardesa::all()
+    ]);
+});
 Route::get('/adminlogin', [LoginController::class, 'index'])->middleware('guest');
 Route::post('/adminlogin', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
@@ -89,3 +95,4 @@ Route::resource('/pengumuman', PengumumanController::class)->middleware('auth');
 Route::resource('/kegiatan', KelolakegiatanController::class)->middleware('auth');
 Route::resource('/kontak', KelolakontakController::class)->middleware('auth');
 Route::resource('/strukturperangkatdesa', StrukturperangkatdesaController::class)->middleware('auth');
+Route::resource('/daftardesa', DaftardesaController::class)->middleware('auth');

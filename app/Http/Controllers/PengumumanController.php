@@ -93,6 +93,6 @@ class PengumumanController
             Storage::delete($pengumuman->gambar_pengumuman);
         }
         Pengumuman::destroy($pengumuman->id);
-        return redirect('/pengumuman')->with('success', 'Pengumuman berhasil dihapus');
+        return redirect('/pengumuman')->with('error', 'Pengumuman berhasil dihapus');
     }
 }

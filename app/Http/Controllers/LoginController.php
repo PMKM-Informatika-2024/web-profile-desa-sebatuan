@@ -9,9 +9,7 @@ class LoginController
 {
     public function index()
     {
-        return view('admin.admin-login', [
-            
-        ]);
+        return view('admin.admin-login', []);
     }
 
     public function authenticate(Request $request)
@@ -21,22 +19,26 @@ class LoginController
             'password' => 'required'
         ]);
 
-        if(Auth::attempt($credentials)){
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/admin');
+            return redirect()->intended('/admin')
+                ->with('success', 'Login berhasil! Selamat datang.');
         }
 
-        return back()->with('LoginError', 'Login gagal!');
+        return back()->with('error', 'Login gagal! Periksa kembali username dan password Anda.');
     }
 
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/');
+
+        return redirect('/adminlogin')->with('info', 'Anda telah logout.');
     }
 
-    public function register(Request $request){
-        // User::create([]);
+    public function register(Request $request)
+    {
+        // Tambahkan logika pendaftaran pengguna jika diperlukan.
     }
 }

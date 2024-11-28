@@ -79,6 +79,6 @@ class LayananadministrasiController
     {
         // dd($request);
         Layananadministrasi::destroy($layananadministrasi->id);
-        return redirect('/layananadministrasi')->with('success', 'layanan administrasi berhasil dihapus');
+        return redirect('/layananadministrasi')->with('error', 'layanan administrasi berhasil dihapus');
     }
 }
