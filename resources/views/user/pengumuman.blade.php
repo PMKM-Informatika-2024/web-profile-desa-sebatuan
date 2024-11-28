@@ -17,7 +17,7 @@
         <div class="container">
             <h2 class="subjudul text-center mb-5 fw-bold">Pengumuman</h2>
             <div class="row g-4 justify-content-center">
-                @foreach ($pengumumen as $pengumuman)
+                @foreach ($pengumuman as $pengumuman)
                     <div class="col-lg-4 col-md-6">
                         <!-- Card Klikable -->
                         <a href="/detail-pengumuman/{{ $pengumuman->id }}" class="text-decoration-none">
@@ -37,7 +37,7 @@
                                         <!-- Ikon Penulis -->
                                         <span>
                                             <i class="fas fa-user" style="margin-right: 8px;"></i>
-                                            {{ $pengumuman->penulis ?? 'Penulis Tidak Diketahui' }}
+                                            {{ $pengumuman->penulis ?? 'Admin' }}
                                         </span>
                                     </div>
                                     <!-- Judul -->

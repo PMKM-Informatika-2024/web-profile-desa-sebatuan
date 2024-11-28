@@ -65,7 +65,7 @@
                             </tr>
                         </thead>
                         <tbody id="pengumumanTableBody">
-                            @foreach ($pengumumen as $pengumuman)
+                            @foreach ($pengumuman as $pengumuman)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $pengumuman->created_at }}</td>

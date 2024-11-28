@@ -55,7 +55,7 @@ class PerangkatdesaController
     {
         return view('user.beranda', [
             'perangkatdesas' => Perangkatdesa::all(),
-            'pengumumen'=>Pengumuman::limit(3)->get(),
+            'pengumuman'=>Pengumuman::limit(3)->get(),
             'profiledesa' => Profildesa::first()
         ]);
     }

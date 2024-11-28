@@ -14,7 +14,7 @@ class PengumumanController
     {
         
         return view('admin.admin-pengumuman', [
-            'pengumumen' => Pengumuman::all()
+            'pengumuman' => Pengumuman::all()
         ]);
     }
 

@@ -137,9 +137,9 @@
     <!-- Pengumuman -->
     <section id="pengumuman" class="py-5 bg-white">
         <div class="container transition-container mb-3">
-            <h2 class="subjudul text-center mb-5 fw-bold">Pengumuman</h2>
+            <h2 class="subjudul text-center mb-5 fw-bold">Berita</h2>
             <div class="row g-4 justify-content-center">
-                @foreach ($pengumumen as $pengumuman)
+                @foreach ($pengumuman as $pengumuman)
                     <div class="col-lg-4 col-md-6">
                         <!-- Card Klikable -->
                         <a href="/detail-pengumuman/{{ $pengumuman->id }}" class="text-decoration-none">

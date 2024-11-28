@@ -114,8 +114,7 @@
                 <div class="col-md-4 mb-4">
                     <h5 class="text-uppercase">Tentang Desa</h5>
                     <p>
-                        Desa Pemangkat Kota adalah desa yang berlokasi di Kabupaten Sambas, dikenal dengan keragaman budaya
-                        dan potensi alamnya.
+                        Pemangkat Kota adalah sebuah desa yang sekaligus menjadi ibu kota Kecamatan Pemangkat, Kabupaten Sambas.
                     </p>
                 </div>
                 <!-- Quick Links Section -->
@@ -132,8 +131,8 @@
                     <h5 class="text-uppercase">Hubungi Kami</h5>
                     <p>
                         <i class="fas fa-phone-alt me-2"></i>0812-3456-7890<br>
-                        <i class="fas fa-envelope me-2"></i>pemangkatkota@example.com<br>
-                        <i class="fas fa-map-marker-alt me-2"></i>Desa Pemangkat Kota, Sambas, Kalimantan Barat
+                        <i class="fas fa-envelope me-2"></i>kotapemangkat33@gmail.com<br>
+                        <i class="fas fa-map-marker-alt me-2"></i>Jalan Mohammad.Sohor No.35 A Pemangkat
                     </p>
                     <div>
                         <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
