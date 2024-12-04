@@ -34,8 +34,8 @@
                         {!! \Illuminate\Support\Str::limit($profiledesa->sejarah_desa, 700) !!}
                     </p>
                     <a href="/profile-desa"
-                        class="btn bg-success text-white mt-4 px-4 py-2 d-inline-flex align-items-center shadow-sm"
-                        style="font-size: 1rem; border-radius: 0.5rem; transition: background-color 0.3s, transform 0.2s;">
+                        class="text-white mt-4 px-4 py-2 d-inline-flex align-items-center shadow-sm"
+                        style="background-color: #286a59; color: white; font-size: 1rem;  border-radius: 0.5rem; transition: background-color 0.3s, transform 0.2s; text-decoration: none;">
                         <i class="fas fa-info-circle me-2"></i> Selengkapnya
                     </a>
                 </div>
@@ -154,7 +154,7 @@
                                     </h5>
                                     <!-- Deskripsi Singkat -->
                                     <p class="card-text text-muted small">
-                                        {!! \Illuminate\Support\Str::limit($pengumuman->deskripsi_singkat, 250) !!}
+                                        {!! \Illuminate\Support\Str::limit($pengumuman->deskripsi_singkat, 100) !!}
                                     </p>
                                 </div>
                             </div>

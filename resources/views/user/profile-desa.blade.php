@@ -49,7 +49,7 @@
                 <!-- Visi Section -->
                 <div class="col-lg-6 col-md-12">
                     <div class="card shadow-sm border-0 h-100">
-                        <div class="card-header bg-success text-white text-center py-3 rounded-top">
+                        <div class="card-header text-white text-center py-3 rounded-top" style="background-color: #286a59">
                             <h5 class="mb-0 fw-bold">Visi</h5>
                         </div>
                         <div class="card-body">
@@ -63,7 +63,7 @@
                 <!-- Misi Section -->
                 <div class="col-lg-6 col-md-12">
                     <div class="card shadow-sm border-0 h-100">
-                        <div class="card-header bg-success text-white text-center py-3 rounded-top">
+                        <div class="card-header text-white text-center py-3 rounded-top" style="background-color: #286a59">
                             <h5 class="mb-0 fw-bold">Misi</h5>
                         </div>
                         <div class="card-body">
@@ -179,7 +179,7 @@
                 <div class="col-lg-6">
                     <div class="card shadow-sm border-0">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold text-success">Informasi Desa</h5>
+                            <h5 class="card-title fw-bold" style="color: #286a59">Informasi Desa</h5>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <strong>Batas Utara:</strong> {{ $profiledesa->batas_utara }}
@@ -202,7 +202,7 @@
                 <div class="col-lg-6">
                     <div class="card shadow-sm border-0">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold text-success">Statistik Desa</h5>
+                            <h5 class="card-title fw-bold" style="color: #286a59">Statistik Desa</h5>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">
                                     <strong>Luas Desa:</strong> {{ $profiledesa->luas_desa }} km²
