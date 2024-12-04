@@ -36,9 +36,9 @@
                                         </div>
 
                                         <div class="d-flex justify-content-end mt-4">
-                                            <button type="submit" class="btn btn-simpan">Simpan</button>
+                                            <button type="submit" class="btn btn-success">Simpan</button>
                                             <button type="button" onclick="resetForm()"
-                                                class="btn btn-batal ms-2">Batal</button>
+                                                class="btn btn-secondary ms-2">Batal</button>
                                         </div>
                                     </form>
                                 </div>
@@ -69,10 +69,10 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editKegiatanModal"
-                                            onclick="loadEditData({{ $kelolakegiatan }})">Edit</button>
-                                        <button class="btn btn-danger btn-sm" onclick="showDeleteModal({{ $kelolakegiatan }})">
-                                            Hapus
+                                        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editKegiatanModal"
+                                            onclick="loadEditData({{ $kelolakegiatan }})"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger" onclick="showDeleteModal({{ $kelolakegiatan }})">
+                                            <i class="fa-solid fa-trash-can"></i>
                                         </button>
                                     </td>                                    
                             @endforeach
@@ -84,7 +84,7 @@
                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <div class="modal-header">
+                                <div class="modal-header bg-warning">
                                     <h5 class="modal-title" id="editKegiatanModalLabel">Edit Kegiatan</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
@@ -107,7 +107,10 @@
                                             <input name="gambar_kegiatan" type="file" class="form-control"
                                                 accept="image/*" onchange="changeImage(event)">
                                         </div>
-                                        <button type="submit" class="btn btn-edit">Update</button>
+                                        <div class="d-flex justify-content-end gap-2">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-warning text-white">Update</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>

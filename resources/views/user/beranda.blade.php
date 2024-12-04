@@ -51,11 +51,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="ratio ratio-16x9 shadow-sm rounded">
-                        <iframe class="rounded" src="https://www.youtube.com/embed/Qa_Kk4HMBo4?si=au0mILm9f-OFGTXV"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen>
-                        </iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/QDBWsQHC-6U?si=2GcKONhUCsocZXiF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -158,7 +154,7 @@
                                     </h5>
                                     <!-- Deskripsi Singkat -->
                                     <p class="card-text text-muted small">
-                                        {!! \Illuminate\Support\Str::limit($pengumuman->deskripsi_singkat, 100) !!}
+                                        {!! \Illuminate\Support\Str::limit($pengumuman->deskripsi_singkat, 250) !!}
                                     </p>
                                 </div>
                             </div>

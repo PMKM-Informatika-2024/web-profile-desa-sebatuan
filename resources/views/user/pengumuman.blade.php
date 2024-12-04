@@ -46,7 +46,7 @@
                                     </h5>
                                     <!-- Deskripsi Singkat -->
                                     <p class="card-text text-muted small">
-                                        {!! \Illuminate\Support\Str::limit($pengumuman->deskripsi_singkat, 100) !!}
+                                        {!! \Illuminate\Support\Str::limit($pengumuman->deskripsi_singkat, 250) !!}
                                     </p>
                                 </div>
                             </div>

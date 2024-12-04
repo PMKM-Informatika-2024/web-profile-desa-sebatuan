@@ -98,6 +98,6 @@ class LembagadesaController
             Storage::delete($lembagadesa->gambar_lembaga);
         }
         Lembagadesa::destroy($lembagadesa->id);
-        return redirect('/lembagadesa')->with('success', 'Lembaga desa berhasil dihapus');
+        return redirect('/lembagadesa')->with('error', 'Lembaga desa berhasil dihapus');
     }
 }

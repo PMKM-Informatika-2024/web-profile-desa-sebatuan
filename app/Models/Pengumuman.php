@@ -9,6 +9,9 @@ class Pengumuman extends Model
 {
     /** @use HasFactory<\Database\Factories\PengumumanFactory> */
     use HasFactory;
+
+    protected $table = 'pengumuman'; // Nama tabel sebenarnya di database Anda
+    
     protected $fillable = [
         'judul',
         'deskripsi_singkat',

@@ -7,111 +7,53 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <div class="card-admin">
-                        <div class="card-body" id="showDataProfil">
-                            {{-- foto --}}
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4 ">Foto Desa:</label>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5>Profil Kecamatan</h5>
+                            <hr>
+                            {{-- Foto --}}
+                            <div class="form-group row mb-3">
+                                <label class="col-lg-2 col-md-3 col-sm-4 form-label">Foto:</label>
                                 <div class="col-lg-10 col-md-9 col-sm-8">
                                     <img src="{{ asset('storage/' . $profiledesa->gambar_profiledesa) }}"
-                                        alt="no image yet">
+                                        alt="Foto Profil Desa" class="img-thumbnail"
+                                        style="max-width: 500px; height: auto;">
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Sejarah Desa:</label>
+
+                            {{-- Sejarah --}}
+                            <div class="form-group row mb-3">
+                                <label class="col-lg-2 col-md-3 col-sm-4 form-label">Sejarah:</label>
                                 <div class="col-lg-10 col-md-9 col-sm-8">
                                     {!! $profiledesa->sejarah_desa !!}
                                 </div>
                             </div>
-                            <!-- Visi Desa -->
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Visi Desa:</label>
+
+                            {{-- Visi --}}
+                            <div class="form-group row mb-3">
+                                <label class="col-lg-2 col-md-3 col-sm-4 form-label">Visi:</label>
                                 <div class="col-lg-10 col-md-9 col-sm-8">
                                     {{ $profiledesa->visi_desa }}
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Misi Desa:</label>
+
+                            {{-- Misi --}}
+                            <div class="form-group row mb-3">
+                                <label class="col-lg-2 col-md-3 col-sm-4 form-label">Misi:</label>
                                 <div class="col-lg-10 col-md-9 col-sm-8">
                                     {!! $profiledesa->misi_desa !!}
                                 </div>
                             </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Total jiwa:</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_jiwa }}</div>
-                            </div>
 
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Total Jiwa:</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_jiwa }}</div>
+                            {{-- Tombol Edit --}}
+                            <div class="d-flex justify-content-end mt-4">
+                                <button type="submit" class="btn btn-warning text-white" data-bs-toggle="modal"
+                                    data-bs-target="#editProfilDesaModal" onclick="loadEditData({{ $profiledesa }})">
+                                    Edit
+                                </button>
                             </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Total KK:</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_kk }}</div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Total Dusun:</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_laki_laki }}</div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Total RT:</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_perempuan }}</div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Melayu</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_melayu }}</div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Madura</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_madura }}</div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Tionghoa</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_tionghoa }}</div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Dayak</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_dayak }}</div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Jawa</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_jawa }}</div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Bugis</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_bugis }}</div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Suku lainnya</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_suku_lainnya }}</div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Islam</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_islam }}</div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Katolik</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_katolik }}</div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Protestan</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_protestan }}</div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Buddha</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_buddha }}</div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Hindu</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_hindu }}</div>
-                            </div>
-                            <div class="row mb-3">
-                                <label class="col-lg-2 col-md-3 col-sm-4">Konghuchu</label>
-                                <div class="col-lg-10 col-md-9 col-sm-8">{{ $profiledesa->total_konghuchu }}</div>
-                            </div>
-                            <button type="submit" class="btn btn-simpan" data-bs-toggle="modal"
-                                data-bs-target="#editProfilDesaModal" onclick="loadEditData({{ $profiledesa }})">Edit</button>
                         </div>
+                    </div>
 
                         <!-- Nama Desa -->
 
@@ -119,7 +61,7 @@
                             aria-labelledby="editProfilDesaModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
-                                    <div class="modal-header">
+                                    <div class="modal-header bg-warning">
                                         <h5 class="modal-title" id="editProfilDesaModalLabel">Edit Profil Desa</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
@@ -529,8 +471,9 @@
                                             </div>
 
                                             <!-- Submit Button -->
-                                            <div class="d-flex justify-content-end mt-4">
-                                                <button type="submit" class="btn btn-simpan">Update</button>
+                                            <div class="d-flex justify-content-end gap-2">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                <button type="submit" class="btn btn-warning text-white">Update</button>
                                             </div>
                                         </form>
                                         {{-- to here --}}

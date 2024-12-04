@@ -371,7 +371,7 @@
                 ],
                 datasets: [{
                     label: 'Jumlah',
-                    data: dataSuku,
+                    data: dataPendidikan,
                     backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'magenta',
                         'cyan', 'pink', 'purple'
                     ],
@@ -420,7 +420,7 @@
                 ],
                 datasets: [{
                     label: 'Jumlah',
-                    data: dataSuku,
+                    data: dataMataPencaharian,
                     backgroundColor: ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'magenta',
                         'cyan', 'pink'
                     ],

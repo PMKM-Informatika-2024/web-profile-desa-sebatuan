@@ -55,7 +55,7 @@
                             </div>
                             <!-- Submit Button -->
                             <div class="d-flex justify-content-end mt-4">
-                                <button type="submit" class="btn btn-simpan">Simpan</button>
+                                <button type="submit" class="btn btn-success">Simpan</button>
                             </div>
                         </form>
                         </div>

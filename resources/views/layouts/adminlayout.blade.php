@@ -148,14 +148,14 @@
                             <span class="link-text">Kontak</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
+                    {{-- <li class="sidebar-item">
                         <a href="daftardesa"
                             class="sidebar-link {{ Request::is('daftardesa*') ? 'active' : '' }}"
                             id="">
                             <i class="fa-solid fa-user pe-2"></i>
                             <span class="link-text">Daftar Desa</span>
                         </a>
-                    </li>
+                    </li> --}}
                 </ul>
 
             </div>

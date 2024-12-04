@@ -51,8 +51,9 @@
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-end mt-4">
-                                            <button type="submit" class="btn btn-simpan">Simpan</button>
-                                            <button type="button" class="btn btn-batal ms-2" onclick="resetForm()">Batal</button>
+                                            <button type="submit" class="btn btn-success">Simpan</button>
+                                            <button type="button" class="btn btn-secondary ms-2"
+                                                onclick="resetForm()">Batal</button>
                                         </div>
                                     </form>
                                 </div>
@@ -82,15 +83,14 @@
                                             class="img-thumbnail" style="width: 50px; height: 50px;"></td>
                                     <td>
                                         <a class="btn btn-warning" href="javascript:void(0)" data-bs-toggle="modal"
-                                           data-bs-target="#editLembagaModal"
-                                           onclick="loadEditData({{ $lembagadesa }})">
-                                           <i class="fa-solid fa-pen-to-square"></i>
+                                            data-bs-target="#editLembagaModal" onclick="loadEditData({{ $lembagadesa }})">
+                                            <i class="fa-solid fa-pen-to-square"></i>
                                         </a>
                                         <button class="btn btn-danger border-0"
-                                                onclick="showDeleteModal('{{ $lembagadesa->id }}', '{{ $lembagadesa->nama_lembaga }}')">
-                                           <i class="fa-solid fa-trash-can"></i>
+                                            onclick="showDeleteModal('{{ $lembagadesa->id }}', '{{ $lembagadesa->nama_lembaga }}')">
+                                            <i class="fa-solid fa-trash-can"></i>
                                         </button>
-                                    </td>     
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
@@ -101,7 +101,7 @@
                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
-                                <div class="modal-header">
+                                <div class="modal-header bg-warning">
                                     <h5 class="modal-title" id="editLembagaModalLabel">Edit Perangkat Desa</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
@@ -134,7 +134,10 @@
                                             <input type="file" name="gambar_lembaga" class="form-control"
                                                 id="editFoto" accept="image/*" onchange="changeImage(event)">
                                         </div>
-                                        <button type="submit" class="btn btn-edit">Update</button>
+                                        <div class="d-flex justify-content-end gap-2">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                            <button type="submit" class="btn btn-warning text-white">Update</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -142,27 +145,31 @@
                     </div>
                     {{-- modal stops here --}}
                     <!-- Modal Konfirmasi Hapus -->
-<div class="modal fade" id="deleteLembagaModal" tabindex="-1" aria-labelledby="deleteLembagaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deleteLembagaModalLabel">Konfirmasi Hapus</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p>Apakah Anda yakin ingin menghapus lembaga <strong id="deleteLembagaName"></strong>?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <form id="deleteLembagaForm" method="POST" class="d-inline">
-                    @csrf
-                    @method('delete')
-                    <button type="submit" class="btn btn-danger">Hapus</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+                    <div class="modal fade" id="deleteLembagaModal" tabindex="-1"
+                        aria-labelledby="deleteLembagaModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header bg-danger">
+                                    <h5 class="modal-title" id="deleteLembagaModalLabel">Konfirmasi Hapus</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Apakah Anda yakin ingin menghapus lembaga <strong id="deleteLembagaName"></strong>?
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Batal</button>
+                                    <form id="deleteLembagaForm" method="POST" class="d-inline">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger">Hapus</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -205,17 +212,17 @@
         }
 
         function showDeleteModal(id, nama) {
-    // Menampilkan nama lembaga yang akan dihapus
-    document.getElementById('deleteLembagaName').textContent = nama;
+            // Menampilkan nama lembaga yang akan dihapus
+            document.getElementById('deleteLembagaName').textContent = nama;
 
-    // Mengubah action form untuk mengarahkan ke route hapus sesuai ID lembaga
-    const deleteForm = document.getElementById('deleteLembagaForm');
-    deleteForm.action = `/lembagadesa/${id}`;
+            // Mengubah action form untuk mengarahkan ke route hapus sesuai ID lembaga
+            const deleteForm = document.getElementById('deleteLembagaForm');
+            deleteForm.action = `/lembagadesa/${id}`;
 
-    // Menampilkan modal konfirmasi
-    const deleteModal = new bootstrap.Modal(document.getElementById('deleteLembagaModal'));
-    deleteModal.show();
-}
+            // Menampilkan modal konfirmasi
+            const deleteModal = new bootstrap.Modal(document.getElementById('deleteLembagaModal'));
+            deleteModal.show();
+        }
 
 
         function resetForm() {
