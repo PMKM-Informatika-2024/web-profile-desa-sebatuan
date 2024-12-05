@@ -9,7 +9,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5>Profil Kecamatan</h5>
+                            <h5>Profil Desa</h5>
                             <hr>
                             {{-- Foto --}}
                             <div class="form-group row mb-3">

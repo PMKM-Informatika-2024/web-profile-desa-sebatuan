@@ -29,16 +29,14 @@
                                     </div>
                                 </div>
                                 <div class="form-group row mb-3">
-                                    <label class="col-lg-2 col-md-3 col-sm-4 form-label">Deskripsi
-                                        Singkat:</label>
+                                    <label class="col-lg-2 col-md-3 col-sm-4 form-label">Deskripsi:</label>
                                     <div class="col-lg-10 col-md-9 col-sm-8 ">
                                         <textarea class="" name="deskripsi_singkat" id="summernote" required></textarea>
                                     </div>
                                 </div>
 
                                 <div class="form-group row mb-3">
-                                    <label for="gambarPengumuman" class="col-lg-2 col-md-3 col-sm-4 form-label">Unggah
-                                        Gambar:</label>
+                                    <label for="gambarPengumuman" class="col-lg-2 col-md-3 col-sm-4 form-label">Unggah Gambar:</label>
                                     <div class="col-lg-10 col-md-9 col-sm-8">
                                         <input name="gambar_pengumuman" type="file" class="form-control"
                                             id="gambarPengumuman" accept="image/*">
@@ -93,7 +91,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header bg-warning">
-                                    <h5 class="modal-title" id="editPerangkatModalLabel">Edit Perangkat Desa</h5>
+                                    <h5 class="modal-title" id="editPerangkatModalLabel">Edit Pengumuman</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
@@ -109,7 +107,7 @@
                                                 required>
                                         </div>
                                         <div class="mb-3">
-                                            <label for="editDeskripsi" class="form-label">Deskripsi Singkat</label>
+                                            <label for="editDeskripsi" class="form-label">Deskripsi</label>
                                             <textarea name="deskripsi_singkat" id="summernote2" required></textarea>
                                         </div>
                                         <div class="mb-3">
