@@ -31,7 +31,7 @@
                 <!-- Text Content -->
                 <div class="col-12">
                     <p class="text-muted" style="font-size: 1.1rem; line-height: 1.8; text-align: justify;">
-                        {!! \Illuminate\Support\Str::limit($profiledesa->sejarah_desa, 700) !!}
+                        {!! $profiledesa->sejarah_desa !!}
                     </p>
                 </div>
             </div>
