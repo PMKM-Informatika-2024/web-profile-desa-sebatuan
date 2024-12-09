@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Desa Pemangkat Kota</title>
+    <title>Desa Sebatuan</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="icon" type="image/png" href="{{ asset('/image/Sambas Logo compress 300x300.png') }}">
     <link
@@ -29,7 +29,7 @@
                     <img src="{{ asset('image/Sambas Logo.png') }}" width="40" class="me-3"
                         alt="Logo of Desa Parapakan">
                     <span class="logo-text d-flex flex-column">
-                        <strong>Desa Pemangkat Kota</strong>
+                        <strong>Desa Sebatuan</strong>
                         <small>Kecamatan Pemangkat</small>
                     </span>
                 </a>
@@ -115,7 +115,7 @@
                 <div class="col-md-4 mb-4">
                     <h5 class="text-uppercase">Tentang Desa</h5>
                     <p>
-                        Pemangkat Kota adalah sebuah desa yang sekaligus menjadi ibu kota Kecamatan Pemangkat, Kabupaten Sambas.
+                        Sebatuan adalah salah satu desa yang berada di Kecamatan Pemangkat, Kabupaten Sambas.
                     </p>
                 </div>
                 <!-- Quick Links Section -->
@@ -145,7 +145,7 @@
             </div>
             <hr class="bg-light">
             <div class="text-center">
-                <p class="mb-0">Copyright &copy; 2024 Desa Pemangkat Kota. All rights reserved.</p>
+                <p class="mb-0">Copyright &copy; 2024 Desa Sebatuan. All rights reserved.</p>
             </div>
         </div>
     </footer>

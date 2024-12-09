@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Desa Pemangkat Kota</title>
+    <title>Dashboard - Desa Sebatuan</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/png" href="{{ asset('/image/Sambas Logo compress 300x300.png') }}">
     <link
@@ -80,7 +80,7 @@
             <!-- Content fo Sidebar -->
             <div class="h100">
                 <div class="sidebar-logo collapsed-icon">
-                    <a href="#">Desa Pemangkat Kota</a>
+                    <a href="#">Desa Sebatuan</a>
                 </div>
                 <ul class="sidebar-nav">
                     <li class="sidebar-item">

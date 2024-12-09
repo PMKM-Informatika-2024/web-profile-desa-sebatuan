@@ -44,7 +44,7 @@
                 <a class="navbar-brand ms-3 d-flex align-items-center" href="/">
                     <img src="{{ asset('image/Sambas Logo.png') }}" width="40" class="me-3" alt="Logo of Desa Parapakan">
                     <span class="logo-text d-flex flex-column">
-                        <strong>Desa Pemangkat Kota</strong>
+                        <strong>Desa Sebatuan</strong>
                         <small>Kecamatan Pemangkat</small>
                     </span>
                 </a>
